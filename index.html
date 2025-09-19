@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monfalcone, Italy New Arrivals Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
+    rel="stylesheet">
+
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22c55e',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                        neutral: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-50 text-gray-800">
+
+<!-- Header -->
+<header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold text-primary">Monfalcone Guide</h1>
+                <span class="ml-2 text-sm text-gray-500">New Arrivals</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</span>
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</span>
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</span>
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</span>
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</span>
+                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</span>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <select class="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="bn">🇧🇩 বাংলা</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                </select>
+                <button class="md:hidden">
+                    <i class="fa-solid fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="bg-gradient-to-br from-primary/10 to-secondary/10 h-[400px] flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Welcome to Monfalcone</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Your complete guide to settling in Monfalcone, Italy. Find everything you need to start your new life here.</p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                    <i class="fa-solid fa-rocket mr-2"></i>Get Started
+                </button>
+                <button class="bg-white text-primary border border-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/5 transition-colors">
+                    <i class="fa-solid fa-download mr-2"></i>Download Guide
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links -->
+<section id="quick-links" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Essential Services</h3>
+            <p class="text-gray-600">Everything you need to get started in Monfalcone</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="banking-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-university text-primary text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Banking</h4>
+                <p class="text-gray-600 mb-4">Open bank accounts, send money home, and manage finances</p>
+                <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full">
+                    <i class="fa-solid fa-arrow-right mr-2"></i>Get Started
+                </button>
+            </div>
+            
+            <div id="sim-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-sim-card text-secondary text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">SIM Cards</h4>
+                <p class="text-gray-600 mb-4">Get connected with the best mobile plans and providers</p>
+                <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
+                    <i class="fa-solid fa-mobile mr-2"></i>Get SIM
+                </button>
+            </div>
+            
+            <div id="housing-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-home text-accent text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Housing</h4>
+                <p class="text-gray-600 mb-4">Find apartments, understand rental process, and housing tips</p>
+                <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors w-full">
+                    <i class="fa-solid fa-search mr-2"></i>Find Housing
+                </button>
+            </div>
+            
+            <div id="food-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-utensils text-green-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Food & Groceries</h4>
+                <p class="text-gray-600 mb-4">Discover local markets, halal food, and grocery stores</p>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                    <i class="fa-solid fa-shopping-cart mr-2"></i>Explore Food
+                </button>
+            </div>
+            
+            <div id="transport-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-bus text-blue-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Transport</h4>
+                <p class="text-gray-600 mb-4">Public transport, taxi services, and getting around</p>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                    <i class="fa-solid fa-route mr-2"></i>Plan Journey
+                </button>
+            </div>
+            
+            <div id="work-legal-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-briefcase text-purple-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Work & Legal</h4>
+                <p class="text-gray-600 mb-4">Job search, permits, legal requirements, and documentation</p>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                    <i class="fa-solid fa-file-text mr-2"></i>Get Help
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Services -->
+<section id="featured-services" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Recommended Services</h3>
+            <p class="text-gray-600">Trusted partners to help you settle in</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-money-bill-transfer text-primary text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Money Transfer</h4>
+                <p class="text-sm text-gray-600 mb-4">Send money home safely</p>
+                <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                    Send Money
+                </button>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-language text-secondary text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Translation</h4>
+                <p class="text-sm text-gray-600 mb-4">Document translation services</p>
+                <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
+                    Get Translation
+                </button>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Insurance</h4>
+                <p class="text-sm text-gray-600 mb-4">Health and travel insurance</p>
+                <button class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
+                    Get Insured
+                </button>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-graduation-cap text-green-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Italian Classes</h4>
+                <p class="text-sm text-gray-600 mb-4">Learn Italian online</p>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                    Start Learning
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-primary">Monfalcone Guide</h4>
+                <p class="text-gray-400 mb-4">Your trusted companion for settling in Monfalcone, Italy.</p>
+                <div class="flex space-x-4">
+                    <i class="fa-brands fa-facebook text-gray-400 hover:text-white cursor-pointer"></i>
+                    <i class="fa-brands fa-twitter text-gray-400 hover:text-white cursor-pointer"></i>
+                    <i class="fa-brands fa-instagram text-gray-400 hover:text-white cursor-pointer"></i>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Essential Services</h5>
+                <ul class="space-y-2 text-gray-400">
+                    <li><span class="hover:text-white cursor-pointer">Banking</span></li>
+                    <li><span class="hover:text-white cursor-pointer">SIM Cards</span></li>
+                    <li><span class="hover:text-white cursor-pointer">Housing</span></li>
+                    <li><span class="hover:text-white cursor-pointer">Transport</span></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Support</h5>
+                <ul class="space-y-2 text-gray-400">
+                    <li><span class="hover:text-white cursor-pointer">Help Center</span></li>
+                    <li><span class="hover:text-white cursor-pointer">Contact Us</span></li>
+                    <li><span class="hover:text-white cursor-pointer">Community</span></li>
+                    <li><span class="hover:text-white cursor-pointer">FAQ</span></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Languages</h5>
+                <ul class="space-y-2 text-gray-400">
+                    <li><span class="hover:text-white cursor-pointer">🇬🇧 English</span></li>
+                    <li><span class="hover:text-white cursor-pointer">🇧🇩 বাংলা</span></li>
+                    <li><span class="hover:text-white cursor-pointer">🇮🇹 Italiano</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Monfalcone Guide. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
