@@ -31,31 +31,24 @@
 </head>
 <body class="bg-neutral-50 text-gray-800">
 
-<!-- Header -->
+<!-- Mobile Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
+    <div class="px-4 py-3">
+        <div class="flex justify-between items-center">
             <div class="flex items-center">
-                <h1 class="text-xl font-bold text-primary">Monfalcone Guide</h1>
-                <span class="ml-2 text-sm text-gray-500">Banking & Money</span>
+                <button class="mr-3 p-1">
+                    <i class="fa-solid fa-arrow-left text-gray-600"></i>
+                </button>
+                <h1 class="text-lg font-bold text-primary">Banking & Money</h1>
             </div>
             
-            <nav class="hidden md:flex space-x-8">
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</span>
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</span>
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</span>
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</span>
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</span>
-                <span class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</span>
-            </nav>
-            
-            <div class="flex items-center space-x-4">
-                <select class="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="bn">🇧🇩 বাংলা</option>
-                    <option value="it">🇮🇹 Italiano</option>
+            <div class="flex items-center space-x-3">
+                <select class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="bn">🇧🇩 BN</option>
+                    <option value="it">🇮🇹 IT</option>
                 </select>
-                <button class="md:hidden">
+                <button id="menu-toggle" class="p-2">
                     <i class="fa-solid fa-bars text-gray-600"></i>
                 </button>
             </div>
@@ -63,35 +56,31 @@
     </div>
 </header>
 
-<!-- Banking Hero Section -->
-<section id="banking-hero" class="bg-gradient-to-br from-primary/10 to-secondary/10 h-[300px] flex items-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Banking & Money in Italy</h2>
-                <p class="text-xl text-gray-600 max-w-2xl">Complete guide to opening bank accounts and sending money home from Monfalcone</p>
-            </div>
-            <div class="hidden lg:block">
-                <div class="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-university text-primary text-5xl"></i>
-                </div>
-            </div>
+<!-- Hero Section -->
+<section id="banking-hero" class="relative h-[300px] overflow-hidden">
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a678d30b57-1655c334e225889fc29e.png" alt="modern Italian bank building with people walking, professional banking atmosphere, blue and green tones" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent"></div>
+    </div>
+    <div class="relative h-full flex items-center">
+        <div class="px-4 w-full text-center text-white p-4 rounded-lg" style="background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(5px);">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Banking & Money Transfer</h2>
+            <p class="text-sm sm:text-base md:text-lg opacity-90 max-w-sm mx-auto" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Complete guide to banking in Italy and sending money home safely</p>
         </div>
     </div>
 </section>
 
 <!-- Quick Actions -->
-<section id="quick-actions" class="py-8 bg-white border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap gap-4 justify-center">
-            <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center">
-                <i class="fa-solid fa-building-columns mr-2"></i>Open Bank Account
+<section id="quick-actions" class="py-6 bg-white -mt-8 relative z-10 mx-4 rounded-t-2xl shadow-lg">
+    <div class="px-4">
+        <div class="grid grid-cols-2 gap-3">
+            <button class="bg-primary text-white p-4 rounded-xl text-center hover:bg-primary/90 transition-colors">
+                <i class="fa-solid fa-university text-xl mb-2 block"></i>
+                <span class="text-sm font-medium">Open Account</span>
             </button>
-            <button class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors flex items-center">
-                <i class="fa-solid fa-money-bill-transfer mr-2"></i>Send Money Home
-            </button>
-            <button class="bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors flex items-center">
-                <i class="fa-solid fa-calculator mr-2"></i>Calculate Fees
+            <button class="bg-secondary text-white p-4 rounded-xl text-center hover:bg-secondary/90 transition-colors">
+                <i class="fa-solid fa-money-bill-transfer text-xl mb-2 block"></i>
+                <span class="text-sm font-medium">Send Money</span>
             </button>
         </div>
     </div>
