@@ -66,10 +66,11 @@
     <div class="px-4 py-3">
         <div class="flex justify-between items-center">
             <div class="flex items-center">
-                <a href="#hero" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+                <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
                     <i class="fa-solid fa-arrow-left text-gray-600"></i>
                 </a>
                 <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
+                <span class="ml-2 text-sm text-gray-500">New Arrival Guide</span>
             </div>
 
             <!-- Desktop Nav -->
@@ -417,6 +418,12 @@
         e.preventDefault();
         showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
         document.getElementById('newsletter-form').reset();
+    });
+
+    // Initial page load, set the language based on the dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const initialLang = document.getElementById('language-select').value;
+        updateText(initialLang);
     });
 
 </script>

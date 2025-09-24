@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monfalcone, Italy New Arrivals Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
+    rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate-bounce-y {
+            animation: bounce 1s infinite;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22c55e',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                        neutral: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-50 text-gray-800">
+
+<!-- Custom Message Modal -->
+<div id="message-modal" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
+        <div class="text-center">
+            <div id="modal-icon" class="mb-4 text-3xl"></div>
+            <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
+            <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
+            <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Header -->
+<header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="px-4 py-3">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#hero" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+                    <i class="fa-solid fa-arrow-left text-gray-600"></i>
+                </a>
+                <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
+                <span class="ml-2 text-sm text-gray-500">Transport</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
+                <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
+                <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
+                <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
+                <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
+                <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
+            </nav>
+            
+            <div class="flex items-center space-x-3">
+                <select id="language-select" class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="bn">🇧🇩 BN</option>
+                    <option value="it">🇮🇹 IT</option>
+                </select>
+                <button id="menu-toggle" class="p-2 md:hidden">
+                    <i class="fa-solid fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu (Hidden) -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
+    <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+    </div>
+    <nav class="flex flex-col space-y-4 text-lg font-medium">
+        <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
+        <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
+        <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
+        <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
+        <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
+        <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section id="transport-hero" class="relative h-[500px] overflow-hidden">
+    <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/050be90758-e6c070d059f4a714ee73.png" alt="modern train station in Monfalcone Italy with buses and trains, bright daylight, travel photography style" />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div class="text-white">
+            <h1 class="text-5xl font-bold mb-6">Getting Around Monfalcone</h1>
+            <p class="text-xl mb-8 max-w-2xl">Discover all transport options in Monfalcone - from local buses to regional trains. Navigate your new city with confidence</p>
+            <div class="flex space-x-4">
+                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                    <i class="fa-solid fa-route mr-2"></i>Plan Journey
+                </button>
+                <button class="bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-colors">
+                    <i class="fa-solid fa-download mr-2"></i>Transport Guide
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Transport Options -->
+<section id="transport-options" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Transport Options</h2>
+            <p class="text-gray-600">Choose the best way to travel around Monfalcone and beyond</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="bus-card" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-bus text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-blue-900">Local Buses</h3>
+                <p class="text-blue-700 mb-4">APT Gorizia bus network covering Monfalcone and surrounding areas</p>
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                    View Routes
+                </button>
+            </div>
+            
+            <div id="train-card" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center">
+                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-train text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-green-900">Trains</h3>
+                <p class="text-green-700 mb-4">Trenitalia connections to Trieste, Venice, and major Italian cities</p>
+                <button class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                    Check Schedules
+                </button>
+            </div>
+            
+            <div id="taxi-card" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center">
+                <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-taxi text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-yellow-900">Taxi & Ride-share</h3>
+                <p class="text-yellow-700 mb-4">Local taxi services and ride-sharing apps for convenient travel</p>
+                <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors w-full">
+                    Book Ride
+                </button>
+            </div>
+            
+            <div id="bike-card" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center">
+                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-bicycle text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-purple-900">Cycling</h3>
+                <p class="text-purple-700 mb-4">Bike rentals and cycling paths around Monfalcone</p>
+                <button class="bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                    Rent Bike
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Map Section -->
+<section id="transport-map" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Transport Map</h2>
+            <p class="text-gray-600">Explore bus routes, train stations, and key locations</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium hover:bg-blue-200 transition-colors">
+                        <i class="fa-solid fa-bus mr-2"></i>Bus Routes
+                    </button>
+                    <button class="bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium hover:bg-green-200 transition-colors">
+                        <i class="fa-solid fa-train mr-2"></i>Train Stations
+                    </button>
+                    <button class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium hover:bg-yellow-200 transition-colors">
+                        <i class="fa-solid fa-taxi mr-2"></i>Taxi Stands
+                    </button>
+                    <button class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium hover:bg-purple-200 transition-colors">
+                        <i class="fa-solid fa-bicycle mr-2"></i>Bike Stations
+                    </button>
+                </div>
+            </div>
+            <div class="h-96 bg-gray-100 flex items-center justify-center">
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db61be6b0f-00de7b7139b3c391fa96.png" alt="detailed transport map of Monfalcone Italy showing bus routes, train stations, and bike paths, cartographic style" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Journey Planner -->
+<section id="journey-planner" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Plan Your Journey</h2>
+            <p class="text-gray-600">Find the best route from A to B</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">From</label>
+                    <input type="text" placeholder="Enter starting location" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">To</label>
+                    <input type="text" placeholder="Enter destination" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                    <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Time</label>
+                    <input type="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Transport</label>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option>All Options</option>
+                        <option>Bus Only</option>
+                        <option>Train Only</option>
+                        <option>Walking + Public Transport</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors w-full">
+                <i class="fa-solid fa-search mr-2"></i>Find Best Route
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Affiliate Partners -->
+<section id="transport-partners" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Recommended Transport Services</h2>
+            <p class="text-gray-600">Trusted partners for your travel needs</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="trenitalia-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9efbf6e1f9-b8b2023b2972f3194476.png" alt="modern Italian train at Monfalcone station, Trenitalia branding, professional photography" />
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-train text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Trenitalia</h3>
+                            <p class="text-gray-600">National Railway</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">Book train tickets to anywhere in Italy. Special discounts for new residents.</p>
+                    <div class="flex space-x-3">
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex-1">
+                            Book Tickets
+                        </button>
+                        <button class="border border-green-600 text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors">
+                            <i class="fa-solid fa-info"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="apt-gorizia-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a57ef8fd3c-6945d0a69ec39bc66a1b.png" alt="local bus in Monfalcone Italy, APT Gorizia bus service, urban transport" />
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-bus text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">APT Gorizia</h3>
+                            <p class="text-gray-600">Local Bus Service</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">Monthly passes and route information for Monfalcone's bus network.</p>
+                    <div class="flex space-x-3">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex-1">
+                            Buy Pass
+                        </button>
+                        <button class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+                            <i class="fa-solid fa-map"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="uber-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/645792dd68-dd941568969cd9ac6862.png" alt="modern car with Uber app interface, ride sharing service in Italian city" />
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-car text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Uber</h3>
+                            <p class="text-gray-600">Ride Sharing</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">Get €10 off your first ride with our exclusive promo code.</p>
+                    <div class="flex space-x-3">
+                        <button class="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors flex-1">
+                            Get Promo
+                        </button>
+                        <button class="border border-black text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Transport Tips -->
+<section id="transport-tips" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Transport Tips</h2>
+            <p class="text-gray-600">Essential information for getting around</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-ticket text-primary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Bus Tickets</h3>
+                        <p class="text-gray-600">Buy tickets at tobacco shops, newsstands, or use the mobile app. Validate before boarding.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-clock text-secondary"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Peak Hours</h3>
+                        <p class="text-gray-600">Avoid 7-9 AM and 5-7 PM for less crowded journeys. Plan extra time during rush hours.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-mobile text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Mobile Apps</h3>
+                        <p class="text-gray-600">Download Trenitalia and APT Gorizia apps for real-time schedules and digital tickets.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-euro-sign text-green-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Monthly Passes</h3>
+                        <p class="text-gray-600">Save money with monthly bus passes if you travel regularly. Available at the main bus station.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-map text-yellow-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Night Services</h3>
+                        <p class="text-gray-600">Limited night bus services available. Check schedules or use taxi services for late travel.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fa-solid fa-wheelchair text-purple-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2">Accessibility</h3>
+                        <p class="text-gray-600">Most buses and trains are wheelchair accessible. Look for accessibility symbols on schedules.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Affiliate Disclaimer -->
+    <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
+        <p class="font-medium text-gray-800">Disclaimer:</p>
+        <p>This page contains affiliate links. If you click on one of these links and make a purchase or sign up, we may earn a small commission at no extra cost to you. We only recommend products and services we believe are helpful and of high quality.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
+                <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Essential Services</h5>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Support</h5>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Stay Informed</h5>
+                <form id="newsletter-form" class="space-y-3">
+                    <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Script-->
+<script>
+    // Custom Message Modal functions
+    function showModal(title, message, iconClass) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-message').innerText = message;
+        document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
+        document.getElementById('message-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('message-modal').classList.add('hidden');
+    }
+
+    // ---
+    
+    // Navigation bar functions
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Open mobile menu
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    // Close mobile menu
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+    
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+    }
+
+    // ---
+
+    // Quick Action button handlers
+    document.getElementById('open-account-btn').addEventListener('click', () => {
+        showModal('Opening an Account', 'This action will take you to the guide section. Please scroll down for detailed information on how to open a bank account.', 'fa-solid fa-circle-info text-primary');
+        setTimeout(() => {
+            window.location.href = '#bank-account-guide';
+            closeModal();
+        }, 1500);
+    });
+
+    document.getElementById('send-money-btn').addEventListener('click', () => {
+        showModal('Sending Money Home', 'This action will take you to the guide section. Please scroll down for a list of recommended services to send money.', 'fa-solid fa-circle-info text-secondary');
+        setTimeout(() => {
+            window.location.href = '#money-transfer';
+            closeModal();
+        }, 1500);
+    });
+
+    // Language selector handler
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        const selectedLang = e.target.value;
+        const langName = {
+            'en': 'English',
+            'bn': 'Bengali',
+            'it': 'Italiano'
+        }[selectedLang];
+        showModal('Language Change', `Language switched to ${langName}. Please note that this is a placeholder and does not translate the page content.`, 'fa-solid fa-language text-accent');
+    });
+
+    // Newsletter form handler
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
+        document.getElementById('newsletter-form').reset();
+    });
+
+</script>
+
+</body>
+</html>
