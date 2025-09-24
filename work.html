@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monfalcone, Italy New Arrivals Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
+    rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate-bounce-y {
+            animation: bounce 1s infinite;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22c55e',
+                        secondary: '#3b82f6',
+                        accent: '#06b6d4',
+                        neutral: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-50 text-gray-800">
+
+<!-- Custom Message Modal -->
+<div id="message-modal" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
+        <div class="text-center">
+            <div id="modal-icon" class="mb-4 text-3xl"></div>
+            <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
+            <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
+            <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Header -->
+<header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+    <div class="px-4 py-3">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+                    <i class="fa-solid fa-arrow-left text-gray-600"></i>
+                </a>
+                <a href="index.html" class="text-lg font-bold text-primary font-playfair">Work</a>
+                <span class="ml-2 text-sm text-gray-500">Work</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
+                <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
+                <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
+                <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
+                <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
+                <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
+            </nav>
+            
+            <div class="flex items-center space-x-3">
+                <select id="language-select" class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="bn">🇧🇩 BN</option>
+                    <option value="it">🇮🇹 IT</option>
+                </select>
+                <button id="menu-toggle" class="p-2 md:hidden">
+                    <i class="fa-solid fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu (Hidden) -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
+    <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+    </div>
+    <nav class="flex flex-col space-y-4 text-lg font-medium">
+        <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
+        <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
+        <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
+        <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
+        <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
+        <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section id="hero" class="bg-gradient-to-br from-purple-600 to-blue-700 h-[500px] flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent"></div>
+    <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c665384010-89ac4a094765979dbc7a.png" alt="professional office environment with people working at desks, modern Italian workplace, diverse workforce" />
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="px-4 w-full text-center text-white p-4 rounded-lg" style="background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(5px);">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Work & Legal Services</h2>
+            <p class="text-sm sm:text-base md:text-lg opacity-90 max-w-sm mx-auto" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Navigate employment opportunities, legal requirements, and documentation processes</p>
+            <div class="flex justify-center space-x-4 py-10">
+                <button class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                    <i class="fa-solid fa-briefcase mr-2"></i>Find Jobs
+                </button>
+                <button class="bg-white text-purple-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                    <i class="fa-solid fa-file-text mr-2"></i>Legal Help
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Job Search Section -->
+<section id="job-search" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Find Your Next Job</h3>
+            <p class="text-gray-600">Connect with top employers in Monfalcone and surrounding areas</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img class="w-full h-80 object-cover rounded-xl shadow-lg" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a1b8f867be-4a515872b2bed90d6aa9.png" alt="modern Italian factory workers, diverse team in manufacturing setting, professional workplace atmosphere" />
+            </div>
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-3">Indeed Italy</h4>
+                    <p class="text-gray-600 mb-4">Italy's largest job search platform with thousands of opportunities</p>
+                    <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                        <i class="fa-solid fa-external-link mr-2"></i>Search Jobs
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-3">LinkedIn Italia</h4>
+                    <p class="text-gray-600 mb-4">Professional networking and job opportunities</p>
+                    <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+                        <i class="fa-brands fa-linkedin mr-2"></i>Join LinkedIn
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-3">Monster Italy</h4>
+                    <p class="text-gray-600 mb-4">Specialized job matching and career advice</p>
+                    <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                        <i class="fa-solid fa-search mr-2"></i>Explore Jobs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Legal Documentation -->
+<section id="legal-docs" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Legal Documentation & Permits</h3>
+            <p class="text-gray-600">Essential documents and permits for working in Italy</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="work-permit-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-id-card text-purple-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3">Work Permits</h4>
+                <p class="text-gray-600 mb-4">Get assistance with work permit applications and renewals</p>
+                <ul class="text-sm text-gray-500 mb-4 space-y-1">
+                    <li>• Permesso di Soggiorno</li>
+                    <li>• EU Blue Card</li>
+                    <li>• Self-Employment Permits</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                    <i class="fa-solid fa-file-text mr-2"></i>Get Help
+                </button>
+            </div>
+            
+            <div id="tax-services-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-calculator text-blue-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3">Tax Services</h4>
+                <p class="text-gray-600 mb-4">Professional tax preparation and consultation</p>
+                <ul class="text-sm text-gray-500 mb-4 space-y-1">
+                    <li>• Codice Fiscale</li>
+                    <li>• Tax Returns</li>
+                    <li>• VAT Registration</li>
+                </ul>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                    <i class="fa-solid fa-calculator mr-2"></i>Tax Help
+                </button>
+            </div>
+            
+            <div id="legal-advice-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-gavel text-green-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3">Legal Consultation</h4>
+                <p class="text-gray-600 mb-4">Expert legal advice for immigrants and workers</p>
+                <ul class="text-sm text-gray-500 mb-4 space-y-1">
+                    <li>• Employment Law</li>
+                    <li>• Immigration Law</li>
+                    <li>• Contract Review</li>
+                </ul>
+                <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                    <i class="fa-solid fa-balance-scale mr-2"></i>Get Advice
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Translation Services -->
+<section id="translation-services" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Translation Services</h3>
+            <p class="text-gray-600">Professional document translation for official purposes</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-accent/10 to-blue-100 p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-3">
+                        <i class="fa-solid fa-certificate text-accent mr-2"></i>
+                        Certified Translations
+                    </h4>
+                    <p class="text-gray-600 mb-4">Official document translations accepted by Italian authorities</p>
+                    <ul class="text-sm text-gray-600 mb-4 space-y-1">
+                        <li>• Birth Certificates</li>
+                        <li>• Educational Diplomas</li>
+                        <li>• Marriage Certificates</li>
+                        <li>• Medical Records</li>
+                    </ul>
+                    <button class="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+                        <i class="fa-solid fa-language mr-2"></i>Get Quote
+                    </button>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
+                    <h4 class="text-xl font-semibold mb-3">
+                        <i class="fa-solid fa-globe text-purple-600 mr-2"></i>
+                        Google Translate Pro
+                    </h4>
+                    <p class="text-gray-600 mb-4">AI-powered translation for quick communication</p>
+                    <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors">
+                        <i class="fa-solid fa-robot mr-2"></i>Try Now
+                    </button>
+                </div>
+            </div>
+            <div>
+                <img class="w-full h-80 object-cover rounded-xl shadow-lg" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e290c849a4-e4f0840804a698ea8a12.png" alt="professional translator working on documents, multilingual papers and certificates, modern office setting" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Italian Language Learning -->
+<section id="language-learning" class="py-16 bg-gradient-to-br from-green-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Learn Italian</h3>
+            <p class="text-gray-600">Master the Italian language with local and online resources</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div id="local-classes">
+                <h4 class="text-2xl font-bold mb-6 text-center">Local Classes in Monfalcone</h4>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-school text-primary"></i>
+                            </div>
+                            <h5 class="font-semibold">San Marco Institute Monfalcone</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">Professional Italian courses for all levels</p>
+                        <p class="text-sm text-gray-500 mb-3">Viale San Marco, 13, Monfalcone • +39481 791036 • info@institisanmarco.it</p>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                            Contact Now
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-users text-secondary"></i>
+                            </div>
+                            <h5 class="font-semibold">Centro Provinciale Istuzione Adulti CPIA</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">Free Italian classes for immigrants</p>
+                        <p class="text-sm text-gray-500 mb-3">Via Giovanni Bonavia, 21 • +39 481 483235 • cpiagorizia.istruzioneweb.it • gomm04000n@istruzione.it</p>
+                        <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
+                            Join Classes
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="online-learning">
+                <h4 class="text-2xl font-bold mb-6 text-center">Online Learning Platforms</h4>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-3">
+                            <img class="w-10 h-10 rounded-lg mr-3" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7d4f16760c-66864cd4221b5f749c9b.png" alt="Duolingo app icon, green owl mascot logo" />
+                            <h5 class="font-semibold">Duolingo</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">Free, gamified Italian learning</p>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors">
+                            <i class="fa-solid fa-play mr-2"></i>Start Free
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-3">
+                            <img class="w-10 h-10 rounded-lg mr-3" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/40f21b5e3f-4ab4710c064fe875b8d5.png" alt="Babbel app logo, red and white language learning icon" />
+                            <h5 class="font-semibold">Babbel</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">Structured Italian courses by experts</p>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors">
+                            <i class="fa-solid fa-graduation-cap mr-2"></i>Try Premium
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-3">
+                            <img class="w-10 h-10 rounded-lg mr-3" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9d6294d9b8-9c37231a429137e73f3f.png" alt="italki logo, orange and white online tutoring platform" />
+                            <h5 class="font-semibold">italki</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">1-on-1 lessons with native Italian teachers</p>
+                        <button class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors">
+                            <i class="fa-solid fa-user-tie mr-2"></i>Find Tutor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section id="cta" class="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-3xl font-bold mb-4">Ready to Start Your Career in Italy?</h3>
+        <p class="text-xl mb-8">Get personalised assistance with your work and legal needs</p>
+        <div class="flex justify-center space-x-4">
+            <button class="bg-white text-purple-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                <i class="fa-solid fa-phone mr-2"></i>Get Consultation
+            </button>
+            <button class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
+                <i class="fa-solid fa-download mr-2"></i>Download Guide
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- Affiliate Disclaimer -->
+    <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
+        <p class="font-medium text-gray-800">Disclaimer:</p>
+        <p>This page contains affiliate links. If you click on one of these links and make a purchase or sign up, we may earn a small commission at no extra cost to you. We only recommend products and services we believe are helpful and of high quality.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
+                <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Essential Services</h5>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Support</h5>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h5 class="font-semibold mb-4">Stay Informed</h5>
+                <form id="newsletter-form" class="space-y-3">
+                    <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Script-->
+<script>
+    // Custom Message Modal functions
+    function showModal(title, message, iconClass) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-message').innerText = message;
+        document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
+        document.getElementById('message-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('message-modal').classList.add('hidden');
+    }
+
+    // ---
+    
+    // Navigation bar functions
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Open mobile menu
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    // Close mobile menu
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+    
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+    }
+
+    // ---
+
+    // Quick Action button handlers
+    document.getElementById('open-account-btn').addEventListener('click', () => {
+        showModal('Opening an Account', 'This action will take you to the guide section. Please scroll down for detailed information on how to open a bank account.', 'fa-solid fa-circle-info text-primary');
+        setTimeout(() => {
+            window.location.href = '#bank-account-guide';
+            closeModal();
+        }, 1500);
+    });
+
+    document.getElementById('send-money-btn').addEventListener('click', () => {
+        showModal('Sending Money Home', 'This action will take you to the guide section. Please scroll down for a list of recommended services to send money.', 'fa-solid fa-circle-info text-secondary');
+        setTimeout(() => {
+            window.location.href = '#money-transfer';
+            closeModal();
+        }, 1500);
+    });
+
+    // Language selector handler
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        const selectedLang = e.target.value;
+        const langName = {
+            'en': 'English',
+            'bn': 'Bengali',
+            'it': 'Italiano'
+        }[selectedLang];
+        showModal('Language Change', `Language switched to ${langName}. Please note that this is a placeholder and does not translate the page content.`, 'fa-solid fa-language text-accent');
+    });
+
+    // Newsletter form handler
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
+        document.getElementById('newsletter-form').reset();
+    });
+
+    // Initial page load, set the language based on the dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const initialLang = document.getElementById('language-select').value;
+        updateText(initialLang);
+    });
+
+</script>
+
+</body>
+</html>

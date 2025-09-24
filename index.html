@@ -31,6 +31,21 @@
         .animate-bounce-y {
             animation: bounce 1s infinite;
         }
+        /* Custom styling for the Google Translate widget */
+        .goog-te-gadget-simple {
+            border: 1px solid #e5e7eb !important;
+            background-color: #fff !important;
+            border-radius: 0.5rem !important;
+        }
+        #google_translate_element {
+            font-size: 0.875rem; /* text-sm */
+        }
+        .goog-te-combo {
+            font-size: 0.875rem; /* text-sm */
+            border: none !important;
+            background-color: transparent !important;
+            color: #374151 !important; /* gray-700 */
+        }
     </style>
     <script>
         tailwind.config = {
@@ -70,7 +85,7 @@
                     <i class="fa-solid fa-arrow-left text-gray-600"></i>
                 </a>
                 <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
-                <span class="ml-2 text-sm text-gray-500">New Arrival Guide</span>
+                <span class="ml-2 text-sm text-gray-500">Home</span>
             </div>
 
             <!-- Desktop Nav -->
@@ -427,6 +442,19 @@
     });
 
 </script>
+</script>
+
+<!-- Google Translate API script -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,it,bn',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
