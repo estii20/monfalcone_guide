@@ -391,8 +391,6 @@
     function closeModal() {
         document.getElementById('message-modal').classList.add('hidden');
     }
-
-    // ---
     
     // Navigation bar functions
     const menuToggle = document.getElementById('menu-toggle');
@@ -412,23 +410,6 @@
     function closeMenu() {
         mobileMenu.classList.remove('active');
     }
-
-    // Quick Action button handlers
-    document.getElementById('open-account-btn').addEventListener('click', () => {
-        showModal('Opening an Account', 'This action will take you to the guide section. Please scroll down for detailed information on how to open a bank account.', 'fa-solid fa-circle-info text-primary');
-        setTimeout(() => {
-            window.location.href = '#bank-account-guide';
-            closeModal();
-        }, 1500);
-    });
-
-    document.getElementById('send-money-btn').addEventListener('click', () => {
-        showModal('Sending Money Home', 'This action will take you to the guide section. Please scroll down for a list of recommended services to send money.', 'fa-solid fa-circle-info text-secondary');
-        setTimeout(() => {
-            window.location.href = '#money-transfer';
-            closeModal();
-        }, 1500);
-    });
 
 
     // Newsletter form handler
