@@ -8,11 +8,29 @@
     <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
-    rel="stylesheet">
-
+        rel="stylesheet">
     <style>
-        ::-webkit-scrollbar { display: none;}
+        ::-webkit-scrollbar { display: none; }
         body { font-family: 'Inter', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        .animate-bounce-y {
+            animation: bounce 1s infinite;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -31,17 +49,30 @@
 </head>
 <body class="bg-neutral-50 text-gray-800">
 
+<!-- Custom Message Modal -->
+<div id="message-modal" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
+        <div class="text-center">
+            <div id="modal-icon" class="mb-4 text-3xl"></div>
+            <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
+            <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
+            <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
+        </div>
+    </div>
+</div>
+
 <!-- Mobile Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
     <div class="px-4 py-3">
         <div class="flex justify-between items-center">
             <div class="flex items-center">
-                <button class="mr-3 p-1">
+                <a href="#hero" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
                     <i class="fa-solid fa-arrow-left text-gray-600"></i>
-                </button>
-                <h1 class="text-lg font-bold text-primary">Banking & Money</h1>
+                </a>
+                <h1 class="text-lg font-bold text-primary font-playfair">Banking & Money</h1>
             </div>
 
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8">
                 <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
                 <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
@@ -52,12 +83,12 @@
             </nav>
             
             <div class="flex items-center space-x-3">
-                <select class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
+                <select id="language-select" class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="en">🇬🇧 EN</option>
                     <option value="bn">🇧🇩 BN</option>
                     <option value="it">🇮🇹 IT</option>
                 </select>
-                <button id="menu-toggle" class="p-2">
+                <button id="menu-toggle" class="p-2 md:hidden">
                     <i class="fa-solid fa-bars text-gray-600"></i>
                 </button>
             </div>
@@ -65,10 +96,26 @@
     </div>
 </header>
 
+<!-- Mobile Menu (Hidden) -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
+    <div class="flex justify-end mb-8">
+        <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+    </div>
+    <nav class="flex flex-col space-y-4 text-lg font-medium">
+        <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
+        <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
+        <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
+        <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
+        <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
+        <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
+    </nav>
+</div>
+
 <!-- Hero Section -->
-<section id="banking-hero" class="relative h-[300px] overflow-hidden">
+<section id="hero" class="relative h-[300px] overflow-hidden">
     <div class="absolute inset-0">
-        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a678d30b57-1655c334e225889fc29e.png" alt="modern Italian bank building with people walking, professional banking atmosphere, blue and green tones" />
+        <!-- Replaced specific image with a generic placeholder -->
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a678d30b57-1655c334e225889fc29e.png" alt="A clean, modern bank interior with a friendly bank employee and a customer">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent"></div>
     </div>
     <div class="relative h-full flex items-center">
@@ -82,12 +129,12 @@
 <!-- Quick Actions -->
 <section id="quick-actions" class="py-6 bg-white -mt-8 relative z-10 mx-4 rounded-t-2xl shadow-lg">
     <div class="px-4">
-        <div class="grid grid-cols-2 gap-3">
-            <button class="bg-primary text-white p-4 rounded-xl text-center hover:bg-primary/90 transition-colors">
+        <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="open-account-btn" class="w-full sm:w-auto bg-primary text-white p-4 rounded-xl text-center hover:bg-primary/90 transition-colors shadow-md transform hover:scale-105 duration-200">
                 <i class="fa-solid fa-university text-xl mb-2 block"></i>
                 <span class="text-sm font-medium">Open Account</span>
             </button>
-            <button class="bg-secondary text-white p-4 rounded-xl text-center hover:bg-secondary/90 transition-colors">
+            <button id="send-money-btn" class="w-full sm:w-auto bg-secondary text-white p-4 rounded-xl text-center hover:bg-secondary/90 transition-colors shadow-md transform hover:scale-105 duration-200">
                 <i class="fa-solid fa-money-bill-transfer text-xl mb-2 block"></i>
                 <span class="text-sm font-medium">Send Money</span>
             </button>
@@ -99,35 +146,39 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <!-- Main Content -->
+        <!-- Main Content Column -->
         <div class="lg:col-span-2">
             
             <!-- Bank Account Guide -->
             <section id="bank-account-guide" class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center font-playfair">
                     <i class="fa-solid fa-university text-primary mr-3"></i>
                     How to Open a Bank Account in Italy
                 </h3>
                 
+                <p class="mb-6 text-gray-600">
+                    Opening a bank account is a key step to managing your finances in Italy. While it may seem complicated, having all your documents in order makes the process straightforward. Most major Italian banks have branches in Monfalcone.
+                </p>
+
                 <div class="space-y-6">
                     <div id="requirements" class="border-l-4 border-primary pl-6">
                         <h4 class="text-lg font-semibold mb-3">Required Documents</h4>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-primary mr-2 mt-1"></i>
-                                Valid passport with residence permit (Permesso di Soggiorno)
+                                Valid passport with a valid residence permit (**Permesso di Soggiorno**)
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-primary mr-2 mt-1"></i>
-                                Codice Fiscale (Italian tax code)
+                                **Codice Fiscale** (Italian tax code) - absolutely essential!
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-primary mr-2 mt-1"></i>
-                                Proof of address (utility bill or rental contract)
+                                Proof of address, such as a utility bill or rental contract
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-primary mr-2 mt-1"></i>
-                                Employment contract or proof of income
+                                Employment contract or proof of income (if applicable)
                             </li>
                         </ul>
                     </div>
@@ -136,31 +187,24 @@
                         <h4 class="text-lg font-semibold mb-4">Step-by-Step Process</h4>
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</span>
+                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 shadow">1</span>
                                 <div>
                                     <h5 class="font-medium">Choose Your Bank</h5>
-                                    <p class="text-gray-600 text-sm">Research banks in Monfalcone - UniCredit, Intesa Sanpaolo, BNL are popular choices</p>
+                                    <p class="text-gray-600 text-sm">Research banks in Monfalcone. UniCredit, Intesa Sanpaolo, and BNL are popular choices with a strong presence.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</span>
+                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 shadow">2</span>
                                 <div>
                                     <h5 class="font-medium">Book an Appointment</h5>
-                                    <p class="text-gray-600 text-sm">Call or visit the branch to schedule a meeting with a bank advisor</p>
+                                    <p class="text-gray-600 text-sm">Most banks require you to book an appointment with a bank advisor. You can do this by phone or by visiting the branch in person.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</span>
+                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 shadow">3</span>
                                 <div>
-                                    <h5 class="font-medium">Bring Documents</h5>
-                                    <p class="text-gray-600 text-sm">Prepare all required documents and bring originals plus photocopies</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <span class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">4</span>
-                                <div>
-                                    <h5 class="font-medium">Complete Application</h5>
-                                    <p class="text-gray-600 text-sm">Fill out forms and make initial deposit (usually €50-200)</p>
+                                    <h5 class="font-medium">Complete the Application</h5>
+                                    <p class="text-gray-600 text-sm">Bring all required documents to your appointment. The bank advisor will guide you through the application forms and explain the different account options. Be prepared to make an initial deposit, which can range from €50-200.</p>
                                 </div>
                             </div>
                         </div>
@@ -168,108 +212,161 @@
                 </div>
             </section>
             
-            <!-- Popular Banks -->
+            <!-- Popular Banks Section -->
             <section id="popular-banks" class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Popular Banks in Monfalcone</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 font-playfair">Popular Banks in Monfalcone</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="border border-gray-200 rounded-lg p-4">
+                    <!-- Bank 1: UniCredit -->
+                    <div class="border border-gray-200 rounded-lg p-4 transition-colors hover:border-primary shadow-sm">
                         <h4 class="font-semibold text-lg mb-2">UniCredit</h4>
-                        <p class="text-gray-600 text-sm mb-3">Large international bank with English-speaking staff</p>
-                        <div class="text-sm text-gray-500">
-                            <p>Monthly Fee: €2-10</p>
-                            <p>ATM Network: Extensive</p>
+                        <p class="text-gray-600 text-sm mb-3">One of Italy's largest banks, offering a wide range of services. Some branches may have staff who speak English.</p>
+                        <div class="text-sm text-gray-500 space-y-1">
+                            <p class="flex items-center"><i class="fa-solid fa-euro-sign text-gray-400 w-4 mr-2"></i>Monthly Fee: Varies by account type</p>
+                            <p class="flex items-center"><i class="fa-solid fa-map-location-dot text-gray-400 w-4 mr-2"></i>ATM Network: Extensive</p>
                         </div>
                     </div>
-                    <div class="border border-gray-200 rounded-lg p-4">
+                    <!-- Bank 2: Intesa Sanpaolo -->
+                    <div class="border border-gray-200 rounded-lg p-4 transition-colors hover:border-secondary shadow-sm">
                         <h4 class="font-semibold text-lg mb-2">Intesa Sanpaolo</h4>
-                        <p class="text-gray-600 text-sm mb-3">Italy's largest bank with good digital services</p>
-                        <div class="text-sm text-gray-500">
-                            <p>Monthly Fee: €3-12</p>
-                            <p>ATM Network: Very Large</p>
+                        <p class="text-gray-600 text-sm mb-3">Italy's largest bank by market capitalization, known for its strong digital services and network.</p>
+                        <div class="text-sm text-gray-500 space-y-1">
+                            <p class="flex items-center"><i class="fa-solid fa-euro-sign text-gray-400 w-4 mr-2"></i>Monthly Fee: Varies by account type</p>
+                            <p class="flex items-center"><i class="fa-solid fa-map-location-dot text-gray-400 w-4 mr-2"></i>ATM Network: Very large</p>
                         </div>
+                    </div>
+                    <!-- Bank 3: BNL BNP Paribas -->
+                    <div class="border border-gray-200 rounded-lg p-4 transition-colors hover:border-accent shadow-sm">
+                        <h4 class="font-semibold text-lg mb-2">BNL BNP Paribas</h4>
+                        <p class="text-gray-600 text-sm mb-3">A major international bank that is part of the BNP Paribas group. A good choice for those with a pre-existing relationship with the bank.</p>
+                        <div class="text-sm text-gray-500 space-y-1">
+                            <p class="flex items-center"><i class="fa-solid fa-euro-sign text-gray-400 w-4 mr-2"></i>Monthly Fee: Varies by account type</p>
+                            <p class="flex items-center"><i class="fa-solid fa-map-location-dot text-gray-400 w-4 mr-2"></i>ATM Network: Strong</p>
+                        </div>
+                    </div>
+                    <!-- Bank 4: Revolut -->
+                    <div class="border border-gray-200 rounded-lg p-4 transition-colors hover:border-gray-500 shadow-sm">
+                        <h4 class="font-semibold text-lg mb-2">Revolut</h4>
+                        <p class="text-gray-600 text-sm mb-3">A popular online-only bank. Offers instant money transfers and currency exchange at the interbank rate. No physical branch required.</p>
+                        <div class="text-sm text-gray-500 space-y-1">
+                            <p class="flex items-center"><i class="fa-solid fa-euro-sign text-gray-400 w-4 mr-2"></i>Monthly Fee: Free for standard account</p>
+                            <p class="flex items-center"><i class="fa-solid fa-globe text-gray-400 w-4 mr-2"></i>ATM Network: Any ATM (fees may apply)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Banking Terms Section -->
+            <section id="banking-terms" class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center font-playfair">
+                    <i class="fa-solid fa-book text-primary mr-3"></i>
+                    Key Italian Banking Terms
+                </h3>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-lg bg-blue-50">
+                        <h4 class="font-semibold text-blue-800">IBAN</h4>
+                        <p class="text-sm text-blue-700">The **International Bank Account Number**. This is a long string of letters and numbers that uniquely identifies your bank account for international and domestic transfers. You will need this for getting paid and sending money.</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-green-50">
+                        <h4 class="font-semibold text-green-800">SWIFT / BIC</h4>
+                        <p class="text-sm text-green-700">The **Bank Identifier Code**. This is a shorter code (typically 8-11 characters) used to identify a specific bank in international transfers. You may need this for receiving money from outside of Europe.</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-red-50">
+                        <h4 class="font-semibold text-red-800">Poste Italiane</h4>
+                        <p class="text-sm text-red-700">The Italian Post Office. In Italy, the post office provides a wide range of financial services, including bank accounts and money transfers, and is a very common alternative to a traditional bank.</p>
                     </div>
                 </div>
             </section>
         </div>
         
-        <!-- Sidebar -->
+        <!-- Sidebar Column -->
         <div class="lg:col-span-1">
             
             <!-- Money Transfer Services -->
             <section id="money-transfer" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center font-playfair">
                     <i class="fa-solid fa-paper-plane text-primary mr-2"></i>
                     Send Money Home
                 </h3>
                 
+                <p class="text-sm text-gray-600 mb-4">
+                    Online transfer services are often cheaper and faster than traditional bank transfers. Here are some of the most popular options.
+                </p>
+
                 <div class="space-y-4">
-                    <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors">
+                    <!-- Wise -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors cursor-pointer shadow-sm">
                         <div class="flex items-center justify-between mb-3">
                             <h4 class="font-semibold">Wise</h4>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Recommended</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">Recommended</span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-3">Low fees, real exchange rates</p>
-                        <div class="flex justify-between items-center text-sm mb-3">
-                            <span class="text-gray-500">Fee: 0.5-2%</span>
-                            <span class="text-gray-500">Speed: 1-2 days</span>
-                        </div>
-                        <button class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                            <i class="fa-solid fa-external-link mr-2"></i>Send with Wise
-                        </button>
+                        <p class="text-sm text-gray-600 mb-3">Best for low fees and real exchange rates. Transfers are fast and transparent.</p>
+                        <a href="https://wise.com/invite/affiliate-code?ref=monfalcone-guide" target="_blank" class="block w-full text-center bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                            <i class="fa-solid fa-external-link mr-2"></i>Go to Wise
+                        </a>
                     </div>
-                    
-                    <div class="border border-gray-200 rounded-lg p-4 hover:border-secondary transition-colors">
-                        <h4 class="font-semibold mb-2">Remitly</h4>
-                        <p class="text-sm text-gray-600 mb-3">Fast transfers to South Asia</p>
-                        <div class="flex justify-between items-center text-sm mb-3">
-                            <span class="text-gray-500">Fee: 1-3%</span>
-                            <span class="text-gray-500">Speed: Minutes-hours</span>
+                    <!-- Remitly -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-secondary transition-colors cursor-pointer shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold">Remitly</h4>
                         </div>
-                        <button class="w-full bg-secondary text-white py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
-                            <i class="fa-solid fa-external-link mr-2"></i>Send with Remitly
-                        </button>
+                        <p class="text-sm text-gray-600 mb-3">Specializes in fast transfers to South Asia, Africa, and Latin America. Offers various delivery options.</p>
+                        <a href="https://www.remitly.com/home/send?affid=monfalcone-guide" target="_blank" class="block w-full text-center bg-secondary text-white py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+                            <i class="fa-solid fa-external-link mr-2"></i>Go to Remitly
+                        </a>
                     </div>
-                    
-                    <div class="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors">
-                        <h4 class="font-semibold mb-2">Western Union</h4>
-                        <p class="text-sm text-gray-600 mb-3">Global network, cash pickup</p>
-                        <div class="flex justify-between items-center text-sm mb-3">
-                            <span class="text-gray-500">Fee: 2-5%</span>
-                            <span class="text-gray-500">Speed: Minutes</span>
+                    <!-- Western Union -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-accent transition-colors cursor-pointer shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold">Western Union</h4>
                         </div>
-                        <button class="w-full bg-accent text-white py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors">
-                            <i class="fa-solid fa-external-link mr-2"></i>Send with WU
-                        </button>
+                        <p class="text-sm text-gray-600 mb-3">Offers a huge global network and is ideal for cash pickups. Slower and more expensive than online-only services.</p>
+                        <a href="https://www.westernunion.com/us/en/home.html?affid=monfalcone-guide" target="_blank" class="block w-full text-center bg-accent text-white py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors">
+                            <i class="fa-solid fa-external-link mr-2"></i>Go to Western Union
+                        </a>
                     </div>
                 </div>
             </section>
             
-            <!-- Quick Tips -->
-            <section id="banking-tips" class="bg-gradient-to-br from-blue-50 to-primary/5 rounded-xl p-6">
+            <!-- Quick Tips Section -->
+            <section id="cash-card" class="bg-gradient-to-br from-blue-50 to-primary/5 rounded-xl p-6 mb-8">
                 <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
                     <i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>
-                    Banking Tips
+                    Cash vs. Card & Other Tips
                 </h3>
                 <ul class="space-y-3 text-sm">
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-primary mr-2 mt-0.5"></i>
-                        Always compare exchange rates before sending money
+                        <i class="fa-solid fa-circle-info text-primary mr-2 mt-0.5 w-4 text-center"></i>
+                        While many places accept cards, **cash is still king** at smaller shops, markets, and for tipping. Always carry some cash with you.
                     </li>
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-primary mr-2 mt-0.5"></i>
-                        Keep your Codice Fiscale handy for all transactions
+                        <i class="fa-solid fa-circle-info text-primary mr-2 mt-0.5 w-4 text-center"></i>
+                        Always compare exchange rates before sending money. The advertised fee is not always the full cost.
                     </li>
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-primary mr-2 mt-0.5"></i>
-                        Many banks offer student discounts
+                        <i class="fa-solid fa-circle-info text-primary mr-2 mt-0.5 w-4 text-center"></i>
+                        Keep your **Codice Fiscale** handy as you'll need it for almost all transactions.
                     </li>
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check-circle text-primary mr-2 mt-0.5"></i>
-                        Set up online banking for easier management
+                        <i class="fa-solid fa-circle-info text-primary mr-2 mt-0.5 w-4 text-center"></i>
+                        Set up your bank's online banking and mobile app as soon as possible for easy account management.
                     </li>
                 </ul>
             </section>
+
         </div>
+    </div>
+
+    <!-- Affiliate Disclaimer -->
+    <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
+        <p class="font-medium text-gray-800">Disclaimer:</p>
+        <p>This page contains affiliate links. If you click on one of these links and make a purchase or sign up, we may earn a small commission at no extra cost to you. We only recommend products and services we believe are helpful and of high quality.</p>
+    </div>
+</div>
+
+    <!-- Affiliate Disclaimer -->
+    <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
+        <p class="font-medium text-gray-800">Disclaimer:</p>
+        <p>This page contains affiliate links. If you click on one of these links and make a purchase or sign up, we may earn a small commission at no extra cost to you. We only recommend products and services we believe are helpful and of high quality.</p>
     </div>
 </div>
 
@@ -278,50 +375,124 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-                <h4 class="text-xl font-bold mb-4 text-primary">Monfalcone Guide</h4>
-                <p class="text-gray-400 mb-4">Your trusted companion for settling in Monfalcone, Italy.</p>
+                <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
+                <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
                 <div class="flex space-x-4">
-                    <i class="fa-brands fa-facebook text-gray-400 hover:text-white cursor-pointer"></i>
-                    <i class="fa-brands fa-twitter text-gray-400 hover:text-white cursor-pointer"></i>
-                    <i class="fa-brands fa-instagram text-gray-400 hover:text-white cursor-pointer"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             
             <div>
                 <h5 class="font-semibold mb-4">Essential Services</h5>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="banking.html" class="hover:text-white cursor-pointer">Banking</a></li>
-                    <li><a href="sim-cards.html" class="hover:text-white cursor-pointer">SIM Cards</a></li>
-                    <li><a href="housing.html" class="hover:text-white cursor-pointer">Housing</a></li>
-                    <li><a href="transport.html" class="hover:text-white cursor-pointer">Transport</a></li>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
                 </ul>
             </div>
             
             <div>
                 <h5 class="font-semibold mb-4">Support</h5>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="help-center.html" class="hover:text-white cursor-pointer">Help Center</a></li>
-                    <li><a href="contact-us.html" class="hover:text-white cursor-pointer">Contact Us</a></li>
-                    <li><a href="community.html" class="hover:text-white cursor-pointer">Community</a></li>
-                    <li><a href="faq.html" class="hover:text-white cursor-pointer">FAQ</a></li>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
+                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
                 </ul>
             </div>
             
             <div>
-                <h5 class="font-semibold mb-4">Languages</h5>
-                <ul class="space-y-2 text-gray-400">
-                    <li><a href="english.html" class="hover:text-white cursor-pointer">🇬🇧 English</a></li>
-                    <li><a href="bengali.html" class="hover:text-white cursor-pointer">🇧🇩 বাংলা</a></li>
-                    <li><a href="italian.html" class="hover:text-white cursor-pointer">🇮🇹 Italiano</a></li>
-                </ul>
+                <h5 class="font-semibold mb-4">Stay Informed</h5>
+                <form id="newsletter-form" class="space-y-3">
+                    <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
+                </form>
             </div>
         </div>
         
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Monfalcone Guide. All rights reserved.</p>
+            <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
         </div>
     </div>
 </footer>
 
+<!-- Script-->
+<script>
+    // Custom Message Modal functions
+    function showModal(title, message, iconClass) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-message').innerText = message;
+        document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
+        document.getElementById('message-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('message-modal').classList.add('hidden');
+    }
+
+    // ---
+    
+    // Navigation bar functions
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Open mobile menu
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+    });
+
+    // Close mobile menu
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+    
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+    }
+
+    // ---
+
+    // Quick Action button handlers
+    document.getElementById('open-account-btn').addEventListener('click', () => {
+        showModal('Opening an Account', 'This action will take you to the guide section. Please scroll down for detailed information on how to open a bank account.', 'fa-solid fa-circle-info text-primary');
+        setTimeout(() => {
+            window.location.href = '#bank-account-guide';
+            closeModal();
+        }, 1500);
+    });
+
+    document.getElementById('send-money-btn').addEventListener('click', () => {
+        showModal('Sending Money Home', 'This action will take you to the guide section. Please scroll down for a list of recommended services to send money.', 'fa-solid fa-circle-info text-secondary');
+        setTimeout(() => {
+            window.location.href = '#money-transfer';
+            closeModal();
+        }, 1500);
+    });
+
+    // Language selector handler
+    document.getElementById('language-select').addEventListener('change', (e) => {
+        const selectedLang = e.target.value;
+        const langName = {
+            'en': 'English',
+            'bn': 'Bengali',
+            'it': 'Italiano'
+        }[selectedLang];
+        showModal('Language Change', `Language switched to ${langName}. Please note that this is a placeholder and does not translate the page content.`, 'fa-solid fa-language text-accent');
+    });
+
+    // Newsletter form handler
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
+        document.getElementById('newsletter-form').reset();
+    });
+
+</script>
 </body>
 </html>
