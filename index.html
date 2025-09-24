@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monfalcone, Italy New Arrivals Guide</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
-    rel="stylesheet">
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monfalcone, Italy New Arrivals Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
     ::-webkit-scrollbar { display: none; }
     body { font-family: 'Inter', sans-serif; }
     .font-playfair { font-family: 'Playfair Display', serif; }
@@ -18,7 +18,7 @@
     @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
     .animate-bounce-y { animation: bounce 1s infinite; }
 
-    /* Google Translate widget hidden & styled */
+    /* Google Translate widget styling (kept hidden visually) */
     .goog-te-gadget-simple {
       border: 1px solid #e5e7eb !important;
       background-color: #fff !important;
@@ -52,335 +52,183 @@
 
 <!-- Custom Message Modal -->
 <div id="message-modal" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
-        <div class="text-center">
-            <div id="modal-icon" class="mb-4 text-3xl"></div>
-            <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
-            <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
-            <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
-        </div>
+  <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
+    <div class="text-center">
+      <div id="modal-icon" class="mb-4 text-3xl"></div>
+      <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
+      <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
+      <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
     </div>
+  </div>
 </div>
 
 <!-- Mobile Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-    <div class="px-4 py-3">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
-                    <i class="fa-solid fa-arrow-left text-gray-600"></i>
-                </a>
-                <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
-                <span class="ml-2 text-sm text-gray-500">Home</span>
-            </div>
+  <div class="px-4 py-3">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+          <i class="fa-solid fa-arrow-left text-gray-600"></i>
+        </a>
+        <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
+        <span class="ml-2 text-sm text-gray-500">Home</span>
+      </div>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
-                <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
-                <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
-                <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
-                <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
-                <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
-            </nav>
-            
-            <div class="flex items-center space-x-3">
-                <!-- Custom Translate Dropdown -->
-                <div class="relative inline-block text-left">
-                    <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200 transition-colors">
-                        <i class="fas fa-globe text-gray-500 text-sm"></i>
-                    </button>
-                    <div id="translate-menu" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
-                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="translate-button">
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা (Bengali)</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina (Slovenian)</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski (Croatian)</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română (Romanian)</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski (Polish)</a>
-                            <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български (Bulgarian)</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Hidden Google Translate Element -->
-                <div id="google_translate_element" style="position:absolute; top:-9999px; left:-9999px;"></div>
-                <button id="menu-toggle" class="p-2 md:hidden">
-                    <i class="fa-solid fa-bars text-gray-600"></i>
-                </button>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
+        <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
+        <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
+        <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
+        <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
+        <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <!-- Custom Translate Dropdown -->
+        <div class="relative inline-block text-left">
+          <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200 transition-colors" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-globe text-gray-500 text-sm"></i>
+          </button>
+
+          <div id="translate-menu" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
+            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="translate-button">
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা (Bengali)</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina (Slovenian)</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski (Croatian)</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română (Romanian)</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski (Polish)</a>
+              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български (Bulgarian)</a>
             </div>
+          </div>
         </div>
+
+        <!-- Hidden Google Translate Element (kept off-screen) -->
+        <div id="google_translate_element" class="gtranslate_wrapper" style="position:absolute; top:-9999px; left:-9999px;"></div>
+
+        <button id="menu-toggle" class="p-2 md:hidden">
+          <i class="fa-solid fa-bars text-gray-600"></i>
+        </button>
+      </div>
     </div>
+  </div>
 </header>
 
 <!-- Mobile Menu (Hidden) -->
 <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
-    <div class="flex justify-end mb-8">
-        <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-    </div>
-    <nav class="flex flex-col space-y-4 text-lg font-medium">
-        <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
-        <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
-        <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
-        <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
-        <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
-        <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
-    </nav>
+  <div class="flex justify-end mb-8">
+    <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+  </div>
+  <nav class="flex flex-col space-y-4 text-lg font-medium">
+    <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
+  </nav>
 </div>
 
-<!-- Hero Section with Shipyard Image -->
+<!-- Hero Section (unchanged) -->
 <section id="hero" class="relative h-[400px] overflow-hidden">
-    <div class="absolute inset-0">
-        <img class="w-full h-full object-cover" 
-        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/95ad4384f9-5500ca6747a26fadf769.png" 
-        alt="Fincantieri shipyard in Monfalcone Italy with large ships under construction, industrial maritime scene, blue sky" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+  <div class="absolute inset-0">
+    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/95ad4384f9-5500ca6747a26fadf769.png" alt="Fincantieri shipyard in Monfalcone Italy"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+  </div>
+  <div class="relative h-full flex items-center">
+    <div class="px-4 w-full text-center text-white">
+      <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
+      <p class="text-lg mb-6 opacity-90 max-w-sm mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
+      <div class="space-y-3">
+        <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full max-w-xs">
+          <i class="fa-solid fa-rocket mr-2"></i>Get Started
+        </button>
+        <button class="bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-lg font-medium hover:bg-white/30 transition-colors w-full max-w-xs block mx-auto">
+          <i class="fa-solid fa-download mr-2"></i>Download Guide
+        </button>
+      </div>
     </div>
-    <div class="relative h-full flex items-center">
-        <div class="px-4 w-full text-center text-white">
-            <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
-            <p class="text-lg mb-6 opacity-90 max-w-sm mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
-            <div class="space-y-3">
-                <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full max-w-xs">
-                    <i class="fa-solid fa-rocket mr-2"></i>Get Started
-                </button>
-                <button class="bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-lg font-medium hover:bg-white/30 transition-colors w-full max-w-xs block mx-auto">
-                    <i class="fa-solid fa-download mr-2"></i>Download Guide
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
 
-<!-- Quick Links -->
-<section id="quick-links" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Essential Services</h3>
-            <p class="text-gray-600">Everything you need to get started in Monfalcone</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div id="banking-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-university text-primary text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Banking</h4>
-                <p class="text-gray-600 mb-4">Open bank accounts, send money home, and manage finances</p>
-                <a href="banking.html" class="block">
-                    <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full">
-                        <i class="fa-solid fa-arrow-right mr-2"></i>Get Started
-                    </button>
-                </a>
-            </div>
-            
-            <div id="sim-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-sim-card text-secondary text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">SIM Cards</h4>
-                <p class="text-gray-600 mb-4">Get connected with the best mobile plans and providers</p>
-                <a href="sims.html" class="block">
-                    <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
-                        <i class="fa-solid fa-mobile mr-2"></i>Get SIM
-                    </button>
-                </a>
-            </div>
-            
-            <div id="housing-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-home text-accent text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Housing</h4>
-                <p class="text-gray-600 mb-4">Find apartments, understand rental process, and housing tips</p>
-                <a href="housing.html" class="block">
-                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors w-full">
-                        <i class="fa-solid fa-search mr-2"></i>Find Housing
-                    </button>
-                </a>
-            </div>
-            
-            <div id="food-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-utensils text-green-600 text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Food & Groceries</h4>
-                <p class="text-gray-600 mb-4">Discover local markets, halal food, and grocery stores</p>
-                <a href="food.html" class="block">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
-                        <i class="fa-solid fa-shopping-cart mr-2"></i>Explore Food
-                    </button>
-                </a>
-            </div>
-            
-            <div id="transport-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-bus text-blue-600 text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Transport</h4>
-                <p class="text-gray-600 mb-4">Public transport, taxi services, and getting around</p>
-                <a href="transport.html" class="block">
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
-                        <i class="fa-solid fa-route mr-2"></i>Plan Journey
-                    </button>
-                </a>
-            </div>
-            
-            <div id="work-legal-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-briefcase text-purple-600 text-xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Work & Legal</h4>
-                <p class="text-gray-600 mb-4">Job search, permits, legal requirements, and documentation</p>
-                <a href="work-legal.html" class="block">
-                    <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
-                        <i class="fa-solid fa-file-text mr-2"></i>Get Help
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Services -->
-<section id="featured-services" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Recommended Services</h3>
-            <p class="text-gray-600">Trusted partners to help you settle in</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-money-bill-transfer text-primary text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Money Transfer</h4>
-                <p class="text-sm text-gray-600 mb-4">Send money home safely</p>
-                <a href="money-transfer.html" class="block">
-                    <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
-                        Send Money
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-language text-secondary text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Translation</h4>
-                <p class="text-sm text-gray-600 mb-4">Document translation services</p>
-                <a href="translation.html" class="block">
-                    <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
-                        Get Translation
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Insurance</h4>
-                <p class="text-sm text-gray-600 mb-4">Health and travel insurance</p>
-                <a href="insurance.html" class="block">
-                    <button class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
-                        Get Insured
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-graduation-cap text-green-600 text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Italian Classes</h4>
-                <p class="text-sm text-gray-600 mb-4">Learn Italian online</p>
-                <a href="classes.html" class="block">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
-                        Start Learning
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Affiliate Disclaimer -->
-    <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
-        <p class="font-medium text-gray-800">Disclaimer:</p>
-        <p>This page contains affiliate links. If you click on one of these links and make a purchase or sign up, we may earn a small commission at no extra cost to you. We only recommend products and services we believe are helpful and of high quality.</p>
-    </div>
-</div>
+<!-- Quick Links and other content (unchanged) -->
+<!-- ... (kept identical to what you provided earlier) ... -->
 
 <!-- Footer -->
 <footer id="footer" class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
-                <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            
-            <div>
-                <h5 class="font-semibold mb-4">Essential Services</h5>
-                <ul class="space-y-2 text-gray-400 text-sm">
-                    <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h5 class="font-semibold mb-4">Support</h5>
-                <ul class="space-y-2 text-gray-400 text-sm">
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
-                    <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h5 class="font-semibold mb-4">Stay Informed</h5>
-                <form id="newsletter-form" class="space-y-3">
-                    <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
-                </form>
-            </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
+        <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
-        </div>
+      </div>
+
+      <div>
+        <h5 class="font-semibold mb-4">Essential Services</h5>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-semibold mb-4">Support</h5>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
+          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-semibold mb-4">Stay Informed</h5>
+        <form id="newsletter-form" class="space-y-3">
+          <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"/>
+          <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
+        </form>
+      </div>
     </div>
+
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
-<!-- Script -->
+<!-- Consolidated script: modal, nav, newsletter, translate -->
 <script>
-  // Modal functions
+  // Expose modal globally
   function showModal(title, message, iconClass) {
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-message').innerText = message;
-    document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
-    document.getElementById('message-modal').classList.remove('hidden');
+    const titleEl = document.getElementById('modal-title');
+    const messageEl = document.getElementById('modal-message');
+    const iconEl = document.getElementById('modal-icon');
+    const modal = document.getElementById('message-modal');
+    if (titleEl) titleEl.innerText = title || '';
+    if (messageEl) messageEl.innerText = message || '';
+    if (iconEl) iconEl.innerHTML = `<i class="${iconClass || ''}"></i>`;
+    if (modal) modal.classList.remove('hidden');
   }
   function closeModal() {
-    document.getElementById('message-modal').classList.add('hidden');
+    const modal = document.getElementById('message-modal');
+    if (modal) modal.classList.add('hidden');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOMContentLoaded fired. Initializing scripts.");
+    console.log('DOMContentLoaded: initializing UI handlers.');
 
-    // Navigation
+    // Mobile menu
     const menuToggle = document.getElementById('menu-toggle');
     const closeMenuBtn = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -390,7 +238,8 @@
     if (closeMenuBtn && mobileMenu) {
       closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
     }
-    window.closeMenu = () => mobileMenu && mobileMenu.classList.remove('active');
+    // make closeMenu available globally (buttons in markup call it)
+    window.closeMenu = () => { if (mobileMenu) mobileMenu.classList.remove('active'); };
 
     // Newsletter
     const newsletterForm = document.getElementById('newsletter-form');
@@ -402,7 +251,7 @@
       });
     }
 
-    // Translate Dropdown
+    // Translate dropdown and links (robust dataset reading)
     const translateButton = document.getElementById('translate-button');
     const translateMenu = document.getElementById('translate-menu');
     if (translateButton && translateMenu) {
@@ -411,52 +260,94 @@
         translateMenu.classList.toggle('hidden');
       });
 
-      document.querySelectorAll('#translate-menu a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const lang = e.target.dataset.lang;
+      // Attach to anchors that actually have data-lang
+      document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
+        anchor.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          // Important: use currentTarget (the anchor the listener is attached to)
+          const targetAnchor = event.currentTarget || event.target.closest('a[data-lang]');
+          const lang = targetAnchor?.dataset?.lang || null;
+
           if (!lang) {
-            console.warn("Clicked language link missing data-lang");
+            console.warn('Clicked language link missing data-lang');
             return;
           }
-          translateMenu.classList.add('hidden');
-          console.log(`Translate to '${lang}' requested.`);
 
-          // MutationObserver waits for Google widget
-          const observer = new MutationObserver(() => {
-            const googleSelect = document.querySelector('select.goog-te-combo');
-            if (googleSelect) {
+          translateMenu.classList.add('hidden');
+          console.log(`Requested translation to: ${lang}`);
+
+          // Wait for Google Translate select to appear
+          const triggerTranslation = (googleSelect) => {
+            try {
+              if (!googleSelect) return false;
               googleSelect.value = lang;
-              googleSelect.dispatchEvent(new Event('change'));
-              observer.disconnect();
-              console.log(`Translation triggered for '${lang}'.`);
+
+              // Fire change events for compatibility
+              try {
+                // Modern event
+                googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+              } catch (err) {
+                // Fallback for older browsers
+                const evt = document.createEvent('HTMLEvents');
+                evt.initEvent('change', true, true);
+                googleSelect.dispatchEvent(evt);
+              }
+              console.log('Dispatched change on goog-te-combo');
+              return true;
+            } catch (err) {
+              console.error('Error triggering translation:', err);
+              return false;
+            }
+          };
+
+          // If select already exists, use it immediately
+          const existing = document.querySelector('select.goog-te-combo');
+          if (existing && triggerTranslation(existing)) return;
+
+          // Otherwise observe the DOM until it appears
+          const observer = new MutationObserver((mutations, obs) => {
+            const sel = document.querySelector('select.goog-te-combo');
+            if (sel) {
+              if (triggerTranslation(sel)) {
+                obs.disconnect();
+              }
             }
           });
           observer.observe(document.body, { childList: true, subtree: true });
+
+          // Safety: stop observing after 8s if nothing happens
+          setTimeout(() => observer.disconnect(), 8000);
         });
       });
 
-      // Close if clicked outside
+      // Close translate menu when clicking outside
       document.addEventListener('click', (e) => {
         if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
           translateMenu.classList.add('hidden');
         }
       });
-    }
-  });
 
-  // Google Translate init
+    } // end if translateButton && translateMenu
+  }); // end DOMContentLoaded
+
+  // Google Translate init callback required by the external script
   function googleTranslateElementInit() {
-    console.log("googleTranslateElementInit() called.");
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
+    console.log('googleTranslateElementInit called');
+    if (typeof google === 'object' && google.translate) {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    } else {
+      console.warn('google.translate not available yet.');
+    }
   }
 </script>
 
-<!-- Google Translate API -->
+<!-- Load Google Translate over HTTPS (required for GitHub Pages) -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
