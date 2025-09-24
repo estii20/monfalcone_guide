@@ -10,57 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" 
     rel="stylesheet">
     <style>
-        ::-webkit-scrollbar { display: none; }
-        body { font-family: 'Inter', sans-serif; }
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-out;
+    ::-webkit-scrollbar { display: none; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
+    .mobile-menu.active { transform: translateX(0); }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+    .animate-bounce-y { animation: bounce 1s infinite; }
+
+    /* Google Translate widget hidden & styled */
+    .goog-te-gadget-simple {
+      border: 1px solid #e5e7eb !important;
+      background-color: #fff !important;
+      border-radius: 0.5rem !important;
+    }
+    #google_translate_element { font-size: 0.875rem; }
+    .goog-te-combo {
+      font-size: 0.875rem;
+      border: none !important;
+      background-color: transparent !important;
+      color: #374151 !important;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#22c55e',
+            secondary: '#3b82f6',
+            accent: '#06b6d4',
+            neutral: '#f8fafc'
+          }
         }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-        .animate-bounce-y {
-            animation: bounce 1s infinite;
-        }
-                /* Custom styling for the Google Translate widget */
-        .goog-te-gadget-simple {
-            border: 1px solid #e5e7eb !important;
-            background-color: #fff !important;
-            border-radius: 0.5rem !important;
-        }
-        #google_translate_element {
-            font-size: 0.875rem; /* text-sm */
-        }
-        .goog-te-combo {
-            font-size: 0.875rem; /* text-sm */
-            border: none !important;
-            background-color: transparent !important;
-            color: #374151 !important; /* gray-700 */
-        }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#22c55e',
-                        secondary: '#3b82f6',
-                        accent: '#06b6d4',
-                        neutral: '#f8fafc'
-                    }
-                }
-            }
-        }
-    </script>
+      }
+    }
+  </script>
 </head>
 <body class="bg-neutral-50 text-gray-800 antialiased">
 
@@ -118,7 +104,7 @@
                     </div>
                 </div>
                 <!-- Hidden Google Translate Element -->
-                <div id="google_translate_element" class="gtranslate_wrapper" style="position:absolute; top:-9999px; left:-9999px;"></div>
+                <div id="google_translate_element" style="position:absolute; top:-9999px; left:-9999px;"></div>
                 <button id="menu-toggle" class="p-2 md:hidden">
                     <i class="fa-solid fa-bars text-gray-600"></i>
                 </button>
@@ -378,119 +364,100 @@
     </div>
 </footer>
 
-<!-- Script-->
+<!-- Script -->
 <script>
-    // Custom Message Modal functions
-    function showModal(title, message, iconClass) {
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-message').innerText = message;
-        document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
-        document.getElementById('message-modal').classList.remove('hidden');
-    }
+  // Modal functions
+  function showModal(title, message, iconClass) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-message').innerText = message;
+    document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
+    document.getElementById('message-modal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('message-modal').classList.add('hidden');
+  }
 
-    function closeModal() {
-        document.getElementById('message-modal').classList.add('hidden');
-    }
-    
-    // Navigation bar functions
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOMContentLoaded fired. Initializing scripts.");
+
+    // Navigation
     const menuToggle = document.getElementById('menu-toggle');
     const closeMenuBtn = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    // Open mobile menu
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-    });
-
-    // Close mobile menu
-    closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-    });
-    
-    function closeMenu() {
-        mobileMenu.classList.remove('active');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
     }
+    if (closeMenuBtn && mobileMenu) {
+      closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    }
+    window.closeMenu = () => mobileMenu && mobileMenu.classList.remove('active');
 
-
-    // Newsletter form handler
-    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+    // Newsletter
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
-        document.getElementById('newsletter-form').reset();
-    });
-
-</script>
-
-<!-- Google Translate API script -->
-<script type="text/javascript">
-    /**
-     * This function is called by the Google Translate API script to initialize the widget.
-     * It sets up the hidden dropdown and language options.
-     */
-    function googleTranslateElementInit() {
-        console.log("googleTranslateElementInit() called. Google Translate widget is being initialized.");
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
+        showModal('Subscription Successful!', 'Thank you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
+        newsletterForm.reset();
+      });
     }
 
-    /**
-     * This listener waits for the entire page's content to load before running any scripts.
-     * This is the crucial step to prevent the "Cannot read properties of null" error.
-     */
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log("DOMContentLoaded event fired. Setting up translation listeners.");
-        const translateButton = document.getElementById('translate-button');
-        const translateMenu = document.getElementById('translate-menu');
+    // Translate Dropdown
+    const translateButton = document.getElementById('translate-button');
+    const translateMenu = document.getElementById('translate-menu');
+    if (translateButton && translateMenu) {
+      translateButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        translateMenu.classList.toggle('hidden');
+      });
 
-        // This makes the dropdown button immediately responsive.
-        translateButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            translateMenu.classList.toggle('hidden');
-        });
+      document.querySelectorAll('#translate-menu a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const lang = e.target.dataset.lang;
+          if (!lang) {
+            console.warn("Clicked language link missing data-lang");
+            return;
+          }
+          translateMenu.classList.add('hidden');
+          console.log(`Translate to '${lang}' requested.`);
 
-        // Loop through all the custom language links
-        document.querySelectorAll('#translate-menu a').forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                const lang = event.target.dataset.lang;
-                translateMenu.classList.add('hidden');
-                console.log(`Translate link for language '${lang}' clicked. Starting MutationObserver.`);
-                
-                // The MutationObserver watches for changes in the DOM.
-                // It waits for the hidden Google Translate dropdown to be created before it tries to change its value.
-                const observer = new MutationObserver((mutationsList, observer) => {
-                    const googleSelect = document.querySelector('select.goog-te-combo');
-                    if (googleSelect) {
-                        console.log('Google Translate select element found. Triggering translation.');
-                        googleSelect.value = lang;
-                        const changeEvent = new Event('change');
-                        googleSelect.dispatchEvent(changeEvent);
-                        observer.disconnect(); // Stop observing once found
-                    } else {
-                        console.log('Google Translate select element not yet found...');
-                    }
-                });
-
-                // Start observing the entire document body for any changes.
-                observer.observe(document.body, { childList: true, subtree: true });
-
-            });
-        });
-
-        // Hide the dropdown menu if the user clicks anywhere else on the page.
-        document.addEventListener('click', (event) => {
-            if (!translateMenu.contains(event.target) && !translateButton.contains(event.target)) {
-                translateMenu.classList.add('hidden');
+          // MutationObserver waits for Google widget
+          const observer = new MutationObserver(() => {
+            const googleSelect = document.querySelector('select.goog-te-combo');
+            if (googleSelect) {
+              googleSelect.value = lang;
+              googleSelect.dispatchEvent(new Event('change'));
+              observer.disconnect();
+              console.log(`Translation triggered for '${lang}'.`);
             }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
         });
-    });
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      });
 
+      // Close if clicked outside
+      document.addEventListener('click', (e) => {
+        if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
+          translateMenu.classList.add('hidden');
+        }
+      });
+    }
+  });
+
+  // Google Translate init
+  function googleTranslateElementInit() {
+    console.log("googleTranslateElementInit() called.");
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<!-- Google Translate API -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
