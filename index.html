@@ -238,7 +238,6 @@
     if (closeMenuBtn && mobileMenu) {
       closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
     }
-    // make closeMenu available globally (buttons in markup call it)
     window.closeMenu = () => { if (mobileMenu) mobileMenu.classList.remove('active'); };
 
     // Newsletter
@@ -246,12 +245,16 @@
     if (newsletterForm) {
       newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        showModal('Subscription Successful!', 'Thank you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
+        showModal(
+          'Subscription Successful!',
+          'Thank you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.',
+          'fa-solid fa-circle-check text-primary'
+        );
         newsletterForm.reset();
       });
     }
 
-    // Translate dropdown and links (robust dataset reading)
+    // Translate dropdown
     const translateButton = document.getElementById('translate-button');
     const translateMenu = document.getElementById('translate-menu');
     if (translateButton && translateMenu) {
@@ -260,16 +263,13 @@
         translateMenu.classList.toggle('hidden');
       });
 
-      // Attach to anchors that actually have data-lang
+      // Handle language clicks
       document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
         anchor.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
 
-          // Important: use currentTarget (the anchor the listener is attached to)
-          const targetAnchor = event.currentTarget || event.target.closest('a[data-lang]');
-          const lang = targetAnchor?.dataset?.lang || null;
-
+          const lang = event.currentTarget.dataset.lang;
           if (!lang) {
             console.warn('Clicked language link missing data-lang');
             return;
@@ -278,61 +278,40 @@
           translateMenu.classList.add('hidden');
           console.log(`Requested translation to: ${lang}`);
 
-          // Wait for Google Translate select to appear
           const triggerTranslation = (googleSelect) => {
-            try {
-              if (!googleSelect) return false;
-              googleSelect.value = lang;
-
-              // Fire change events for compatibility
-              try {
-                // Modern event
-                googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
-              } catch (err) {
-                // Fallback for older browsers
-                const evt = document.createEvent('HTMLEvents');
-                evt.initEvent('change', true, true);
-                googleSelect.dispatchEvent(evt);
-              }
-              console.log('Dispatched change on goog-te-combo');
-              return true;
-            } catch (err) {
-              console.error('Error triggering translation:', err);
-              return false;
-            }
+            if (!googleSelect) return false;
+            googleSelect.value = lang;
+            googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            console.log('Dispatched change on goog-te-combo');
+            return true;
           };
 
-          // If select already exists, use it immediately
+          // If select already exists, use it
           const existing = document.querySelector('select.goog-te-combo');
           if (existing && triggerTranslation(existing)) return;
 
-          // Otherwise observe the DOM until it appears
+          // Otherwise, watch for it
           const observer = new MutationObserver((mutations, obs) => {
             const sel = document.querySelector('select.goog-te-combo');
-            if (sel) {
-              if (triggerTranslation(sel)) {
-                obs.disconnect();
-              }
+            if (sel && triggerTranslation(sel)) {
+              obs.disconnect();
             }
           });
           observer.observe(document.body, { childList: true, subtree: true });
-
-          // Safety: stop observing after 8s if nothing happens
           setTimeout(() => observer.disconnect(), 8000);
         });
       });
 
-      // Close translate menu when clicking outside
+      // Close dropdown if clicked outside
       document.addEventListener('click', (e) => {
         if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
           translateMenu.classList.add('hidden');
         }
       });
+    }
+  });
 
-    } // end if translateButton && translateMenu
-  }); // end DOMContentLoaded
-
-  // Google Translate init callback required by the external script
+  // Google Translate init callback
   function googleTranslateElementInit() {
     console.log('googleTranslateElementInit called');
     if (typeof google === 'object' && google.translate) {
@@ -347,7 +326,7 @@
   }
 </script>
 
-<!-- Load Google Translate over HTTPS (required for GitHub Pages) -->
+<!-- Load Google Translate over HTTPS -->
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
