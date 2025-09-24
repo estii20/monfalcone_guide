@@ -1,52 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monfalcone, Italy New Arrivals Guide</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    ::-webkit-scrollbar { display: none; }
     body { font-family: 'Inter', sans-serif; }
     .font-playfair { font-family: 'Playfair Display', serif; }
     .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
     .mobile-menu.active { transform: translateX(0); }
-    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
-    .animate-bounce-y { animation: bounce 1s infinite; }
-
-    /* Google Translate widget styling (kept hidden visually) */
-    .goog-te-gadget-simple {
-      border: 1px solid #e5e7eb !important;
-      background-color: #fff !important;
-      border-radius: 0.5rem !important;
-    }
-    #google_translate_element { font-size: 0.875rem; }
-    .goog-te-combo {
-      font-size: 0.875rem;
-      border: none !important;
-      background-color: transparent !important;
-      color: #374151 !important;
-    }
   </style>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#22c55e',
-            secondary: '#3b82f6',
-            accent: '#06b6d4',
-            neutral: '#f8fafc'
-          }
-        }
-      }
-    }
-  </script>
 </head>
 <body class="bg-neutral-50 text-gray-800 antialiased">
 
@@ -207,127 +177,79 @@
   </div>
 </footer>
 
-<!-- Consolidated script: modal, nav, newsletter, translate -->
-<script>
-  // Expose modal globally
-  function showModal(title, message, iconClass) {
-    const titleEl = document.getElementById('modal-title');
-    const messageEl = document.getElementById('modal-message');
-    const iconEl = document.getElementById('modal-icon');
-    const modal = document.getElementById('message-modal');
-    if (titleEl) titleEl.innerText = title || '';
-    if (messageEl) messageEl.innerText = message || '';
-    if (iconEl) iconEl.innerHTML = `<i class="${iconClass || ''}"></i>`;
-    if (modal) modal.classList.remove('hidden');
-  }
-  function closeModal() {
-    const modal = document.getElementById('message-modal');
-    if (modal) modal.classList.add('hidden');
-  }
+ <!-- SCRIPTS -->
+  <script>
+    function showModal(title, message, iconClass) { ... }
+    function closeModal() { ... }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded: initializing UI handlers.');
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded: initializing UI handlers.');
 
-    // Mobile menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMenuBtn = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
-    }
-    if (closeMenuBtn && mobileMenu) {
-      closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-    }
-    window.closeMenu = () => { if (mobileMenu) mobileMenu.classList.remove('active'); };
+      // Mobile menu
+      const menuToggle = document.getElementById('menu-toggle');
+      const closeMenuBtn = document.getElementById('close-menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
+      }
+      if (closeMenuBtn && mobileMenu) {
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+      }
+      window.closeMenu = () => mobileMenu?.classList.remove('active');
 
-    // Newsletter
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        showModal(
-          'Subscription Successful!',
-          'Thank you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.',
-          'fa-solid fa-circle-check text-primary'
-        );
-        newsletterForm.reset();
-      });
-    }
+      // Newsletter
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showModal('Subscription Successful!', 'Thanks for subscribing!', 'fa-solid fa-circle-check text-primary');
+          newsletterForm.reset();
+        });
+      }
 
-    // Translate dropdown
-    const translateButton = document.getElementById('translate-button');
-    const translateMenu = document.getElementById('translate-menu');
-    if (translateButton && translateMenu) {
-      translateButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        translateMenu.classList.toggle('hidden');
-      });
+      // Translate dropdown
+      const translateButton = document.getElementById('translate-button');
+      const translateMenu = document.getElementById('translate-menu');
+      if (translateButton && translateMenu) {
+        translateButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          translateMenu.classList.toggle('hidden');
+        });
 
-      // Handle language clicks
-      document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
-        anchor.addEventListener('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
+        document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
+          anchor.addEventListener('click', (event) => {
+            event.preventDefault();
+            const lang = event.currentTarget.dataset.lang;
+            if (!lang) return;
 
-          const lang = event.currentTarget.dataset.lang;
-          if (!lang) {
-            console.warn('Clicked language link missing data-lang');
-            return;
-          }
-
-          translateMenu.classList.add('hidden');
-          console.log(`Requested translation to: ${lang}`);
-
-          const triggerTranslation = (googleSelect) => {
-            if (!googleSelect) return false;
-            googleSelect.value = lang;
-            googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
-            console.log('Dispatched change on goog-te-combo');
-            return true;
-          };
-
-          // If select already exists, use it
-          const existing = document.querySelector('select.goog-te-combo');
-          if (existing && triggerTranslation(existing)) return;
-
-          // Otherwise, watch for it
-          const observer = new MutationObserver((mutations, obs) => {
-            const sel = document.querySelector('select.goog-te-combo');
-            if (sel && triggerTranslation(sel)) {
-              obs.disconnect();
+            translateMenu.classList.add('hidden');
+            console.log(`Requested translation to: ${lang}`);
+            const googleSelect = document.querySelector('select.goog-te-combo');
+            if (googleSelect) {
+              googleSelect.value = lang;
+              googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
             }
           });
-          observer.observe(document.body, { childList: true, subtree: true });
-          setTimeout(() => observer.disconnect(), 8000);
         });
-      });
 
-      // Close dropdown if clicked outside
-      document.addEventListener('click', (e) => {
-        if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
-          translateMenu.classList.add('hidden');
-        }
-      });
-    }
-  });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
+            translateMenu.classList.add('hidden');
+          }
+        });
+      }
+    });
 
-  // Google Translate init callback
-  function googleTranslateElementInit() {
-    console.log('googleTranslateElementInit called');
-    if (typeof google === 'object' && google.translate) {
+    // Google Translate init
+    function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
-    } else {
-      console.warn('google.translate not available yet.');
     }
-  }
-</script>
-
-<!-- Load Google Translate over HTTPS -->
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
