@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monfalcone, Italy New Arrivals Guide</title>
@@ -11,12 +8,45 @@
   <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    ::-webkit-scrollbar { display: none; }
     body { font-family: 'Inter', sans-serif; }
     .font-playfair { font-family: 'Playfair Display', serif; }
     .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
     .mobile-menu.active { transform: translateX(0); }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+    .animate-bounce-y { animation: bounce 1s infinite; }
+
+    /* Google Translate widget styling */
+    .goog-te-gadget-simple {
+      border: 1px solid #e5e7eb !important;
+      background-color: #fff !important;
+      border-radius: 0.5rem !important;
+    }
+    #google_translate_element { font-size: 0.875rem; }
+    .goog-te-combo {
+      font-size: 0.875rem;
+      border: none !important;
+      background-color: transparent !important;
+      color: #374151 !important;
+    }
   </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#22c55e',
+            secondary: '#3b82f6',
+            accent: '#06b6d4',
+            neutral: '#f8fafc'
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="bg-neutral-50 text-gray-800 antialiased">
 
@@ -32,7 +62,7 @@
   </div>
 </div>
 
-<!-- Mobile Header -->
+<!-- Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
   <div class="px-4 py-3">
     <div class="flex justify-between items-center">
@@ -46,62 +76,56 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex space-x-8">
-        <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
-        <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
-        <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
-        <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
-        <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
-        <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
+        <a href="banking.html" class="text-gray-600 hover:text-primary">Banking</a>
+        <a href="sims.html" class="text-gray-600 hover:text-primary">SIM Cards</a>
+        <a href="housing.html" class="text-gray-600 hover:text-primary">Housing</a>
+        <a href="food.html" class="text-gray-600 hover:text-primary">Food</a>
+        <a href="transport.html" class="text-gray-600 hover:text-primary">Transport</a>
+        <a href="work.html" class="text-gray-600 hover:text-primary">Work & Legal</a>
       </nav>
 
       <div class="flex items-center space-x-3">
-        <!-- Custom Translate Dropdown -->
+        <!-- Translate Dropdown -->
         <div class="relative inline-block text-left">
-          <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200 transition-colors" aria-haspopup="true" aria-expanded="false">
+          <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200">
             <i class="fas fa-globe text-gray-500 text-sm"></i>
           </button>
-
           <div id="translate-menu" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
-            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="translate-button">
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা (Bengali)</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina (Slovenian)</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski (Croatian)</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română (Romanian)</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski (Polish)</a>
-              <a href="javascript:void(0);" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български (Bulgarian)</a>
+            <div class="py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български</a>
             </div>
           </div>
         </div>
-
-        <!-- Hidden Google Translate Element (kept off-screen) -->
-        <div id="google_translate_element" class="gtranslate_wrapper" style="position:absolute; top:-9999px; left:-9999px;"></div>
-
-        <button id="menu-toggle" class="p-2 md:hidden">
-          <i class="fa-solid fa-bars text-gray-600"></i>
-        </button>
+        <div id="google_translate_element" style="position:absolute; top:-9999px; left:-9999px;"></div>
+        <button id="menu-toggle" class="p-2 md:hidden"><i class="fa-solid fa-bars text-gray-600"></i></button>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Mobile Menu (Hidden) -->
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
   <div class="flex justify-end mb-8">
     <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
   </div>
   <nav class="flex flex-col space-y-4 text-lg font-medium">
-    <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
-    <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
-    <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
-    <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
-    <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
-    <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
+    <a href="banking.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Work</a>
   </nav>
 </div>
 
-<!-- Hero Section (unchanged) -->
+<!-- Hero -->
 <section id="hero" class="relative h-[400px] overflow-hidden">
   <div class="absolute inset-0">
     <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/95ad4384f9-5500ca6747a26fadf769.png" alt="Fincantieri shipyard in Monfalcone Italy"/>
@@ -112,10 +136,10 @@
       <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
       <p class="text-lg mb-6 opacity-90 max-w-sm mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
       <div class="space-y-3">
-        <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full max-w-xs">
+        <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 w-full max-w-xs">
           <i class="fa-solid fa-rocket mr-2"></i>Get Started
         </button>
-        <button class="bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-lg font-medium hover:bg-white/30 transition-colors w-full max-w-xs block mx-auto">
+        <button class="bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-lg font-medium hover:bg-white/30 w-full max-w-xs">
           <i class="fa-solid fa-download mr-2"></i>Download Guide
         </button>
       </div>
@@ -123,133 +147,271 @@
   </div>
 </section>
 
-<!-- Quick Links and other content (unchanged) -->
-<!-- ... (kept identical to what you provided earlier) ... -->
+<!-- Quick Links -->
+<section id="quick-links" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Essential Services</h3>
+            <p class="text-gray-600">Everything you need to get started in Monfalcone</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="banking-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-university text-primary text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Banking</h4>
+                <p class="text-gray-600 mb-4">Open bank accounts, send money home, and manage finances</p>
+                <a href="banking.html" class="block">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full">
+                        <i class="fa-solid fa-arrow-right mr-2"></i>Get Started
+                    </button>
+                </a>
+            </div>
+            
+            <div id="sim-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-sim-card text-secondary text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">SIM Cards</h4>
+                <p class="text-gray-600 mb-4">Get connected with the best mobile plans and providers</p>
+                <a href="sims.html" class="block">
+                    <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
+                        <i class="fa-solid fa-mobile mr-2"></i>Get SIM
+                    </button>
+                </a>
+            </div>
+            
+            <div id="housing-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-home text-accent text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Housing</h4>
+                <p class="text-gray-600 mb-4">Find apartments, understand rental process, and housing tips</p>
+                <a href="housing.html" class="block">
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors w-full">
+                        <i class="fa-solid fa-search mr-2"></i>Find Housing
+                    </button>
+                </a>
+            </div>
+            
+            <div id="food-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-utensils text-green-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Food & Groceries</h4>
+                <p class="text-gray-600 mb-4">Discover local markets, halal food, and grocery stores</p>
+                <a href="food.html" class="block">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                        <i class="fa-solid fa-shopping-cart mr-2"></i>Explore Food
+                    </button>
+                </a>
+            </div>
+            
+            <div id="transport-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-bus text-blue-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Transport</h4>
+                <p class="text-gray-600 mb-4">Public transport, taxi services, and getting around</p>
+                <a href="transport.html" class="block">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                        <i class="fa-solid fa-route mr-2"></i>Plan Journey
+                    </button>
+                </a>
+            </div>
+            
+            <div id="work-legal-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-briefcase text-purple-600 text-xl"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Work & Legal</h4>
+                <p class="text-gray-600 mb-4">Job search, permits, legal requirements, and documentation</p>
+                <a href="work-legal.html" class="block">
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                        <i class="fa-solid fa-file-text mr-2"></i>Get Help
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Services -->
+<section id="featured-services" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Recommended Services</h3>
+            <p class="text-gray-600">Trusted partners to help you settle in</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-money-bill-transfer text-primary text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Money Transfer</h4>
+                <p class="text-sm text-gray-600 mb-4">Send money home safely</p>
+                <a href="money-transfer.html" class="block">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
+                        Send Money
+                    </button>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-language text-secondary text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Translation</h4>
+                <p class="text-sm text-gray-600 mb-4">Document translation services</p>
+                <a href="translation.html" class="block">
+                    <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
+                        Get Translation
+                    </button>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Insurance</h4>
+                <p class="text-sm text-gray-600 mb-4">Health and travel insurance</p>
+                <a href="insurance.html" class="block">
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
+                        Get Insured
+                    </button>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-graduation-cap text-green-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-2">Italian Classes</h4>
+                <p class="text-sm text-gray-600 mb-4">Learn Italian online</p>
+                <a href="classes.html" class="block">
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                        Start Learning
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
-<footer id="footer" class="bg-gray-900 text-white py-12">
+<footer class="bg-gray-900 text-white py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
         <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
         <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
         <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
-
       <div>
         <h5 class="font-semibold mb-4">Essential Services</h5>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="#hero" class="hover:text-white transition-colors cursor-pointer">Banking</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">SIM Cards</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Housing</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Transport</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Food</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Work & Legal</a></li>
+          <li><a href="banking.html" class="hover:text-white">Banking</a></li>
+          <li><a href="sims.html" class="hover:text-white">SIM Cards</a></li>
+          <li><a href="housing.html" class="hover:text-white">Housing</a></li>
+          <li><a href="transport.html" class="hover:text-white">Transport</a></li>
+          <li><a href="food.html" class="hover:text-white">Food</a></li>
+          <li><a href="work.html" class="hover:text-white">Work & Legal</a></li>
         </ul>
       </div>
-
       <div>
         <h5 class="font-semibold mb-4">Support</h5>
         <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Help Center</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Contact Us</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">Community</a></li>
-          <li><a href="#" onclick="showModal('Not Available', 'This section is not yet available, please check back later.', 'fa-solid fa-wrench text-secondary')" class="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
+          <li><a href="#" onclick="showModal('Help Center','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Help Center</a></li>
+          <li><a href="#" onclick="showModal('Contact Us','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Contact Us</a></li>
+          <li><a href="#" onclick="showModal('Community','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Community</a></li>
+          <li><a href="#" onclick="showModal('FAQ','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">FAQ</a></li>
         </ul>
       </div>
-
       <div>
         <h5 class="font-semibold mb-4">Stay Informed</h5>
         <form id="newsletter-form" class="space-y-3">
           <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"/>
-          <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">Subscribe</button>
+          <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90">Subscribe</button>
         </form>
       </div>
     </div>
-
     <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
       <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
- <!-- SCRIPTS -->
-  <script>
-    function showModal(title, message, iconClass) { ... }
-    function closeModal() { ... }
+<!-- Scripts -->
+<script>
+  function showModal(title, message, iconClass) {
+    document.getElementById('modal-title').innerText = title || '';
+    document.getElementById('modal-message').innerText = message || '';
+    document.getElementById('modal-icon').innerHTML = `<i class="${iconClass || ''}"></i>`;
+    document.getElementById('message-modal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('message-modal').classList.add('hidden');
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('DOMContentLoaded: initializing UI handlers.');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => mobileMenu.classList.add('active'));
+    closeMenuBtn?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    window.closeMenu = () => mobileMenu?.classList.remove('active');
 
-      // Mobile menu
-      const menuToggle = document.getElementById('menu-toggle');
-      const closeMenuBtn = document.getElementById('close-menu');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
-      }
-      if (closeMenuBtn && mobileMenu) {
-        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-      }
-      window.closeMenu = () => mobileMenu?.classList.remove('active');
-
-      // Newsletter
-      const newsletterForm = document.getElementById('newsletter-form');
-      if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          showModal('Subscription Successful!', 'Thanks for subscribing!', 'fa-solid fa-circle-check text-primary');
-          newsletterForm.reset();
-        });
-      }
-
-      // Translate dropdown
-      const translateButton = document.getElementById('translate-button');
-      const translateMenu = document.getElementById('translate-menu');
-      if (translateButton && translateMenu) {
-        translateButton.addEventListener('click', (e) => {
-          e.stopPropagation();
-          translateMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
-          anchor.addEventListener('click', (event) => {
-            event.preventDefault();
-            const lang = event.currentTarget.dataset.lang;
-            if (!lang) return;
-
-            translateMenu.classList.add('hidden');
-            console.log(`Requested translation to: ${lang}`);
-            const googleSelect = document.querySelector('select.goog-te-combo');
-            if (googleSelect) {
-              googleSelect.value = lang;
-              googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
-            translateMenu.classList.add('hidden');
-          }
-        });
-      }
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showModal('Subscription Successful!', 'Thanks for subscribing!', 'fa-solid fa-circle-check text-primary');
+      newsletterForm.reset();
     });
 
-    // Google Translate init
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
+    const translateButton = document.getElementById('translate-button');
+    const translateMenu = document.getElementById('translate-menu');
+    if (translateButton && translateMenu) {
+      translateButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        translateMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
+        anchor.addEventListener('click', (event) => {
+          event.preventDefault();
+          const lang = event.currentTarget.dataset.lang;
+          if (!lang) return;
+          translateMenu.classList.add('hidden');
+          const googleSelect = document.querySelector('select.goog-te-combo');
+          if (googleSelect) {
+            googleSelect.value = lang;
+            googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
+          translateMenu.classList.add('hidden');
+        }
+      });
     }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  });
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
