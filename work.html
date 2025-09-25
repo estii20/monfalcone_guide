@@ -61,55 +61,73 @@
     </div>
 </div>
 
-<!-- Mobile Header -->
+<!-- Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-    <div class="px-4 py-3">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
-                    <i class="fa-solid fa-arrow-left text-gray-600"></i>
-                </a>
-                <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
-                <span class="ml-2 text-sm text-gray-500">Work</span>
-            </div>
+  <div class="px-4 py-3">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+          <i class="fa-solid fa-arrow-left text-gray-600"></i>
+        </a>
+        <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
+        <span class="ml-2 text-sm text-gray-500">Home</span>
+      </div>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="banking.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Banking</a>
-                <a href="sims.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">SIM Cards</a>
-                <a href="housing.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Housing</a>
-                <a href="food.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Food</a>
-                <a href="transport.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Transport</a>
-                <a href="work.html" class="text-gray-600 hover:text-primary transition-colors cursor-pointer">Work & Legal</a>
-            </nav>
-            
-            <div class="flex items-center space-x-3">
-                <select id="language-select" class="bg-white border border-gray-200 rounded-lg px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="bn">🇧🇩 BN</option>
-                    <option value="it">🇮🇹 IT</option>
-                </select>
-                <button id="menu-toggle" class="p-2 md:hidden">
-                    <i class="fa-solid fa-bars text-gray-600"></i>
-                </button>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="banking.html" class="text-gray-600 hover:text-primary">Banking</a>
+        <a href="sims.html" class="text-gray-600 hover:text-primary">SIM Cards</a>
+        <a href="housing.html" class="text-gray-600 hover:text-primary">Housing</a>
+        <a href="food.html" class="text-gray-600 hover:text-primary">Food</a>
+        <a href="transport.html" class="text-gray-600 hover:text-primary">Transport</a>
+        <a href="work.html" class="text-gray-600 hover:text-primary">Work & Legal</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <!-- Translate Dropdown -->
+        <div class="relative inline-block text-left">
+          <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200">
+            <i class="fas fa-globe text-gray-500 text-sm"></i>
+          </button>
+          <div id="translate-menu" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
+            <div class="py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български</a>
             </div>
+          </div>
         </div>
+        <div id="google_translate_element" style="position:absolute; top:-9999px; left:-9999px;"></div>
+        <button id="menu-toggle" class="p-2 md:hidden"><i class="fa-solid fa-bars text-gray-600"></i></button>
+        <!-- Fallback Browser Translate Button -->
+        <button id="browser-translate-button" 
+                class="hidden flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200 transition-colors"
+                title="Translate with browser">
+          <i class="fa-solid fa-language text-gray-500 text-sm"></i>
+        </button>
+      </div>
     </div>
+  </div>
 </header>
 
-<!-- Mobile Menu (Hidden) -->
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
-    <div class="flex justify-end mb-8">
-        <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-    </div>
-    <nav class="flex flex-col space-y-4 text-lg font-medium">
-        <a href="banking.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Banking</a>
-        <a href="sims.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">SIM Cards</a>
-        <a href="housing.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Housing</a>
-        <a href="food.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Food</a>
-        <a href="transport.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Transport</a>
-        <a href="work.html" class="text-gray-700 hover:text-primary transition-colors" onclick="closeMenu()">Work</a>
-    </nav>
+  <div class="flex justify-end mb-8">
+    <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+  </div>
+  <nav class="flex flex-col space-y-4 text-lg font-medium">
+    <a href="banking.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Work</a>
+  </nav>
 </div>
 
 <!-- Hero Section -->
@@ -435,85 +453,96 @@
     </div>
 </footer>
 
-<!-- Script-->
+<!-- Scripts -->
 <script>
-    // Custom Message Modal functions
-    function showModal(title, message, iconClass) {
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-message').innerText = message;
-        document.getElementById('modal-icon').innerHTML = `<i class="${iconClass}"></i>`;
-        document.getElementById('message-modal').classList.remove('hidden');
-    }
+  function showModal(title, message, iconClass) {
+    document.getElementById('modal-title').innerText = title || '';
+    document.getElementById('modal-message').innerText = message || '';
+    document.getElementById('modal-icon').innerHTML = `<i class="${iconClass || ''}"></i>`;
+    document.getElementById('message-modal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('message-modal').classList.add('hidden');
+  }
 
-    function closeModal() {
-        document.getElementById('message-modal').classList.add('hidden');
-    }
-
-    // ---
-    
-    // Navigation bar functions
+  document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const closeMenuBtn = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => mobileMenu.classList.add('active'));
+    closeMenuBtn?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    window.closeMenu = () => mobileMenu?.classList.remove('active');
 
-    // Open mobile menu
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showModal('Subscription Successful!', 'Thanks for subscribing!', 'fa-solid fa-circle-check text-primary');
+      newsletterForm.reset();
     });
 
-    // Close mobile menu
-    closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-    });
-    
-    function closeMenu() {
-        mobileMenu.classList.remove('active');
+    const translateButton = document.getElementById('translate-button');
+    const translateMenu = document.getElementById('translate-menu');
+    if (translateButton && translateMenu) {
+      translateButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        translateMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
+        anchor.addEventListener('click', (event) => {
+          event.preventDefault();
+          const lang = event.currentTarget.dataset.lang;
+          if (!lang) return;
+          translateMenu.classList.add('hidden');
+          const googleSelect = document.querySelector('select.goog-te-combo');
+          if (googleSelect) {
+            googleSelect.value = lang;
+            googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
+          translateMenu.classList.add('hidden');
+        }
+      });
     }
+  });
 
-    // ---
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
 
-    // Quick Action button handlers
-    document.getElementById('open-account-btn').addEventListener('click', () => {
-        showModal('Opening an Account', 'This action will take you to the guide section. Please scroll down for detailed information on how to open a bank account.', 'fa-solid fa-circle-info text-primary');
-        setTimeout(() => {
-            window.location.href = '#bank-account-guide';
-            closeModal();
-        }, 1500);
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const fallbackBtn = document.getElementById('browser-translate-button');
+
+  // Safety: wait 3 seconds for Google Translate to load
+  setTimeout(() => {
+    if (typeof google === "undefined" || !google.translate) {
+      // Show fallback button if Google Translate failed
+      fallbackBtn.classList.remove("hidden");
+    }
+  }, 3000);
+
+  if (fallbackBtn) {
+    fallbackBtn.addEventListener('click', () => {
+      if (typeof google !== "undefined" && google.translate) {
+        // If Google widget is available after all, open dropdown
+        document.querySelector('#translate-button')?.click();
+      } else {
+        // Otherwise, guide user to built-in translation
+        alert("If the Google Translate widget is blocked, please use your browser’s built-in translation feature.\n\n💡 In Chrome/Edge/Brave: look for the translate icon in the address bar, or right-click → Translate.");
+      }
     });
-
-    document.getElementById('send-money-btn').addEventListener('click', () => {
-        showModal('Sending Money Home', 'This action will take you to the guide section. Please scroll down for a list of recommended services to send money.', 'fa-solid fa-circle-info text-secondary');
-        setTimeout(() => {
-            window.location.href = '#money-transfer';
-            closeModal();
-        }, 1500);
-    });
-
-    // Language selector handler
-    document.getElementById('language-select').addEventListener('change', (e) => {
-        const selectedLang = e.target.value;
-        const langName = {
-            'en': 'English',
-            'bn': 'Bengali',
-            'it': 'Italiano'
-        }[selectedLang];
-        showModal('Language Change', `Language switched to ${langName}. Please note that this is a placeholder and does not translate the page content.`, 'fa-solid fa-language text-accent');
-    });
-
-    // Newsletter form handler
-    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        showModal('Subscription Successful!', 'Thank a you for subscribing to our newsletter. You will now receive regular updates from Monfalcone Guide.', 'fa-solid fa-circle-check text-primary');
-        document.getElementById('newsletter-form').reset();
-    });
-
-    // Initial page load, set the language based on the dropdown
-    document.addEventListener('DOMContentLoaded', () => {
-        const initialLang = document.getElementById('language-select').value;
-        updateText(initialLang);
-    });
+  }
+});
 
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
