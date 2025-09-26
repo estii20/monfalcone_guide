@@ -132,43 +132,70 @@
 
 <!-- Hero Section -->
 <section id="sim-hero" class="bg-gradient-to-br from-secondary to-secondary/80 text-white py-8">
-    <div class="px-4 text-center">
-        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fa-solid fa-sim-card text-white text-2xl"></i>
-        </div>
-        <h2 class="text-2xl font-bold mb-3">Get Connected in Italy</h2>
-        <p class="text-secondary-100 mb-6 max-w-sm mx-auto">Find the best mobile plans and SIM cards for new arrivals in Monfalcone</p>
-        <div class="bg-white/10 backdrop-blur rounded-lg p-3 max-w-xs mx-auto">
-            <p class="text-sm font-medium">✨ Special offers for newcomers</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <!-- Grid layout: single column on mobile, two columns on large screens -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            
+            <!-- Text Content and Buttons -->
+            <div class="text-center lg:text-left">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white">Get Connected in Italy</h2>
+                <p class="text-lg sm:text-xl text-white mb-8 max-w-xl lg:max-w-none mx-auto lg:mx-0">
+                    Find the best SIM cards and mobile plans for your stay in Monfalcone. Compare providers, prices, and get connected instantly.
+                </p>
+                
+                <!-- Responsive Button Container: stacks vertically on mobile, side-by-side on sm+ -->
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
+                    <button class="bg-white/30 backdrop-blur rounded-lg text-white px-8 py-4 rounded-xl shadow-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-[1.02]">
+                        <i class="fa-solid fa-mobile mr-2"></i>Get SIM Now
+                    </button>
+                    <button class="bg-white text-secondary border-2 border-secondary px-8 py-4 rounded-xl shadow-lg font-semibold hover:bg-white/5 transition-all transform hover:scale-[1.02]">
+                        <i class="fa-solid fa-chart-bar mr-2"></i>Compare Plans
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Quick Setup Guide -->
-<section id="quick-setup" class="py-6 bg-white">
-    <div class="px-4">
-        <h3 class="text-xl font-bold mb-4">Quick Setup Guide</h3>
-        <div class="md:flex md:justify-around md:space-x-4 lg:space-x-8 space-y-3 md:space-y-0">
-            <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                <div>
-                    <p class="font-medium text-sm">Bring your passport</p>
-                    <p class="text-xs text-gray-600">Required for registration</p>
+<!-- Quick Start Guide -->
+<section id="quick-start" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">How to Get Your SIM Card</h3>
+            <p class="text-gray-600">Simple steps to get connected in minutes</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div id="step-1" class="text-center">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl font-bold text-secondary">1</span>
                 </div>
+                <h4 class="text-xl font-semibold mb-2">Choose Provider</h4>
+                <p class="text-gray-600">Select from TIM, Vodafone, WindTre, or Iliad based on your needs</p>
             </div>
-            <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                <div>
-                    <p class="font-medium text-sm">Choose your plan</p>
-                    <p class="text-xs text-gray-600">Compare options below</p>
+            
+            <div id="step-2" class="text-center">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl font-bold text-secondary">2</span>
                 </div>
+                <h4 class="text-xl font-semibold mb-2">Bring Documents</h4>
+                <p class="text-gray-600">Passport and Codice Fiscale (tax code) are required</p>
             </div>
-            <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                <div>
-                    <p class="font-medium text-sm">Activate instantly</p>
-                    <p class="text-xs text-gray-600">Use immediately</p>
+            
+            <div id="step-3" class="text-center">
+                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl font-bold text-secondary">3</span>
                 </div>
+                <h4 class="text-xl font-semibold mb-2">Visit Store</h4>
+                <p class="text-gray-600">Go to official store or authorized retailer in Monfalcone</p>
+            </div>
+            
+            <div id="step-4" class="text-center">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl font-bold text-primary">4</span>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Activate & Use</h4>
+                <p class="text-gray-600">Insert SIM, follow activation steps, and start using</p>
             </div>
         </div>
     </div>
