@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monfalcone, Italy New Arrivals Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>window.FontAwesomeConfig = {autoReplaceSvg: 'nest'};</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    ::-webkit-scrollbar { display: none; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
+    .mobile-menu.active { transform: translateX(0); }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+    .animate-bounce-y { animation: bounce 1s infinite; }
+
+    /* Google Translate widget styling */
+    .goog-te-gadget-simple {
+      border: 1px solid #e5e7eb !important;
+      background-color: #fff !important;
+      border-radius: 0.5rem !important;
+    }
+    #google_translate_element { font-size: 0.875rem; }
+    .goog-te-combo {
+      font-size: 0.875rem;
+      border: none !important;
+      background-color: transparent !important;
+      color: #374151 !important;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#22c55e',
+            secondary: '#3b82f6',
+            accent: '#06b6d4',
+            neutral: '#f8fafc'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-neutral-50 text-gray-800 antialiased">
+
+<!-- Custom Message Modal -->
+<div id="message-modal" class="fixed inset-0 z-[100] bg-black bg-opacity-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all scale-95 duration-200 ease-out">
+    <div class="text-center">
+      <div id="modal-icon" class="mb-4 text-3xl"></div>
+      <h4 id="modal-title" class="text-xl font-bold mb-2"></h4>
+      <p id="modal-message" class="text-gray-600 mb-4 text-sm"></p>
+      <button onclick="closeModal()" class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+  <div class="px-4 py-3">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="index.html" class="mr-3 p-1 rounded-full hover:bg-gray-100 transition-colors">
+          <span class="ml-2 text-sm text-gray-500"><i class="fa-solid fa-house"></i></span>
+        </a>
+        <a href="index.html" class="text-lg font-bold text-primary font-playfair">Monfalcone Guide</a>
+        <span class="ml-2 text-sm text-gray-500">Support</span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="banking.html" class="text-gray-600 hover:text-primary">Banking</a>
+        <a href="sims.html" class="text-gray-600 hover:text-primary">SIM Cards</a>
+        <a href="housing.html" class="text-gray-600 hover:text-primary">Housing</a>
+        <a href="food.html" class="text-gray-600 hover:text-primary">Food</a>
+        <a href="transport.html" class="text-gray-600 hover:text-primary">Transport</a>
+        <a href="work.html" class="text-gray-600 hover:text-primary">Work & Legal</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <!-- Translate Dropdown -->
+        <div class="relative inline-block text-left">
+          <button id="translate-button" class="flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200">
+            <i class="fas fa-globe text-gray-500 text-sm"></i>
+          </button>
+          <div id="translate-menu" class="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50">
+            <div class="py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bn">বাংলা</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="sl">Slovenščina</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hr">Hrvatski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ro">Română</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pl">Polski</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="bg">Български</a>
+            </div>
+          </div>
+        </div>
+        <div id="google_translate_element" style="position:absolute; top:-9999px; left:-9999px;"></div>
+        <button id="menu-toggle" class="p-2 md:hidden"><i class="fa-solid fa-bars text-gray-600"></i></button>
+        <!-- Fallback Browser Translate Button -->
+        <button id="browser-translate-button" 
+                class="hidden flex items-center bg-gray-100 rounded-full p-2 border border-gray-200 hover:bg-gray-200 transition-colors"
+                title="Translate with browser">
+          <i class="fa-solid fa-language text-gray-500 text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
+  <div class="flex justify-end mb-8">
+    <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+  </div>
+  <nav class="flex flex-col space-y-4 text-lg font-medium">
+    <a href="banking.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Work</a>
+  </nav>
+</div>
+
+<!-- Hero Section -->
+<section id="support-hero" class="relative h-[400px] overflow-hidden">
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover" 
+            src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ea6b196631-550808b93fa3738b2c9a.png" 
+            alt="Friendly customer service representative helping immigrants with paperwork in modern Italian office, welcoming atmosphere" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+            </div>
+            <div class="relative h-full flex items-center">
+                <div class="px-4 w-full text-center text-white">
+                    <h2 class="text-5xl font-bold mb-6">Support for New Arrivals</h2>
+                    <p class="text-xl mb-8">
+                        Welcome to Monfalcone. Essential resources to help you with your first steps</p>
+            </div>
+        </div>
+</section>
+
+<!-- Quick Options -->
+    <section id="quick-options" class="py-16 bg-white rounded-3xl mx-4 lg:mx-auto mb-8 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-file-invoice text-blue-600 text-2xl"></i>
+                    </div>
+                    <a href="#help-center" class="text-lg font-semibold mb-2 block">Essential Information</a>
+                    <p class="text-gray-600 text-sm">Information on key administrative processes</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-question-circle text-green-600 text-2xl"></i>
+                    </div>
+                    <a href="#faqs" class="text-lg font-semibold mb-2 block">FAQs</a>
+                    <p class="text-gray-600 text-sm">Quick answers to common questions</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-users text-orange-600 text-2xl"></i>
+                    </div>
+                    <a href="#community" class="text-lg font-semibold mb-2 block">Community</a>
+                    <p class="text-gray-600 text-sm">Connect with local groups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Center Section -->
+    <section id="help-center" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Essential Information</h3>
+                <p class="text-gray-600">Find step-by-step guides and resources to get settled.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img class="w-full h-64 object-cover rounded-xl shadow-lg" 
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b6a153f477-4e67afcfe9dbbfef2bd7.png" 
+                        alt="Modern help desk with multilingual support staff assisting new immigrants in Italy, warm lighting, professional office setting" />
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-book text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Getting Started</h4>
+                                <p class="text-gray-600 text-sm mb-3">Complete step-by-step guides for your first days in 
+                                    Monfalcone, from registration to local transport.</p>
+                                <a href="#faqs" class="text-blue-600 font-medium text-sm hover:underline">View FAQs →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-handshake-angle text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Community Connections</h4>
+                                <p class="text-gray-600 text-sm mb-3">Find local groups and organisations that offer 
+                                    support and a sense of community.</p>
+                                <a href="#community" class="text-orange-600 font-medium text-sm hover:underline">See Community →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-download text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Downloadable Resource</h4>
+                                <p class="text-gray-600 text-sm mb-3">Monfalcone Guide</p>
+                                <a href="documents/guide.pdf" download class="text-green-600 font-medium text-sm hover:underline">Download Now →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Connect with the Community</h3>
+                <p class="text-gray-600">Find and connect with existing groups for support.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+                    <i class="fa-brands fa-facebook-square text-blue-700 text-4xl mb-4"></i>
+                    <h4 class="font-semibold text-lg mb-2">Monfalcone Expat Group</h4>
+                    <p class="text-gray-600 text-sm mb-4">A general community group for foreigners living in Monfalcone. 
+                        A good place to ask questions and meet new people.</p>
+                    <a href="https://www.facebook.com/groups/248596652431602/" target="_blank" rel="noopener noreferrer" 
+                    class="inline-block bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        <i class="fa-solid fa-link mr-2"></i>Visit Group
+                    </a>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+                    <i class="fa-solid fa-mosque text-gray-700 text-4xl mb-4"></i>
+                    <h4 class="font-semibold text-lg mb-2">Islamic Cultural Center</h4>
+                    <p class="text-gray-600 text-sm mb-4">Connect with the local Islamic community for religious support and social activities.</p>
+                    <a href="https://www.facebook.com/iccmonfalcone/" target="_blank" rel="noopener noreferrer" 
+                    class="inline-block bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        <i class="fa-solid fa-link mr-2"></i>Visit Page
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
+                    <i class="fa-solid fa-building-flag text-blue-700 text-4xl mb-4"></i>
+                    <h4 class="font-semibold text-lg mb-2">Consulate General of Bangladesh</h4>
+                    <p class="text-gray-600 text-sm mb-4">For official assistance, visa, and passport services for Bangladeshi citizens. 
+                        Check for local community events.</p>
+                    <a href="https://mofa.gov.bd/bangladesh-mission/milan-bangladesh-mission" target="_blank" 
+                    rel="noopener noreferrer" class="inline-block bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        <i class="fa-solid fa-link mr-2"></i>Visit Consulate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FAQ Section -->
+    <section id="faqs" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
+                <p class="text-gray-600">Quick answers to common questions from new arrivals.</p>
+            </div>
+            
+            <div class="space-y-6">
+                
+                <!-- Static FAQ 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">How do I open a bank account in Monfalcone?</h4>
+                    <p class="text-gray-700">To open a bank account, you'll need your passport, a valid residence permit (or application receipt), and your **codice fiscale** (Italian tax code). We recommend booking an appointment in advance at a branch of popular banks like Intesa Sanpaolo or UniCredit. They can provide specific guidance for non-residents or new arrivals.</p>
+                </div>
+                
+                <!-- Static FAQ 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">Where can I find halal food in Monfalcone?</h4>
+                    <p class="text-gray-700">Monfalcone has a vibrant community with numerous options for halal food. You can find several halal butchers and grocery stores, especially around the Via Roma area, which is known for its shops catering to the community. Additionally, many local supermarkets often carry a selection of halal products.</p>
+                </div>
+                
+                <!-- Static FAQ 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">How do I get a `permesso di soggiorno` (residence permit)?</h4>
+                    <p class="text-gray-700">The application process for the `permesso di soggiorno` must be initiated within 8 business days of your arrival in Italy. You will need to obtain a kit from a post office (`Poste Italiane`), fill out the forms, and submit them at the post office. Afterward, you will be given an appointment for a fingerprinting session at the local **Questura** in Gorizia. Required documents typically include your passport, entry stamp, a copy of your housing contract, and the completed application form.</p>
+                </div>
+                
+                <!-- Static FAQ 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">What's the best way to find housing in Monfalcone?</h4>
+                    <p class="text-gray-700">Many new arrivals find housing through online platforms like Immobiliare.it and Idealista. Local Facebook groups can also be a valuable resource for finding shared accommodation, especially for workers. Be prepared to show your work contract and residence permit to landlords.</p>
+                </div>
+                
+                <!-- Static FAQ 5 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">How do I register with a doctor (`medico di base`)?</h4>
+                    <p class="text-gray-700">Once you have your residence permit, you can register with the Italian National Health Service (Servizio Sanitario Nazionale). You will need to go to the local ASL (Azienda Sanitaria Locale) office with your permesso di soggiorno, codice fiscale, and residence certificate. This registration is free and allows you to choose a family doctor (`medico di base`) who will be your first point of contact for medical care.</p>
+                </div>
+                
+                <!-- Static FAQ 6 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md border border-gray-100">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">What public transport options are available?</h4>
+                    <p class="text-gray-700">Monfalcone has an efficient local bus network managed by TPL FVG, as well as a train station with frequent connections to Trieste, Udine, and Venice. Tickets can be purchased at newsstands (`tabacchi`), the bus station, or the train station. Consider a monthly pass if you plan on commuting regularly.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h4 class="text-xl font-bold mb-4 text-primary font-playfair">Monfalcone Guide</h4>
+        <p class="text-gray-400 mb-4 text-sm">Your trusted companion for settling in Monfalcone, Italy.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Essential Services</h5>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="banking.html" class="hover:text-white">Banking</a></li>
+          <li><a href="sims.html" class="hover:text-white">SIM Cards</a></li>
+          <li><a href="housing.html" class="hover:text-white">Housing</a></li>
+          <li><a href="transport.html" class="hover:text-white">Transport</a></li>
+          <li><a href="food.html" class="hover:text-white">Food</a></li>
+          <li><a href="work.html" class="hover:text-white">Work & Legal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Support</h5>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#" onclick="showModal('Help Center','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Help Center</a></li>
+          <li><a href="#" onclick="showModal('Contact Us','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Contact Us</a></li>
+          <li><a href="#" onclick="showModal('Community','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">Community</a></li>
+          <li><a href="#" onclick="showModal('FAQ','Coming soon','fa-solid fa-wrench text-secondary')" class="hover:text-white">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-4">Stay Informed</h5>
+        <form id="newsletter-form" class="space-y-3">
+          <input type="email" placeholder="Enter your email" required class="w-full p-2 rounded-lg text-gray-900 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"/>
+          <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p class="text-sm">&copy; 2025 Monfalcone Guide. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+  function showModal(title, message, iconClass) {
+    document.getElementById('modal-title').innerText = title || '';
+    document.getElementById('modal-message').innerText = message || '';
+    document.getElementById('modal-icon').innerHTML = `<i class="${iconClass || ''}"></i>`;
+    document.getElementById('message-modal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('message-modal').classList.add('hidden');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => mobileMenu.classList.add('active'));
+    closeMenuBtn?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    window.closeMenu = () => mobileMenu?.classList.remove('active');
+
+    const newsletterForm = document.getElementById('newsletter-form');
+    newsletterForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showModal('Subscription Successful!', 'Thanks for subscribing!', 'fa-solid fa-circle-check text-primary');
+      newsletterForm.reset();
+    });
+
+    const translateButton = document.getElementById('translate-button');
+    const translateMenu = document.getElementById('translate-menu');
+    if (translateButton && translateMenu) {
+      translateButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        translateMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('#translate-menu a[data-lang]').forEach(anchor => {
+        anchor.addEventListener('click', (event) => {
+          event.preventDefault();
+          const lang = event.currentTarget.dataset.lang;
+          if (!lang) return;
+          translateMenu.classList.add('hidden');
+          const googleSelect = document.querySelector('select.goog-te-combo');
+          if (googleSelect) {
+            googleSelect.value = lang;
+            googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
+          translateMenu.classList.add('hidden');
+        }
+      });
+    }
+  });
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const fallbackBtn = document.getElementById('browser-translate-button');
+
+  // Safety: wait 3 seconds for Google Translate to load
+  setTimeout(() => {
+    if (typeof google === "undefined" || !google.translate) {
+      // Show fallback button if Google Translate failed
+      fallbackBtn.classList.remove("hidden");
+    }
+  }, 3000);
+
+  if (fallbackBtn) {
+    fallbackBtn.addEventListener('click', () => {
+      if (typeof google !== "undefined" && google.translate) {
+        // If Google widget is available after all, open dropdown
+        document.querySelector('#translate-button')?.click();
+      } else {
+        // Otherwise, guide user to built-in translation
+        alert("If the Google Translate widget is blocked, please use your browser’s built-in translation feature.\n\n💡 In Chrome/Edge/Brave: look for the translate icon in the address bar, or right-click → Translate.");
+      }
+    });
+  }
+});
+
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
