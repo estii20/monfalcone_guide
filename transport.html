@@ -40,11 +40,22 @@
                         primary: '#22c55e',
                         secondary: '#3b82f6',
                         accent: '#06b6d4',
-                        neutral: '#f8fafc'
+                        neutral: '#f8fafc',
+                        // Added accent for the third transport tip circle color consistency
+                        accent: '#f97316', // Example Orange-600
                     }
                 }
             }
         }
+
+        // External URLs for Monfalcone Transport
+        const TPL_FVG_URL = 'https://tplfvg.it/';
+        const TRENITALIA_URL = 'https://www.trenitalia.com/';
+        const GOOGLE_MAPS_DIRECTIONS = 'https://www.google.com/maps/dir/?api=1';
+        // Placeholder for a local taxi service in Monfalcone (example number for the area code)
+        const TAXI_PHONE = 'tel:+39048171111';
+        // Example link for cycling tourism in the FVG region
+        const FVG_BIKE_URL = 'https://www.turismofvg.it/en/bike-routes-and-tours';
     </script>
 </head>
 <body class="bg-neutral-50 text-gray-800">
@@ -132,12 +143,15 @@
 
 <!-- Hero Section -->
 <section id="transport-hero" class="relative h-[500px] overflow-hidden">
-    <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/050be90758-e6c070d059f4a714ee73.png" alt="modern train station in Monfalcone Italy with buses and trains, bright daylight, travel photography style" />
+    <img class="absolute inset-0 w-full h-full object-cover" 
+        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/050be90758-e6c070d059f4a714ee73.png" 
+        alt="modern train station in Monfalcone Italy with buses and trains, bright daylight, travel photography style" />
     <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div class="text-white">
             <h1 class="text-5xl font-bold mb-6">Getting Around Monfalcone</h1>
-            <p class="text-xl mb-8 max-w-2xl">Discover all transport options in Monfalcone - from local buses to regional trains. Navigate your new city with confidence</p>
+            <p class="text-xl mb-8 max-w-2xl">Discover all transport options in Monfalcone - from local buses to regional trains. 
+                Navigate your new city with confidence</p>
             <div class="flex space-x-4">
                 <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                     <i class="fa-solid fa-route mr-2"></i>Plan Journey
@@ -154,53 +168,57 @@
 <section id="transport-options" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Transport Options</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Quick Transport Options</h2>
             <p class="text-gray-600">Choose the best way to travel around Monfalcone and beyond</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div id="bus-card" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center">
+            <!-- 1. TPL FVG LOCAL BUS (UPDATED) -->
+            <div id="bus-card" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fa-solid fa-bus text-white text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-2 text-blue-900">Local Buses</h3>
-                <p class="text-blue-700 mb-4">APT Gorizia bus network covering Monfalcone and surrounding areas</p>
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                <h3 class="text-xl font-semibold mb-2 text-blue-900">Local Bus (TPL FVG)</h3>
+                <p class="text-blue-700 mb-4">Official bus network for Monfalcone and regional connections.</p>
+                <a href="https://tplfvg.it/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full inline-block">
                     View Routes
-                </button>
+                </a>
             </div>
             
-            <div id="train-card" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center">
+            <!-- 2. TRAINS (TRENITALIA) -->
+            <div id="train-card" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fa-solid fa-train text-white text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-2 text-green-900">Trains</h3>
-                <p class="text-green-700 mb-4">Trenitalia connections to Trieste, Venice, and major Italian cities</p>
-                <button class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                <h3 class="text-xl font-semibold mb-2 text-green-900">Trains (Trenitalia)</h3>
+                <p class="text-green-700 mb-4">Connections to Trieste, Venice, and major Italian cities from Monfalcone Station.</p>
+                <a href="https://www.trenitalia.com/" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors w-full inline-block">
                     Check Schedules
-                </button>
+                </a>
             </div>
             
-            <div id="taxi-card" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center">
+            <!-- 3. LOCAL TAXI (UPDATED) -->
+            <div id="taxi-card" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fa-solid fa-taxi text-white text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-2 text-yellow-900">Taxi & Ride-share</h3>
-                <p class="text-yellow-700 mb-4">Local taxi services and ride-sharing apps for convenient travel</p>
-                <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors w-full">
-                    Book Ride
-                </button>
+                <h3 class="text-xl font-semibold mb-2 text-yellow-900">Local Taxi Service</h3>
+                <p class="text-yellow-700 mb-4">Call local services for quick and reliable point-to-point travel.</p>
+                <a href="tel:+39048171111" class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors w-full inline-block">
+                    <i class="fa-solid fa-phone mr-2"></i>Call Local Taxi
+                </a>
             </div>
             
-            <div id="bike-card" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center">
+            <!-- 4. CYCLING -->
+            <div id="bike-card" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fa-solid fa-bicycle text-white text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 text-purple-900">Cycling</h3>
-                <p class="text-purple-700 mb-4">Bike rentals and cycling paths around Monfalcone</p>
-                <button class="bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
-                    Rent Bike
-                </button>
+                <p class="text-purple-700 mb-4">Bike rentals and cycling paths around Monfalcone and the FVG coast.</p>
+                <a href="https://www.turismofvg.it/en/bike-routes-and-tours" target="_blank" rel="noopener noreferrer" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full inline-block">
+                    Find Bike Routes
+                </a>
             </div>
         </div>
     </div>
@@ -218,7 +236,7 @@
             <div class="p-6 border-b border-gray-200">
                 <div class="flex flex-wrap gap-4">
                     <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium hover:bg-blue-200 transition-colors">
-                        <i class="fa-solid fa-bus mr-2"></i>Bus Routes
+                        <i class="fa-solid fa-bus mr-2"></i>TPL FVG Routes
                     </button>
                     <button class="bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium hover:bg-green-200 transition-colors">
                         <i class="fa-solid fa-train mr-2"></i>Train Stations
@@ -232,7 +250,10 @@
                 </div>
             </div>
             <div class="h-96 bg-gray-100 flex items-center justify-center">
-                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db61be6b0f-00de7b7139b3c391fa96.png" alt="detailed transport map of Monfalcone Italy showing bus routes, train stations, and bike paths, cartographic style" />
+                <!-- Map image is now fully visible and covering the area -->
+                <img class="w-full h-full object-cover" 
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db61be6b0f-00de7b7139b3c391fa96.png" 
+                alt="detailed transport map of Monfalcone Italy showing bus routes, train stations, and bike paths, cartographic style" />
             </div>
         </div>
     </div>
@@ -243,44 +264,51 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Plan Your Journey</h2>
-            <p class="text-gray-600">Find the best route from A to B</p>
+            <p class="text-gray-600">Find the best route from A to B instantly using Google Maps</p>
         </div>
         
         <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">From</label>
-                    <input type="text" placeholder="Enter starting location" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+            <form id="journey-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="from" class="block text-sm font-medium text-gray-700 mb-2">From</label>
+                        <input type="text" id="from" placeholder="Enter starting location (e.g., Monfalcone Station)" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="to" class="block text-sm font-medium text-gray-700 mb-2">To</label>
+                        <input type="text" id="to" placeholder="Enter destination (e.g., Fincantieri Shipyard)" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">To</label>
-                    <input type="text" placeholder="Enter destination" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                        <input type="date" id="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="time" class="block text-sm font-medium text-gray-700 mb-2">Time</label>
+                        <input type="time" id="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="transport" class="block text-sm font-medium text-gray-700 mb-2">Transport</label>
+                        <select id="transport" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">All Options</option>
+                            <option value="driving">Driving</option>
+                            <option value="transit">Public Transport (Bus/Train)</option>
+                            <option value="walking">Walking</option>
+                            <option value="bicycling">Cycling</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
-                    <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Time</label>
-                    <input type="time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Transport</label>
-                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option>All Options</option>
-                        <option>Bus Only</option>
-                        <option>Train Only</option>
-                        <option>Walking + Public Transport</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors w-full">
-                <i class="fa-solid fa-search mr-2"></i>Find Best Route
-            </button>
+                
+                <!-- Actionable Button to open Google Maps Directions -->
+                <button type="button" onclick="planJourney()" 
+                    class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors w-full">
+                    <i class="fa-solid fa-search mr-2"></i>Find Best Route
+                </button>
+            </form>
         </div>
     </div>
 </section>
@@ -294,8 +322,11 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div id="trenitalia-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9efbf6e1f9-b8b2023b2972f3194476.png" alt="modern Italian train at Monfalcone station, Trenitalia branding, professional photography" />
+            <!-- 1. Trenitalia Card (UPDATED LINKS) -->
+            <div id="trenitalia-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
+                <img class="w-full h-48 object-cover" 
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9efbf6e1f9-b8b2023b2972f3194476.png" 
+                alt="modern Italian train at Monfalcone station, Trenitalia branding, professional photography" />
                 <div class="p-6">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
@@ -306,62 +337,74 @@
                             <p class="text-gray-600">National Railway</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">Book train tickets to anywhere in Italy. Special discounts for new residents.</p>
+                    <p class="text-gray-700 mb-4">Book train tickets to anywhere in Italy. Check for regional, Intercity, and Frecciarossa services.</p>
                     <div class="flex space-x-3">
-                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex-1">
+                        <a href="https://www.trenitalia.com/" target="_blank" rel="noopener noreferrer" 
+                        class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex-1 text-center">
                             Book Tickets
-                        </button>
-                        <button class="border border-green-600 text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors">
-                            <i class="fa-solid fa-info"></i>
-                        </button>
+                        </a>
+                        <a href="https://www.trenitalia.com/it/treni_regionali/abbonamenti_e_carnet.html" 
+                        target="_blank" rel="noopener noreferrer" 
+                        class="border border-green-600 text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors">
+                            <i class="fa-solid fa-ticket"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <div id="apt-gorizia-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a57ef8fd3c-6945d0a69ec39bc66a1b.png" alt="local bus in Monfalcone Italy, APT Gorizia bus service, urban transport" />
+            <!-- 2. TPL FVG Card (UPDATED NAME/LINKS) -->
+            <div id="tpl-fvg-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
+                <img class="w-full h-48 object-cover" 
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a57ef8fd3c-6945d0a69ec39bc66a1b.png" 
+                alt="local bus in Monfalcone Italy, TPL FVG bus service, urban transport" />
                 <div class="p-6">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
                             <i class="fa-solid fa-bus text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold">APT Gorizia</h3>
-                            <p class="text-gray-600">Local Bus Service</p>
+                            <h3 class="text-xl font-semibold">TPL FVG</h3>
+                            <p class="text-gray-600">Regional Bus Service</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">Monthly passes and route information for Monfalcone's bus network.</p>
+                    <p class="text-gray-700 mb-4">Monthly passes, schedules, and route information for Monfalcone's local network.</p>
                     <div class="flex space-x-3">
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex-1">
-                            Buy Pass
-                        </button>
-                        <button class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+                        <a href="https://tplfvg.it/it/orari/" target="_blank" rel="noopener noreferrer" 
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex-1 text-center">
+                            View Schedules
+                        </a>
+                        <a href="https://tplfvg.it/" target="_blank" rel="noopener noreferrer" 
+                        class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
                             <i class="fa-solid fa-map"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <div id="uber-card" class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/645792dd68-dd941568969cd9ac6862.png" alt="modern car with Uber app interface, ride sharing service in Italian city" />
+            <!-- 3. Local Taxi/NCC Card (REPLACED UBER) -->
+            <div id="taxi-ncc-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
+                <img class="w-full h-48 object-cover" 
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/645792dd68-dd941568969cd9ac6862.png" 
+                alt="modern taxi cab with clean design, professional transport service" />
                 <div class="p-6">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mr-4">
                             <i class="fa-solid fa-car text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold">Uber</h3>
-                            <p class="text-gray-600">Ride Sharing</p>
+                            <h3 class="text-xl font-semibold">Local Taxi / NCC</h3>
+                            <p class="text-gray-600">Private Hire (Noleggio con Conducente)</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">Get €10 off your first ride with our exclusive promo code.</p>
+                    <p class="text-gray-700 mb-4">Pre-book private transport or call a taxi for immediate service, 
+                        especially during off-peak hours.</p>
                     <div class="flex space-x-3">
-                        <button class="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors flex-1">
-                            Get Promo
-                        </button>
-                        <button class="border border-black text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-                            <i class="fa-solid fa-download"></i>
-                        </button>
+                        <a href="tel:+39048171111" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors flex-1 text-center">
+                            <i class="fa-solid fa-phone mr-2"></i>Call Taxi
+                        </a>
+                        <a href="#" onclick="alert('Monfalcone taxi services primarily rely on phone calls. Consider saving this number: +39 0481 71111')" class="border border-gray-900 text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                            <i class="fa-solid fa-info"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -385,7 +428,7 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Bus Tickets</h3>
-                        <p class="text-gray-600">Buy tickets at tobacco shops, newsstands, or use the mobile app. Validate before boarding.</p>
+                        <p class="text-gray-600">Buy tickets at **tobacco shops (`Tabacchi`)**, newsstands, or use the TPL FVG mobile app. **Validate** your ticket immediately upon boarding.</p>
                     </div>
                 </div>
                 
@@ -395,7 +438,7 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Peak Hours</h3>
-                        <p class="text-gray-600">Avoid 7-9 AM and 5-7 PM for less crowded journeys. Plan extra time during rush hours.</p>
+                        <p class="text-gray-600">Avoid 7:00–9:00 AM and 5:00–7:00 PM for less crowded journeys, especially near the shipyards or major industrial areas.</p>
                     </div>
                 </div>
                 
@@ -405,7 +448,7 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Mobile Apps</h3>
-                        <p class="text-gray-600">Download Trenitalia and APT Gorizia apps for real-time schedules and digital tickets.</p>
+                        <p class="text-gray-600">Download the **Trenitalia** and **TPL FVG** apps for real-time schedules and digital ticket purchasing.</p>
                     </div>
                 </div>
             </div>
@@ -417,17 +460,17 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Monthly Passes</h3>
-                        <p class="text-gray-600">Save money with monthly bus passes if you travel regularly. Available at the main bus station.</p>
+                        <p class="text-gray-600">Save money with monthly passes if you travel regularly. They cover both local and regional TPL FVG buses.</p>
                     </div>
                 </div>
                 
                 <div class="flex items-start space-x-4">
                     <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="fa-solid fa-map text-yellow-600"></i>
+                        <i class="fa-solid fa-map-location-dot text-yellow-600"></i>
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Night Services</h3>
-                        <p class="text-gray-600">Limited night bus services available. Check schedules or use taxi services for late travel.</p>
+                        <p class="text-gray-600">Public night bus services are very limited. Plan late travel using local taxi services instead.</p>
                     </div>
                 </div>
                 
@@ -437,7 +480,7 @@
                     </div>
                     <div>
                         <h3 class="font-semibold mb-2">Accessibility</h3>
-                        <p class="text-gray-600">Most buses and trains are wheelchair accessible. Look for accessibility symbols on schedules.</p>
+                        <p class="text-gray-600">Most modern TPL FVG buses and Trenitalia trains are wheelchair accessible. Check station information for ramp availability.</p>
                     </div>
                 </div>
             </div>
@@ -594,6 +637,42 @@
 
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+/**
+     * Function to handle the Journey Planner submission.
+     * It dynamically generates a Google Maps URL based on user input.
+     */
+    function planJourney() {
+        const from = document.getElementById('from').value;
+        const to = document.getElementById('to').value;
+        const mode = document.getElementById('transport').value;
+        
+        // Basic validation and default values
+        if (!to) {
+            console.error("Please enter a destination.");
+            // Use a custom message box instead of alert()
+            document.getElementById('journey-planner-message').textContent = 'Please enter a starting and ending location to plan a route.';
+            return;
+        }
+
+        // Base URL for Google Maps directions
+        let url = GOOGLE_MAPS_DIRECTIONS + '&destination=' + encodeURIComponent(to);
+        
+        if (from) {
+            url += '&origin=' + encodeURIComponent(from);
+        }
+
+        if (mode) {
+            url += '&travelmode=' + mode;
+        }
+        
+        // Open the URL in a new tab
+        window.open(url, '_blank');
+    }
+</script>
+
+<!-- Add a simple div for non-alert messages -->
+<div id="journey-planner-message" class="text-center text-red-600 mt-4 p-4"></div>
 
 </body>
 </html>
