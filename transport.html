@@ -72,6 +72,19 @@
     </div>
 </div>
 
+<!-- Custom Modal Structure (for Taxi info) -->
+    <div id="info-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center transition-opacity duration-300">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-transform duration-300 scale-95">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Taxi Service Note</h3>
+            <p class="text-gray-600 mb-4">Monfalcone taxi services primarily rely on phone calls. Consider saving this number:</p>
+            <p class="text-lg font-mono text-blue-600 mb-6">+39 0481 71111</p>
+            <button onclick="document.getElementById('info-modal').classList.add('hidden'); document.getElementById('info-modal').classList.remove('flex');" 
+                    class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                Got It
+            </button>
+        </div>
+    </div>
+
 <!-- Header -->
 <header id="header" class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
   <div class="px-4 py-3">
@@ -304,95 +317,105 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 1. Trenitalia Card (UPDATED LINKS) -->
-            <div id="trenitalia-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
-                <img class="w-full h-48 object-cover" 
-                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9efbf6e1f9-b8b2023b2972f3194476.png" 
-                alt="modern Italian train at Monfalcone station, Trenitalia branding, professional photography" />
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-train text-white text-xl"></i>
+        <!-- 1. Trenitalia Card (FIXED: Added flex-col and flex-grow) -->
+                <div id="trenitalia-card" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all hover:shadow-2xl">
+                    <img class="w-full h-48 object-cover" 
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9efbf6e1f9-b8b2023b2972f3194476.png" 
+                        alt="modern Italian train at Monfalcone station, Trenitalia branding, professional photography" />
+                    <!-- FLEX CONTAINER: added flex flex-col -->
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-train text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Trenitalia</h3>
+                                <p class="text-gray-600">National Railway</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Trenitalia</h3>
-                            <p class="text-gray-600">National Railway</p>
+                        <!-- FLEX GROW ELEMENT: Added flex-grow here -->
+                        <p class="text-gray-700 mb-6 flex-grow">Book train tickets to anywhere in Italy. Check for regional, Intercity, and Frecciarossa services.</p>
+                        <!-- Button Group is naturally pushed to the bottom -->
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="https://www.trenitalia.com/" target="_blank" rel="noopener noreferrer" 
+                            class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex-1 text-center shadow-md hover:shadow-lg">
+                                Book Tickets
+                            </a>
+                            <a href="https://www.trenitalia.com/it/treni_regionali/abbonamenti_e_carnet.html" 
+                            target="_blank" rel="noopener noreferrer" 
+                            class="border border-green-600 text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors shadow-md">
+                                <i class="fa-solid fa-ticket"></i>
+                            </a>
                         </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">Book train tickets to anywhere in Italy. Check for regional, Intercity, and Frecciarossa services.</p>
-                    <div class="flex space-x-3">
-                        <a href="https://www.trenitalia.com/" target="_blank" rel="noopener noreferrer" 
-                        class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex-1 text-center">
-                            Book Tickets
-                        </a>
-                        <a href="https://www.trenitalia.com/it/treni_regionali/abbonamenti_e_carnet.html" 
-                        target="_blank" rel="noopener noreferrer" 
-                        class="border border-green-600 text-green-600 px-4 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors">
-                            <i class="fa-solid fa-ticket"></i>
-                        </a>
                     </div>
                 </div>
-            </div>
-            
-            <!-- 2. TPL FVG Card (UPDATED NAME/LINKS) -->
-            <div id="tpl-fvg-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
-                <img class="w-full h-48 object-cover" 
-                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a57ef8fd3c-6945d0a69ec39bc66a1b.png" 
-                alt="local bus in Monfalcone Italy, TPL FVG bus service, urban transport" />
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-bus text-white text-xl"></i>
+                
+                <!-- 2. TPL FVG Card (FIXED: Added flex-col and flex-grow) -->
+                <div id="tpl-fvg-card" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all hover:shadow-2xl">
+                    <img class="w-full h-48 object-cover" 
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a57ef8fd3c-6945d0a69ec39bc66a1b.png" 
+                    alt="local bus in Monfalcone Italy, TPL FVG bus service, urban transport" />
+                    <!-- FLEX CONTAINER: added flex flex-col -->
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-bus text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">TPL FVG</h3>
+                                <p class="text-gray-600">Regional Bus Service</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">TPL FVG</h3>
-                            <p class="text-gray-600">Regional Bus Service</p>
+                        <!-- FLEX GROW ELEMENT: Added flex-grow here -->
+                        <p class="text-gray-700 mb-6 flex-grow">Monthly passes, schedules, and route information for Monfalcone's local bus network, including connections to nearby cities like Trieste and Udine.</p>
+                        <!-- Button Group is naturally pushed to the bottom -->
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="https://tplfvg.it/it/orari/" target="_blank" rel="noopener noreferrer" 
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex-1 text-center shadow-md hover:shadow-lg">
+                                View Schedules
+                            </a>
+                            <a href="https://tplfvg.it/" target="_blank" rel="noopener noreferrer" 
+                            class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors shadow-md">
+                                <i class="fa-solid fa-map"></i>
+                            </a>
                         </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">Monthly passes, schedules, and route information for Monfalcone's local network.</p>
-                    <div class="flex space-x-3">
-                        <a href="https://tplfvg.it/it/orari/" target="_blank" rel="noopener noreferrer" 
-                        class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex-1 text-center">
-                            View Schedules
-                        </a>
-                        <a href="https://tplfvg.it/" target="_blank" rel="noopener noreferrer" 
-                        class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-                            <i class="fa-solid fa-map"></i>
-                        </a>
                     </div>
                 </div>
+                
+                <!-- 3. Local Taxi/NCC Card (FIXED: Added flex-col and flex-grow, replaced alert) -->
+                <div id="taxi-ncc-card" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all hover:shadow-2xl">
+                    <img class="w-full h-48 object-cover" 
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/645792dd68-dd941568969cd9ac6862.png" 
+                    alt="modern taxi cab with clean design, professional transport service" />
+                    <!-- FLEX CONTAINER: added flex flex-col -->
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-car text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Local Taxi / NCC</h3>
+            <p class="text-gray-600">Private Hire</p>
             </div>
-            
-            <!-- 3. Local Taxi/NCC Card (REPLACED UBER) -->
-            <div id="taxi-ncc-card" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl">
-                <img class="w-full h-48 object-cover" 
-                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/645792dd68-dd941568969cd9ac6862.png" 
-                alt="modern taxi cab with clean design, professional transport service" />
-                <div class="p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fa-solid fa-car text-white text-xl"></i>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Local Taxi / NCC</h3>
-                            <p class="text-gray-600">Private Hire (Noleggio con Conducente)</p>
+                        <!-- FLEX GROW ELEMENT: Added flex-grow here -->
+                        <p class="text-gray-700 mb-6 flex-grow">Pre-book private transport or call a taxi for immediate service, especially during off-peak hours or when traveling with luggage.</p>
+                        <!-- Button Group is naturally pushed to the bottom -->
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="tel:+39048171111" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors flex-1 text-center shadow-md hover:shadow-lg">
+                                <i class="fa-solid fa-phone mr-2"></i>Call Taxi
+                            </a>
+                            <!-- Replaced alert() with function to display custom modal -->
+                            <button onclick="document.getElementById('info-modal').classList.add('flex'); document.getElementById('info-modal').classList.remove('hidden');" 
+                                class="border border-gray-900 text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors shadow-md">
+                                <i class="fa-solid fa-info"></i>
+                            </button>
                         </div>
-                    </div>
-                    <p class="text-gray-700 mb-4">Pre-book private transport or call a taxi for immediate service, 
-                        especially during off-peak hours.</p>
-                    <div class="flex space-x-3">
-                        <a href="tel:+39048171111" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors flex-1 text-center">
-                            <i class="fa-solid fa-phone mr-2"></i>Call Taxi
-                        </a>
-                        <a href="#" onclick="alert('Monfalcone taxi services primarily rely on phone calls. Consider saving this number: +39 0481 71111')" class="border border-gray-900 text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-                            <i class="fa-solid fa-info"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- Transport Tips -->
 <section id="transport-tips" class="py-16 bg-white">
