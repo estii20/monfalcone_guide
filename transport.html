@@ -224,39 +224,21 @@
     </div>
 </section>
 
-<!-- Interactive Map Section -->
-<section id="transport-map" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Transport Map</h2>
-            <p class="text-gray-600">Explore bus routes, train stations, and key locations</p>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="p-6 border-b border-gray-200">
-                <div class="flex flex-wrap gap-4">
-                    <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium hover:bg-blue-200 transition-colors">
-                        <i class="fa-solid fa-bus mr-2"></i>TPL FVG Routes
-                    </button>
-                    <button class="bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium hover:bg-green-200 transition-colors">
-                        <i class="fa-solid fa-train mr-2"></i>Train Stations
-                    </button>
-                    <button class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium hover:bg-yellow-200 transition-colors">
-                        <i class="fa-solid fa-taxi mr-2"></i>Taxi Stands
-                    </button>
-                    <button class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium hover:bg-purple-200 transition-colors">
-                        <i class="fa-solid fa-bicycle mr-2"></i>Bike Stations
-                    </button>
-                </div>
-            </div>
-            <div class="h-96 bg-gray-100 flex items-center justify-center">
-                <!-- Map image is now fully visible and covering the area -->
-                <img class="w-full h-full object-cover" 
-                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/db61be6b0f-00de7b7139b3c391fa96.png" 
-                alt="detailed transport map of Monfalcone Italy showing bus routes, train stations, and bike paths, cartographic style" />
-            </div>
-        </div>
-    </div>
+<!-- Map Section -->
+<section id="transport-map" class="py-16 bg-blue-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-0">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Monfalcone Map Overview</h2>
+        <p class="text-gray-600 text-center">Click on the map below to open Monfalcone directly in Google Maps for interactive browsing and directions.</p>
+        <div class="h-96 bg-gray-50 flex items-center justify-center rounded-xl p-2 shadow-xl relative overflow-hidden transition-shadow hover:shadow-2xl hover:ring-4 ring-blue-400/50 cursor-pointer">
+        <a href="https://www.google.com/maps/place/Monfalcone,+Province+of+Gorizia,+Italy/" target="_blank" rel="noopener noreferrer" 
+            class="w-full h-full block" aria-label="Click to open Monfalcone in Google Maps"><img class="w-full h-full object-cover rounded-lg" 
+            src="images/map_of_monfalcone.jpg" alt="Map of Monfalcone, Italy">
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-lg">
+            <span class="text-white text-xl font-bold p-3 bg-blue-600/80 rounded-lg shadow-lg">Open in Google Maps →</span>
+        </div></a>
+        </div>
+        <p class="text-sm text-gray-500 mt-4 text-center">Map data is provided via Google Maps.</p>
+    </div>
 </section>
 
 <!-- Journey Planner -->
