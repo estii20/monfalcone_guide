@@ -132,16 +132,19 @@
 
 <section id="hero" class="relative h-[500px] flex items-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
-    <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dcb591befc-1f6b07331a612061f1ea.png" alt="Italian grocery store with fresh vegetables, fruits, pasta, and local products, warm lighting, inviting atmosphere" />
+    <img class="absolute inset-0 w-full h-full object-cover" 
+    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dcb591befc-1f6b07331a612061f1ea.png" 
+    alt="Italian grocery store with fresh vegetables, fruits, pasta, and local products, warm lighting, inviting atmosphere" />
     
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="text-center text-white">
             <h2 class="text-5xl font-bold mb-4">Food & Groceries in Monfalcone</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Discover the best local markets, halal food options, supermarkets, and authentic Italian ingredients to make Monfalcone feel like home.</p>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Discover the best local markets, halal food options, 
+                supermarkets, and authentic Italian ingredients to make Monfalcone feel like home.</p>
             <div class="flex justify-center space-x-4">
-                <button class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                    <i class="fa-solid fa-map-marker-alt mr-2"></i>Find Nearby Stores
-                </button>
+                <a href="#supermarkets-section" class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                    <i class="fa-solid fa-map-marker-alt mr-2"></i>Find Nearby Supermarkets
+                </a>
                 <a href="documents/foode.pdf" download class="bg-white/20 text-white border border-white/30 px-8 py-3 rounded-lg font-medium hover:bg-white/30 transition-colors backdrop-blur-sm">
                     <i class="fa-solid fa-download mr-2"></i>Download Guide
                 </a>
@@ -152,342 +155,382 @@
 
 <section id="quick-nav" class="py-8 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center gap-4">
-            <button class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors">
+        <div id="filter-buttons-container" class="flex flex-wrap justify-center gap-4">
+            <button data-target="supermarkets-section" data-default="true" class="filter-btn px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors">
                 <i class="fa-solid fa-store mr-2"></i>Supermarkets
             </button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button data-target="halal-food-section" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
                 <i class="fa-solid fa-seedling mr-2"></i>Halal Food
             </button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button data-target="balkan-food-section" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
                 <i class="fa-solid fa-bowl-food mr-2"></i>Balkan & Slavic
             </button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button data-target="local-markets-section" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
                 <i class="fa-solid fa-bread-slice mr-2"></i>Local Markets
             </button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
-                <i class="fa-solid fa-pizza-slice mr-2"></i>Restaurants
-            </button>
-            <button class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
+            <button data-target="delivery-partners-section" class="filter-btn px-6 py-2 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition-colors">
                 <i class="fa-solid fa-truck mr-2"></i>Online Delivery
             </button>
         </div>
     </div>
 </section>
 
-<section id="supermarkets" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Best Supermarkets & Grocery Stores</h3>
-            <p class="text-gray-600">Top-rated stores with great prices and variety</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div id="coop-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
-                <div class="h-48 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c0a739c678-9505fd798fc42e7c9bed.png" alt="Coop supermarket interior with fresh produce section, modern clean design, Italian grocery store" />
-                    <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Recommended
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-semibold mb-2">Coop Alleanza 3.0</h4>
-                    <p class="text-gray-600 mb-4">Large selection, competitive prices, organic options</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Via Duca d'Aosta, 15</span>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <span class="ml-2 text-sm text-gray-600">4.8 (234 reviews)</span>
-                    </div>
-                    <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full">
-                        <i class="fa-solid fa-directions mr-2"></i>Get Directions
-                    </button>
-                </div>
+<div id="content-wrapper">
+    <section id="supermarkets-section" class="filterable-section py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Best Supermarkets & Grocery Stores</h3>
+                <p class="text-gray-600">Top-rated stores with great prices and variety</p>
             </div>
             
-            <div id="eurospin-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
-                <div class="h-48 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/43c6b6cd0e-b48ad1db40816d7c9807.png" alt="Eurospin discount supermarket with affordable products, clean aisles, budget-friendly grocery store" />
-                    <div class="p-6 flex flex-col flex-grow absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Budget-Friendly
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-semibold mb-2">Eurospin</h4>
-                    <p class="text-gray-600 mb-4">Discount prices, essential items, good for budget shopping</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Via Circonvallazione, 8</span>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="coop-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c0a739c678-9505fd798fc42e7c9bed.png" alt="Coop supermarket interior with fresh produce section, modern clean design, Italian grocery store" />
+                        <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Recommended
                         </div>
-                        <span class="ml-2 text-sm text-gray-600">4.2 (156 reviews)</span>
                     </div>
-                    <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
-                        <i class="fa-solid fa-directions mr-2"></i>Get Directions
-                    </button>
-                </div>
-            </div>
-            
-            <div id="despar-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
-                <div class="h-48 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6760a5ec46-9eeb17eddcbae00cdb54.png" alt="Despar supermarket with premium products, deli section, high-quality Italian groceries" />
-                    <div class=" p-6 flex flex-col flex-grow absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium">
-                        Premium
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h4 class="text-xl font-semibold mb-2">Despar</h4>
-                    <p class="text-gray-600 mb-4">Premium quality, fresh deli, local specialties</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Corso del Popolo, 45</span>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Coop</h4>
+                        <p class="text-gray-600 mb-4">Large selection, competitive prices, organic options</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Largo della Marcelliana, 1</span>
                         </div>
-                        <span class="ml-2 text-sm text-gray-600">4.6 (189 reviews)</span>
-                    </div>
-                    <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
-                        <i class="fa-solid fa-directions mr-2"></i>Get Directions
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="halal-food" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Halal Food Options</h3>
-            <p class="text-gray-600">Find halal meat, restaurants, and specialty stores</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div id="halal-butcher-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="h-64 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" 
-                    src="images/ali-mkumbwa-r0kv1S72CPw-unsplash.jpg" 
-                    alt="Halal butcher shop with fresh meat display, Islamic halal certification, clean modern interior" />
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-semibold mb-2">Al-Noor Halal Butcher</h4>
-                    <p class="text-gray-600 mb-4">Fresh halal meat, poultry, and specialty items</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Via Roma, 23</span>
-                    </div>
-                    <div class="flex space-x-2 mb-4">
-                        <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors flex-1">
-                            <i class="fa-solid fa-phone mr-2"></i>Call Now
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">4.8 (234 reviews)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//''/@45.8013082,13.5185554,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x477b09ee5a0f3933:0xa82661044759f5c3!2m2!1d13.5283773!2d45.7990229?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                            <i class="fa-solid fa-directions mr-2"></i>Get Directions
                         </button>
-                        <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors flex-1">
-                            <i class="fa-solid fa-directions mr-2"></i>Directions
+                        </a>
+                    </div>
+                </div>
+                
+                <div id="eurospin-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/43c6b6cd0e-b48ad1db40816d7c9807.png" 
+                        alt="Eurospin discount supermarket with affordable products, clean aisles, budget-friendly grocery store" />
+                        <div class="p-6 flex flex-col flex-grow absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Budget-Friendly
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Eurospin</h4>
+                        <p class="text-gray-600 mb-4">Discount prices, essential items, good for budget shopping</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via Grado, 50</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">4.2 (156 reviews)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//''/@45.8020664,13.5163197,14z/data=!3m1!5s0x477b09fb3253f58b:0x577bcbf91aae33ea!4m8!4m7!1m0!1m5!1m1!1s0x477b09626c3b528b:0xa4894ca7b95e6279!2m2!1d13.5243549!2d45.7979639?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                            <i class="fa-solid fa-directions mr-2"></i>Get Directions
                         </button>
+                        </a>
                     </div>
                 </div>
+                
+                <div id="despar-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6760a5ec46-9eeb17eddcbae00cdb54.png" 
+                        alt="Eurspar supermarket with premium products, deli section, high-quality Italian groceries" />
+                        <div class=" p-6 flex flex-col flex-grow absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Premium
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Eurospar</h4>
+                        <p class="text-gray-600 mb-4">Premium quality, fresh deli, local specialties</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via Gioacchino Rossini, 1</span>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">4.6 (189 reviews)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//''/@45.8065191,13.5144291,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x477b09dfccb9440f:0xa1f53329eba959cd!2m2!1d13.5236001!2d45.8086486?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
+                            <i class="fa-solid fa-directions mr-2"></i>Get Directions
+                        </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="halal-food-section" class="filterable-section py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Halal Food Options</h3>
+                <p class="text-gray-600">Find halal meat, restaurants, and specialty stores</p>
             </div>
             
-            <div id="halal-restaurant-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="h-64 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" 
-                    src="images/markus-spiske-t8X2vhiQC5E-unsplash.jpg" 
-                    alt="Halal restaurant with Middle Eastern and Pakistani cuisine, warm interior, traditional food display" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="halal-butcher-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="h-64 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                        src="images/ali-mkumbwa-r0kv1S72CPw-unsplash.jpg" 
+                        alt="Halal butcher shop with fresh meat display, Islamic halal certification, clean modern interior" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-semibold mb-2">Noor Halal Foods</h4>
+                        <p class="text-gray-600 mb-4">Fresh halal meat, poultry, and specialty items</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via Guglielmo Oberdan, 1C, 34170 Gorizia GO</span>
+                        </div>
+                        <div class="mb-4 text-gray-500">
+                            <a href="https://www.google.com/maps/dir//''/@45.9449279,13.6214738,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x477b01007396563b:0xf1c32b4c26ccceb2!2m2!1d13.6240602!2d45.9449378!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer"
+                            class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-map mr-2"></i>Get Directions
+                        </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-semibold mb-2">Bismillah Restaurant</h4>
-                    <p class="text-gray-600 mb-4">Authentic Pakistani and Middle Eastern cuisine</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Via Nazionale, 67</span>
+                
+                <div id="halal-restaurant-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="h-64 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                        src="images/markus-spiske-t8X2vhiQC5E-unsplash.jpg" 
+                        alt="Halal restaurant with Middle Eastern and Pakistani cuisine, warm interior, traditional food display" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-semibold mb-2">Bangla Flavour</h4>
+                        <p class="text-gray-600 mb-4">Authentic Asian, Bangladeshi cuisine</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via Duca D'Aosta, 77</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//''/@45.8030798,13.4027793,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x477ba6abdb181c9d:0x2a97958a2649870e!2m2!1d13.4213904!2d45.8051521?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer"
+                            class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-map mr-2"></i>Get Directions
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="balkan-food" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Balkan & Eastern European Groceries</h3>
-            <p class="text-gray-600">Find products from Bosnia, Serbia, Croatia, and more</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div id="slavic-market-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="h-64 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" 
-                        src="images/vincent-l-OXdnwiPlAYA-unsplash.jpg" 
-                        alt="Eastern European grocery store interior with rows of products, Balkan foods, clean and well-stocked" />
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-semibold mb-2">Euro Balkan Market</h4>
-                    <p class="text-gray-600 mb-4">Your go-to store for classic Balkan and Slavic groceries, including:
-                        <ul class="list-disc list-inside mt-2 text-gray-600">
-                            <li>Ajvar and other relishes</li>
-                            <li>Traditional sausages and cured meats</li>
-                            <li>Sour cream (`pavlaka`) and cheeses</li>
-                            <li>Balkan beers and sweets</li>
-                        </ul>
-                    </p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Via Aquileia, 12</span>
-                    </div>
-                </div>
+    <section id="balkan-food-section" class="filterable-section py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Balkan & Eastern European Groceries</h3>
+                <p class="text-gray-600">Find products from Bosnia, Serbia, Croatia, and more</p>
             </div>
             
-            <div id="restoran-balkan-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="h-64 relative overflow-hidden">
-                    <img class="w-full h-full object-cover" 
-                    src="images/mahmur-marganti-IKXAl3L_yqI-unsplash.jpg" 
-                    alt="Balkan restaurant with grilled meats, cevapi, warm interior, and authentic dishes" />
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-semibold mb-2">Konoba Balkan Grill</h4>
-                    <p class="text-gray-600 mb-4">Enjoy authentic grilled meats (`ćevapi`, `pljeskavica`), fresh bread, and other traditional dishes from the region. A taste of home for many in Monfalcone.</p>
-                    <div class="flex items-center mb-4 text-sm text-gray-500">
-                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
-                        <span>Corso del Popolo, 32</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="slavic-market-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="h-64 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                            src="images/vincent-l-OXdnwiPlAYA-unsplash.jpg" 
+                            alt="Eastern European grocery store interior with rows of products, Balkan foods, clean and well-stocked" />
                     </div>
-                    <div class="flex space-x-2 mb-4">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-semibold mb-2">Mini Mix Markt</h4>
+                        <p class="text-gray-600 mb-4">Your go-to store for classic Balkan and Slavic groceries, including:
+                            <ul class="list-disc list-inside mt-2 text-gray-600">
+                                <li>Ajvar and other relishes</li>
+                                <li>Traditional sausages and cured meats</li>
+                                <li>Sour cream (`pavlaka`) and cheeses</li>
+                                <li>Balkan beers and sweets</li>
+                            </ul>
+                        </p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via E. Valentinis, 26</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//Mini+Mix+Markt+Monfalcone-prodotti+alimentari+dell'est+Europa:+Ucraina,+Polonia,+Moldova,+Romania,+Bulgaria+(Mix+Markt),+Via+E.+Valentinis,+26,+34074+Monfalcone+GO/@45.8036901,13.4629079,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x477b090a5009c2bd:0xd7010bb56bc5e89d!2m2!1d13.545309!2d45.8036?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer"
+                            class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-map mr-2"></i>Get Directions
+                        </a>
+                    </div>
+                </div>
+                
+                <div id="restoran-balkan-card" class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                    <div class="h-64 relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                        src="images/mahmur-marganti-IKXAl3L_yqI-unsplash.jpg" 
+                        alt="Balkan restaurant with grilled meats, cevapi, warm interior, and authentic dishes" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h4 class="text-xl font-semibold mb-2">J's House - The Real Balkan Grill</h4>
+                        <p class="text-gray-600 mb-4">Enjoy authentic grilled meats (`ćevapi`, `pljeskavica`), 
+                            fresh bread, and other traditional dishes from the region. A taste of home for many in Monfalcone.</p>
+                        <div class="flex items-center mb-4 text-sm text-gray-500">
+                            <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                            <span>Via Dante Alighieri, n. 46, 34078 Sagrado</span>
+                        </div>
+                        <a href="https://www.google.com/maps/dir//''/@45.8410408,13.3406198,11z/data=!4m9!4m8!1m0!1m5!1m1!1s0x477ba9662ede80cb:0x7b4a9ba8312cda68!2m2!1d13.4848119!2d45.875617!3e0?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer"
+                            class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-map mr-2"></i>Get Directions
+                        </a>
+                        <div class="flex space-x-2 mb-4">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="italian-tips" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Shopping Like a Local: Tips & Key Terms</h3>
-            <p class="text-gray-600">Navigate the Italian grocery store with confidence.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center text-center">
-                <div class="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-weight-hanging text-3xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">The Fruit & Veg Scale</h4>
-                <p class="text-gray-600 mb-4">Before heading to the checkout, you must weigh your own produce. Put your items in a bag, find the correct code number on the sign, and use the self-service scale to print a barcode sticker to attach to your bag.</p>
+    <section id="local-markets-section" class="filterable-section py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Local Markets & Fresh Produce</h3>
+                <p class="text-gray-600">Experience authentic Italian market culture</p>
             </div>
-            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center text-center">
-                <div class="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-cheese text-3xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">The Deli Counter (Gastronomia)</h4>
-                <p class="text-gray-600 mb-4">Don't miss the deli counter! It's the best place to get fresh-sliced prosciutto, salami, and local cheeses. Simply take a number, wait for your turn, and tell the clerk what you want and how much (e.g., "un etto di prosciutto cotto" for 100g).</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="local-markets" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Local Markets & Fresh Produce</h3>
-            <p class="text-gray-600">Experience authentic Italian market culture</p>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="md:flex">
-                <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8b1d17b670-d09d93ba7862c6b7f8bc.png" alt="Italian farmers market with fresh vegetables, fruits, local vendors, vibrant outdoor market atmosphere" />
-                </div>
-                <div class="md:w-1/2 p-8">
-                    <h4 class="text-2xl font-semibold mb-4">Campagna Amica Market</h4>
-                    <p class="text-gray-600 mb-6">Experience the taste of Friuli-Venezia Giulia at this official farmers' market. You'll find fresh local produce, seasonal vegetables, artisanal products, and traditional Italian specialties directly from local farmers.</p>
-                    
-                    <div class="space-y-4 mb-6">
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-calendar text-primary mr-3"></i>
-                            <span>Every Wednesday, 8:00 AM - 1:00 PM</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-map-marker-alt text-primary mr-3"></i>
-                            <span>Piazza Falcone e Borsellino</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-euro-sign text-primary mr-3"></i>
-                            <span>Cash preferred, some vendors accept cards</span>
-                        </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                        <img class="w-full h-full object-cover" 
+                            src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8b1d17b670-d09d93ba7862c6b7f8bc.png" 
+                            alt="Italian farmers market with fresh vegetables, fruits, local vendors, vibrant outdoor market atmosphere" />
                     </div>
-                    
-                    <button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                        <i class="fa-solid fa-map mr-2"></i>Get Directions
+                    <div class="md:w-1/2 p-8">
+                        <h4 class="text-2xl font-semibold mb-4">Farmer's Market</h4>
+                        <p class="text-gray-600 mb-6">Experience the taste of Friuli-Venezia Giulia at this official farmers' market. 
+                            You'll find fresh local produce, seasonal vegetables, artisanal products, and traditional Italian specialties directly 
+                            from local farmers.</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-calendar text-primary mr-3"></i>
+                                <span>Every Wednesday, 8:00 AM - 1:00 PM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-map-marker-alt text-primary mr-3"></i>
+                                <span>Piazza della Repubblica</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-euro-sign text-primary mr-3"></i>
+                                <span>Cash preferred, some vendors accept cards</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.google.com/maps/dir//''/@45.8045102,13.5380525,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x477b09dcc3891939:0x26c351ea6cd87a7b!2m2!1d13.5330636!2d45.8094699?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
+                            target="_blank" rel="noopener noreferrer"
+                            class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-map mr-2"></i>Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="delivery-partners-section" class="filterable-section py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Online Grocery & Food Delivery</h3>
+                <p class="text-gray-600">Get groceries and meals delivered to your doorstep</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="everli-delivery" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-shopping-basket text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Everli</h4>
+                    <p class="text-gray-600 mb-4">A personal shopper does your grocery shopping for you from a 
+                        supermarket of your choice, like Coop or Conad. Great for big orders.</p>
+                    <a href="https://it.everli.com/it" target="_blank" rel="noopener noreferrer"><button class="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors w-full">
+                        <i class="fa-solid fa-external-link mr-2"></i>Shop Now
                     </button>
+                    </a>
+                </div>
+                
+                <div id="glovo-delivery" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-motorcycle text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Glovo</h4>
+                    <p class="text-gray-600 mb-4">Fast delivery from local stores and restaurants, including groceries and pharmacy items.</p>
+                    <a href="https://glovoapp.com/it/it" target="_blank" rel="noopener noreferrer"><button class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-600 transition-colors w-full">
+                        <i class="fa-solid fa-external-link mr-2"></i>Order Now
+                    </button>
+                    </a>
+                </div>
+                
+                <div id="justeat-delivery" class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Just Eat</h4>
+                    <p class="text-gray-600 mb-4">The most popular food delivery service in Italy, with a wide variety of restaurants including pizza, kebabs, and halal options.</p>
+                    <a href="https://www.justeat.it/partner/iscriviti/" target="_blank" rel="noopener noreferrer"><button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors w-full">
+                        <i class="fa-solid fa-external-link mr-2"></i>Browse Menu
+                    </button></a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="delivery-partners" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Online Grocery & Food Delivery</h3>
-            <p class="text-gray-600">Get groceries and meals delivered to your doorstep</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div id="everli-delivery" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
-                <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-shopping-basket text-white text-2xl"></i>
-                </div>
-                <h4 class="text-xl font-semibold mb-2">Everli</h4>
-                <p class="text-gray-600 mb-4">A personal shopper does your grocery shopping for you from a supermarket of your choice, like Coop or Conad. Great for big orders.</p>
-                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors w-full">
-                    <i class="fa-solid fa-external-link mr-2"></i>Shop Now
-                </button>
+    <section id="italian-tips-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Shopping Like a Local: Tips & Key Terms</h3>
+                <p class="text-gray-600">Navigate the Italian grocery store with confidence.</p>
             </div>
             
-            <div id="glovo-delivery" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
-                <div class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-motorcycle text-white text-2xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-weight-hanging text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">The Fruit & Veg Scale</h4>
+                    <p class="text-gray-600 mb-4">Before heading to the checkout, you must weigh your own produce. 
+                        Put your items in a bag, find the correct code number on the sign, and use the self-service scale to 
+                        print a barcode sticker to attach to your bag.</p>
                 </div>
-                <h4 class="text-xl font-semibold mb-2">Glovo</h4>
-                <p class="text-gray-600 mb-4">Fast delivery from local stores and restaurants, including groceries and pharmacy items.</p>
-                <button class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-600 transition-colors w-full">
-                    <i class="fa-solid fa-external-link mr-2"></i>Order Now
-                </button>
-            </div>
-            
-            <div id="justeat-delivery" class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
-                <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-utensils text-white text-2xl"></i>
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-cheese text-3xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">The Deli Counter (Gastronomia)</h4>
+                    <p class="text-gray-600 mb-4">Don't miss the deli counter! It's the best place to get fresh-sliced prosciutto, 
+                        salami, and local cheeses. Simply take a number, wait for your turn, and tell the clerk what you want and how much 
+                        (e.g., "un etto di prosciutto cotto" for 100g).</p>
                 </div>
-                <h4 class="text-xl font-semibold mb-2">Just Eat</h4>
-                <p class="text-gray-600 mb-4">The most popular food delivery service in Italy, with a wide variety of restaurants including pizza, kebabs, and halal options.</p>
-                <a href="https://www.justeat.it/partner/iscriviti/" target="_blank"><button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors w-full">
-                    <i class="fa-solid fa-external-link mr-2"></i>Browse Menu
-                </button></a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
 
     <!-- Affiliate Disclaimer -->
     <div class="mt-8 p-4 rounded-lg text-sm text-gray-600 bg-gray-100 border border-gray-200 shadow-inner">
@@ -629,6 +672,88 @@
 
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const sections = document.querySelectorAll('.filterable-section');
+
+        // Define Tailwind classes for active and inactive states
+        const activeClasses = 'bg-primary text-white hover:bg-primary/90';
+        const inactiveClasses = 'bg-gray-100 text-gray-700 hover:bg-gray-200';
+        
+        // This will be the state when a filter is active (show one section)
+        const isFiltering = true;
+        // This will be the state when showing all (i.e., when no button has been clicked)
+        const isShowingAll = false;
+
+
+        /**
+         * Applies button styling based on the active state.
+         * @param {HTMLElement} activeButton - The button that should be styled as active.
+         */
+        function updateButtonStyling(activeButton) {
+             buttons.forEach(button => {
+                // Remove all state classes first
+                button.classList.remove(...activeClasses.split(' '));
+                button.classList.remove(...inactiveClasses.split(' '));
+
+                // Apply new state classes
+                if (button === activeButton) {
+                    button.classList.add(...activeClasses.split(' '));
+                } else {
+                    button.classList.add(...inactiveClasses.split(' '));
+                }
+            });
+        }
+        
+        /**
+         * Filters the content to show only the targeted section.
+         * @param {string} targetId - The ID of the section to show.
+         */
+        function filterContent(targetId) {
+            // 1. Hide all filterable sections
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // 2. Show the targeted section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+        }
+        
+        // --- Initialization Logic ---
+        
+        // Start by setting the first button's style as the default active state, 
+        // even though no filtering is happening yet.
+        const defaultButton = document.querySelector('.filter-btn[data-default="true"]');
+        if (defaultButton) {
+             updateButtonStyling(defaultButton);
+        }
+
+        // --- Event Listener Logic ---
+
+        // Add event listeners to the buttons
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                if (targetId) {
+                    // 1. Run the filtering logic (show only one section)
+                    filterContent(targetId);
+                    
+                    // 2. Update button styling
+                    updateButtonStyling(button);
+                }
+            });
+        });
+
+        // The key part: We do NOT call filterContent() on load.
+        // The HTML will naturally show all content because the 'hidden' class 
+        // will be removed from the initial HTML.
+    });
+</script>
+
 
 </body>
 </html>
