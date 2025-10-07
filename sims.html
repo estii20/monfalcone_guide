@@ -131,28 +131,35 @@
 </div>
 
 <!-- Hero Section -->
-<section id="sim-hero" class="bg-gradient-to-br from-secondary to-secondary/80 text-white py-8">
+<section id="sim-hero" class="bg-gradient-to-br from-secondary to-secondary/80 text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <!-- Grid layout: single column on mobile, two columns on large screens -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             
-            <!-- Text Content and Buttons -->
             <div class="text-center lg:text-left">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-white">Get Connected in Italy</h2>
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white">Get Connected in Italy 📱</h2>
                 <p class="text-lg sm:text-xl text-white mb-8 max-w-xl lg:max-w-none mx-auto lg:mx-0">
                     Find the best SIM cards and mobile plans for your stay in Monfalcone. Compare providers, prices, and get connected instantly.
                 </p>
                 
-                <!-- Responsive Button Container: stacks vertically on mobile, side-by-side on sm+ -->
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
-                    <button class="bg-white/30 backdrop-blur rounded-lg text-white px-8 py-4 rounded-xl shadow-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-[1.02]">
+                    
+                    <a href="#where-to-buy"><button class="bg-white text-secondary px-8 py-4 rounded-xl shadow-lg font-semibold 
+                                    hover:bg-gray-100 transition-all transform hover:scale-[1.02] w-full sm:w-auto">
                         <i class="fa-solid fa-mobile mr-2"></i>Get SIM Now
                     </button>
-                    <button class="bg-white text-secondary border-2 border-secondary px-8 py-4 rounded-xl shadow-lg font-semibold hover:bg-white/5 transition-all transform hover:scale-[1.02]">
+                    
+                    <a href="#providers"><button class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-xl shadow-lg font-semibold 
+                                    hover:bg-white/20 transition-all transform hover:scale-[1.02] w-full sm:w-auto">
                         <i class="fa-solid fa-chart-bar mr-2"></i>Compare Plans
                     </button>
+                    </a>
                 </div>
             </div>
+
+            <div class="hidden lg:flex justify-center items-center">
+                <i class="fa-solid fa-sim-card text-white/50 text-9xl opacity-75"></i>
+            </div>
+            
         </div>
     </div>
 </section>
