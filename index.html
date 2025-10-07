@@ -133,27 +133,33 @@
 
 <!-- Hero -->
 <section id="hero" class="relative h-[400px] overflow-hidden">
-  <div class="absolute inset-0">
-    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/95ad4384f9-5500ca6747a26fadf769.png" 
-      alt="Fincantieri shipyard in Monfalcone Italy"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-  </div>
-  <div class="relative h-full flex items-center">
-    <div class="px-4 w-full text-center text-white">
-      <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
-      <p class="text-lg mb-6 opacity-90 max-w-sm mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
-      <div class="space-y-3">
-        <a href="#featured-services"><button class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 w-full max-w-xs">
-          <i class="fa-solid fa-rocket mr-2"></i>Get Started
-        </button>
-        </a>
-        <a href="documents/guide.pdf" 
-          download class="bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-lg font-medium hover:bg-white/30 w-full max-w-xs">
-          <i class="fa-solid fa-download mr-2"></i>Download Guide
-        </a>
-      </div>
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/95ad4384f9-5500ca6747a26fadf769.png" 
+            alt="Fincantieri shipyard in Monfalcone Italy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
     </div>
-  </div>
+    <div class="relative h-full flex items-center">
+        <div class="px-4 w-full text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
+            <p class="text-lg mb-6 opacity-90 max-w-lg mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
+            
+            <div class="flex flex-col items-center max-w-lg mx-auto 
+                        sm:flex-row sm:justify-center sm:space-x-4 space-y-3 sm:space-y-0">
+                
+                <a href="#featured-services" class="w-full sm:w-auto">
+                    <button class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 w-full sm:w-auto">
+                        <i class="fa-solid fa-rocket mr-2"></i>Get Started
+                    </button>
+                </a>
+                
+                <a href="documents/guide.pdf" download 
+                    class="w-full sm:w-auto bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-3 rounded-lg font-medium hover:bg-white/30">
+                    <i class="fa-solid fa-download mr-2"></i>Download Guide
+                </a>
+            </div>
+            
+        </div>
+    </div>
 </section>
 
 <!-- Quick Links -->
