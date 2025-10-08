@@ -1,0 +1,22 @@
+/* Hides the floating Google Translate top banner */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important; 
+}
+
+/* Hides the actual Google Translate dropdown widget */
+#google_translate_element {
+    /* Ensure the container is not visible but the elements inside can still function */
+    position: absolute;
+    left: -9999px; 
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+/* Force hide the dropdown itself, just in case */
+#google_translate_element .goog-te-combo {
+    display: none !important;
+    visibility: hidden !important;
+}
