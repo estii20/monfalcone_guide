@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://estii20.github.io/monfalcone_guide/sitemap.xml
+
+Sitemap: https://monfalcone-guide.site/sitemap.xml
