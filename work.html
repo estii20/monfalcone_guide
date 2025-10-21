@@ -167,27 +167,27 @@
 </div>
 
 <!-- Hero Section -->
-<section id="hero" class="bg-gradient-to-br from-purple-600 to-blue-700 h-[500px] flex items-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent"></div>
+<section id="hero" class="relative h-[500px] flex items-center overflow-hidden">
     <img class="absolute inset-0 w-full h-full object-cover" 
     src="images/office_workers_monfalcone.png" 
     alt="professional office environment with people working at desks, modern Italian workplace, diverse workforce" 
     loading="lazy" />
+    
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div> 
+    
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div class="px-4 w-full text-center text-white p-4 rounded-lg" style="background-color: rgba(0, 0, 0, 0.2); backdrop-filter: blur(5px);">
+        <div class="px-4 w-full text-center text-white p-4 rounded-lg">
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Work & Legal Services</h2>
             <p class="text-sm sm:text-base md:text-lg opacity-90 max-w-sm mx-auto" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Navigate employment opportunities, legal requirements, and documentation processes</p>
             <div class="flex justify-center space-x-4 py-10">
                 <a href="#job-search">
-                    <button class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-                        <i class="fa-solid fa-briefcase mr-2"></i>Find Jobs
+                    <button class="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary/90 transition-colors shadow-lg"> <i class="fa-solid fa-briefcase mr-2"></i>Find Jobs
                     </button>
                 </a>
                 <a href="https://www.welcomeoffice.fvg.it/practical-info/daily-life/immigration-and-fiscal-services/patronati/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center bg-white text-purple-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-md">
-                        <i class="fa-solid fa-file-contract mr-2"></i>Find Legal & Employment Help (Patronato)
+                    class="inline-flex items-center justify-center bg-white text-gray-800 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-lg"> <i class="fa-solid fa-file-contract mr-2"></i>Find Legal & Employment Help
                     </a>
             </div>
         </div>
@@ -213,7 +213,7 @@
                 <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-xl">
                     <h4 class="text-xl font-semibold mb-3">Indeed Italy</h4>
                     <p class="text-gray-600 mb-4">Italy's largest job search platform with thousands of opportunities</p>
-                    <a href="https://it.indeed.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://it.indeed.com/" target="_blank" rel="noopener noreferrer nofollow">
                         <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                             <i class="fa-solid fa-external-link mr-2"></i>Search Jobs
                         </button>
@@ -223,7 +223,7 @@
                 <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
                     <h4 class="text-xl font-semibold mb-3">LinkedIn Italia</h4>
                     <p class="text-gray-600 mb-4">Professional networking and job opportunities</p>
-                    <a href="https://it.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://it.linkedin.com/" target="_blank" rel="noopener noreferrer nofollow">
                         <button class="bg-secondary text-white px-6 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
                             <i class="fa-brands fa-linkedin mr-2"></i>Join LinkedIn
                         </button>
@@ -233,9 +233,8 @@
                 <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl">
                     <h4 class="text-xl font-semibold mb-3">Monster Italy</h4>
                     <p class="text-gray-600 mb-4">Specialised job matching and career advice</p>
-                    <a href="https://www.monster.it/" target="_blank" rel="noopener noreferrer">
-                        <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                            <i class="fa-solid fa-search mr-2"></i>Explore Jobs
+                    <a href="https://www.monster.it/" target="_blank" rel="noopener noreferrer nofollow">
+                        <button class="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors"> <i class="fa-solid fa-search mr-2"></i>Explore Jobs
                         </button>
                     </a>
                 </div>
@@ -253,9 +252,8 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div id="work-permit-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-id-card text-purple-600 text-xl"></i>
+            <div id="work-permit-card" class="bg-white rounded-xl shadow-lg border-t-4 border-primary p-6"> <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-id-card text-primary text-xl"></i>
                 </div>
                 <h4 class="text-xl font-semibold mb-3">Work & Residence Permits</h4>
                 <p class="text-gray-600 mb-4">Navigate the complex process of obtaining and renewing your residency and work permits in Italy.</p>
@@ -264,16 +262,15 @@
                     <li>• Decreto Flussi (Seasonal Quotas)</li>
                     <li>• Renewal & Family Reunification</li>
                 </ul>
-                <a href="https://www.poliziadistato.it/" target="_blank" rel="noopener noreferrer" class="block">
-                    <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
+                <a href="https://www.poliziadistato.it/" target="_blank" rel="noopener noreferrer nofollow" class="block">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full">
                     <i class="fa-solid fa-file-text mr-2"></i>Get Help
                     </button>
                 </a>
             </div>
             
-            <div id="tax-services-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-calculator text-blue-600 text-xl"></i>
+            <div id="tax-services-card" class="bg-white rounded-xl shadow-lg border-t-4 border-secondary p-6"> <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-calculator text-secondary text-xl"></i>
                 </div>
                 <h4 class="text-xl font-semibold mb-3">Tax & Financial Advice</h4>
                 <p class="text-gray-600 mb-4">Understand the Italian tax system and get help with your annual 
@@ -283,16 +280,15 @@
                     <li>• Modello 730/Redditi (Tax Returns)</li>
                     <li>• Tax Relief & Credits</li>
                 </ul>
-                <a href="https://www.agenziaentrate.gov.it/portale/" target="_blank" rel="noopener noreferrer" class="block">
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors w-full">
+                <a href="https://www.agenziaentrate.gov.it/portale/" target="_blank" rel="noopener noreferrer nofollow" class="block">
+                    <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
                         <i class="fa-solid fa-calculator mr-2"></i>Tax Help
                     </button>
                 </a>
             </div>
             
-            <div id="legal-advice-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-gavel text-green-600 text-xl"></i>
+            <div id="legal-advice-card" class="bg-white rounded-xl shadow-lg border-t-4 border-accent p-6"> <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-gavel text-accent text-xl"></i>
                 </div>
                 <h4 class="text-xl font-semibold mb-3">Labour & Legal Rights</h4>
                 <p class="text-gray-600 mb-4">Know your rights as a worker. Get expert legal advice on contracts, 
@@ -303,11 +299,11 @@
                     <li>• Visa & Permit Appeals</li>
                 </ul>
                 <a href="https://www.welcomeoffice.fvg.it/practical-info/daily-life/immigration-and-fiscal-services/patronati/" 
-                target="_blank" rel="noopener noreferrer" class="block">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors w-full">
+                target="_blank" rel="noopener noreferrer nofollow" class="block">
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors w-full">
                         <i class="fa-solid fa-balance-scale mr-2"></i>Find Legal & Employment Help
                     </button>
-                </a>             
+                </a> 	 	 	         
             </div>
         </div>
     </div>
@@ -335,7 +331,7 @@
                         <li>• Marriage Certificates</li>
                         <li>• Medical Records</li>
                     </ul>
-                    <a href="https://gengo.com/professional-translation/" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="https://gengo.com/professional-translation/" target="_blank" rel="noopener noreferrer nofollow" class="block">
                         <button class="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-accent/90 transition-colors w-full">
                             <i class="fa-solid fa-language mr-2"></i>Visit Gengo
                         </button>
@@ -348,7 +344,7 @@
                         DeepL Pro
                     </h4>
                     <p class="text-gray-600 mb-4">Advanced AI-powered translation for quick and accurate communication.</p>
-                    <a href="https://www.deepl.com/pro" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="https://www.deepl.com/pro" target="_blank" rel="noopener noreferrer nofollow" class="block">
                         <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors w-full">
                             <i class="fa-solid fa-robot mr-2"></i>Try DeepL
                         </button>
@@ -369,98 +365,92 @@
 <section id="language-learning" class="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h3 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Learn Italian</h3>
+            <h3 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Learn Italian Faster</h3> 
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Master the beautiful Italian language with local and online resources, right from your home or in Monfalcone.</p>
+                Master the beautiful Italian language with the **best online tools** and local courses.</p>
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Local Classes Section -->
-            <div id="local-classes">
-                <h4 class="text-2xl font-bold mb-6 text-center text-gray-700">Local Classes in Monfalcone</h4>
+            
+            <div id="online-learning" class="order-first lg:order-last"> <h4 class="text-2xl font-bold mb-6 text-center text-gray-700">
+                Online Learning Platforms</h4>
                 <div class="space-y-6">
-                    <!-- San Marco Institute Card -->
+                    
+                    <div class="card bg-white rounded-2xl p-6 shadow-2xl border-4 border-primary hover:shadow-primary/50 transition-shadow"> 
+                        <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-book-open-reader w-12 h-12 text-primary bg-primary/10 rounded-full flex items-center justify-center mr-4 text-xl"></i> <h5 class="font-bold text-2xl text-gray-900">Babbel</h5>
+                            <span class="ml-auto bg-primary text-white text-xs px-3 py-1 rounded-full font-bold">Recommended</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Get structured Italian courses crafted by language experts. Excellent for building a solid foundational vocabulary and grammar.</p>
+                        <a href="YOUR_BABBEL_AFFILIATE_LINK" target="_blank" 
+                        rel="nofollow noopener noreferrer" 
+                        class="w-full text-center bg-red-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-red-600 transition-colors inline-block">
+                            <i class="fa-solid fa-graduation-cap mr-2"></i>Start Your Babbel Italian Course
+                        </a>
+                    </div>
+                    
+                    <div class="card bg-white rounded-2xl p-6 shadow-xl border-2 border-secondary hover:shadow-secondary/50 transition-shadow"> <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-comments w-12 h-12 text-secondary bg-secondary/10 rounded-full flex items-center justify-center mr-4 text-xl"></i> 
+                            <h5 class="font-bold text-2xl text-gray-900">italki</h5>
+                        </div>
+                        <p class="text-gray-700 mb-4">Connect with native Italian teachers for personalised 
+                            1-on-1 lessons tailored to your specific conversation and comprehension needs.</p>
+                        <a href="https://www.italki.com/affshare?ref=af29593830" target="_blank" rel="nofollow noopener noreferrer" 
+                            class="w-full text-center bg-secondary text-white px-6 py-3 rounded-lg text-xl font-bold hover:bg-secondary/90 transition-colors inline-block transform hover:scale-[1.01] shadow-lg">
+                            <i class="fa-solid fa-user-tie mr-2"></i>Find Your Native Italian Tutor
+                        </a>
+                    </div>
+                    
+                    <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <i class="fa-solid fa-feather-pointed w-12 h-12 text-green-500 bg-green-500/10 rounded-full flex items-center justify-center mr-4 text-xl"></i>
+                            <h5 class="font-bold text-xl text-gray-900">Duolingo</h5>
+                        </div>
+                        <p class="text-gray-600 mb-3">A free, fun, and gamified way to learn Italian for all ages. Perfect for daily practice.</p>
+                        <a href="https://www.duolingo.com/" target="_blank" rel="noopener noreferrer nofollow" 
+                            class="w-full text-center bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-600 transition-colors inline-block">
+                            <i class="fa-solid fa-play mr-2"></i>Start Free
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="local-classes" class="order-last lg:order-first"> <h4 class="text-2xl font-bold mb-6 text-center text-gray-700">Local Classes in Monfalcone</h4>
+                <div class="space-y-6">
                     <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
                                 <i class="fa-solid fa-school text-primary text-xl"></i>
                             </div>
-                            <h5 class="font-bold text-xl text-gray-900">San Marco Institute Monfalcone</h5>
+                            <h5 class="font-bold text-xl text-gray-900">San Marco Institute</h5>
                         </div>
                         <p class="text-gray-600 mb-3">Professional Italian courses designed for all levels, from beginner to advanced conversational fluency.</p>
-                        <p class="text-sm text-gray-500 mb-4">Viale San Marco, 13, Monfalcone • +39 481 791036 • info@institisanmarco.it</p>
-                        <a href="https://www.istitutisanmarco.it/contatti.html" target="_blank" rel="noopener noreferrer" class="block">
+                        <p class="text-sm text-gray-500 mb-4">Viale San Marco, 13, Monfalcone • +39 481 791036</p>
+                        <a href="https://www.istitutisanmarco.it/contatti.html" target="_blank" rel="noopener noreferrer nofollow" class="block">
                             <button class="w-full bg-primary text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-600 transition-colors">
                                 Contact Now
                             </button>
                         </a>
                     </div>
 
-                    <!-- CPIA Card -->
                     <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
                                 <i class="fa-solid fa-users text-secondary text-xl"></i>
                             </div>
-                            <h5 class="font-bold text-xl text-gray-900">Centro Provinciale Istuzione Adulti CPIA</h5>
+                            <h5 class="font-bold text-xl text-gray-900">CPIA (Free Classes)</h5>
                         </div>
-                        <p class="text-gray-600 mb-3">Free Italian classes specifically for immigrants to help them integrate into the community.</p>
-                        <p class="text-sm text-gray-500 mb-4">Via Giovanni Bonavia, 21 • +39 481 483235 • gomm04000n@istruzione.it</p>
-                        <a href="https://cpiago.edu.it/luogo/cpia-sede-di-monfalcone/" target="_blank" rel="noopener noreferrer" class="block">
+                        <p class="text-gray-600 mb-3">**Free Italian classes** specifically for immigrants to help them integrate into the community.</p>
+                        <p class="text-sm text-gray-500 mb-4">Via Giovanni Bonavia, 21 • +39 481 483235</p>
+                        <a href="https://cpiago.edu.it/luogo/cpia-sede-di-monfalcone/" target="_blank" rel="noopener noreferrer nofollow" class="block">
                             <button class="w-full bg-secondary text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-orange-600 transition-colors">
-                                Contact
+                                Get Class Info
                             </button>
                         </a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Online Learning Section -->
-            <div id="online-learning">
-                <h4 class="text-2xl font-bold mb-6 text-center text-gray-700">Online Learning Platforms</h4>
-                <div class="space-y-6">
-                    <!-- Duolingo Card -->
-                    <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/48x48/6B46C1/ffffff?text=DUO" 
-                                alt="Duolingo logo placeholder" />
-                            <h5 class="font-bold text-xl text-gray-900">Duolingo</h5>
-                        </div>
-                        <p class="text-gray-600 mb-3">A free, fun, and gamified way to learn Italian for all ages. Perfect for daily practice.</p>
-                        <a href="https://www.duolingo.com/" target="_blank" rel="noopener noreferrer" 
-                            class="w-full text-center bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-600 transition-colors inline-block">
-                            <i class="fa-solid fa-play mr-2"></i>Start Free
-                        </a>
-                    </div>
-                    
-                    <!-- Babbel Card -->
-                    <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/48x48/F43F5E/ffffff?text=BAB" alt="Babbel logo placeholder" />
-                            <h5 class="font-bold text-xl text-gray-900">Babbel</h5>
-                        </div>
-                        <p class="text-gray-600 mb-3">Get structured Italian courses crafted by language experts. It's an excellent way to build a solid foundation.</p>
-                        <a href="www.babbel.com" target="_blank" 
-                        rel="noopener noreferrer" class="w-full text-center bg-red-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-red-600 transition-colors inline-block">
-                            <i class="fa-solid fa-graduation-cap mr-2"></i>Try Premium
-                        </a>
-                    </div>
-                    
-                    <!-- italki Card -->
-                    <div class="card bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/48x48/EA580C/ffffff?text=ITK" alt="italki logo placeholder" />
-                            <h5 class="font-bold text-xl text-gray-900">italki</h5>
-                        </div>
-                        <p class="text-gray-600 mb-3">Connect with native Italian teachers for personalised 
-                            1-on-1 lessons tailored to your specific needs.</p>
-                        <a href="https://www.italki.com/affshare?ref=af29593830" target="_blank" rel="noopener noreferrer" 
-                            class="w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-orange-600 transition-colors inline-block">
-                            <i class="fa-solid fa-user-tie mr-2"></i>Find Tutor
-                        </a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
