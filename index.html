@@ -171,29 +171,33 @@
   </nav>
 </div>
 
-<section id="hero" class="relative h-[400px] overflow-hidden">
+<section id="hero" class="relative h-[550px] overflow-hidden">
     <div class="absolute inset-0">
         <img class="w-full h-full object-cover" src="images/fincantieri_shipyard_monfalcone.png" loading="lazy"
             alt="Fincantieri shipyard in Monfalcone Italy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
     </div>
     <div class="relative h-full flex items-center">
         <div class="px-4 w-full text-center text-white">
-            <h2 class="text-3xl font-bold mb-4">Welcome to Monfalcone</h2>
-            <p class="text-lg mb-6 opacity-90 max-w-lg mx-auto">Your complete guide to settling in Monfalcone, Italy</p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 font-playfair">
+                Settling in Monfalcone?
+            </h1>
+            <p class="text-xl sm:text-2xl mb-8 max-w-2xl mx-auto font-light">
+                Your complete guide for newcomers and workers navigating **banking, housing, SIM cards, 
+                and local life**
+            </p>
             
             <div class="flex flex-col items-center max-w-lg mx-auto 
-                        sm:flex-row sm:justify-center sm:space-x-4 space-y-3 sm:space-y-0">
-                
+                         sm:flex-row sm:justify-center sm:space-x-4 space-y-3 sm:space-y-0">
                 <a href="#featured-services" class="w-full sm:w-auto">
-                    <button class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 w-full sm:w-auto">
-                        <i class="fa-solid fa-rocket mr-2"></i>Get Started
+                    <button class="bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary/90 w-full sm:w-auto transition-all transform hover:scale-105">
+                        <i class="fa-solid fa-rocket mr-2"></i>Find Your First Steps
                     </button>
                 </a>
                 
                 <a href="documents/guide.pdf" download 
-                    class="w-full sm:w-auto bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-3 rounded-lg font-medium hover:bg-white/30">
-                    <i class="fa-solid fa-download mr-2"></i>Download Guide
+                    class="w-full sm:w-auto bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-4 rounded-lg font-medium hover:bg-white/30 transition-all transform hover:scale-105">
+                    <i class="fa-solid fa-download mr-2"></i>Download PDF Checklist
                 </a>
             </div>
             
@@ -238,15 +242,15 @@
                 </a>
             </div>
             
-            <div id="sim-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-sim-card text-secondary text-xl"></i>
+            <div id="community-card" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-users text-pink-600 text-xl"></i>
                 </div>
-                <h4 class="text-xl font-semibold mb-2">SIM Cards</h4>
-                <p class="text-gray-600 mb-4">Get connected with the best mobile plans and providers</p>
-                <a href="sims.html" class="block">
-                    <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary/90 transition-colors w-full">
-                        <i class="fa-solid fa-mobile mr-2"></i>Get SIM
+                <h4 class="text-xl font-semibold mb-2">Community & Meetups</h4>
+                <p class="text-gray-600 mb-4">Find local groups, cultural centers, and events in Monfalcone.</p>
+                <a href="support.html#community" class="block">
+                    <button class="bg-pink-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-pink-700 transition-colors w-full">
+                        <i class="fa-solid fa-people-group mr-2"></i>Find Your Group
                     </button>
                 </a>
             </div>
@@ -309,63 +313,41 @@
 <!-- Featured Services -->
 <section id="featured-services" class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">Recommended Services</h3>
-            <p class="text-gray-600">Trusted partners to help you settle in</p>
-        </div>
+        <h3 class="text-3xl font-bold text-gray-900 text-center mb-10">Essential Services for New Arrivals</h3>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-money-bill-transfer text-primary text-2xl"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-secondary hover:shadow-xl transition-shadow">
+                <div class="flex items-center space-x-4 mb-4">
+                    <i class="fa-solid fa-sim-card text-secondary text-3xl"></i>
+                    <h4 class="text-2xl font-semibold text-gray-900">Get Connected Instantly</h4>
                 </div>
-                <h4 class="font-semibold mb-2">Money Transfer</h4>
-                <p class="text-sm text-gray-600 mb-4">Send money home safely</p>
+                <p class="text-gray-600 mb-5">
+                    Don't waste time looking for a mobile plan. Compare the best Italian SIM cards for tourists and 
+                    long-term workers, and get set up for reliable calls and data immediately.
+                </p>
+                <a href="sims.html#where-to-buy" class="block">
+                    <button class="bg-secondary text-white px-6 py-3 rounded-lg font-bold hover:bg-secondary/90 w-full transition-colors">
+                        <i class="fa-solid fa-signal mr-2"></i>Compare Mobile Plans
+                    </button>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-teal-600 hover:shadow-xl transition-shadow">
+                <div class="flex items-center space-x-4 mb-4">
+                    <i class="fa-solid fa-exchange-alt text-teal-600 text-3xl"></i>
+                    <h4 class="text-2xl font-semibold text-gray-900">Send Money Home Safely</h4>
+                </div>
+                <p class="text-gray-600 mb-5">
+                    Need to send earnings to family overseas? Find the most reliable money transfer services with the best rates and lowest fees for workers in Monfalcone.
+                </p>
                 <a href="banking.html#money-transfer" class="block">
-                    <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
-                        Send Money
+                    <button class="bg-teal-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-teal-700 w-full transition-colors">
+                        <i class="fa-solid fa-money-bill-transfer mr-2"></i>View Best Transfer Rates
                     </button>
                 </a>
             </div>
             
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-language text-secondary text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Translation</h4>
-                <p class="text-sm text-gray-600 mb-4">Document translation services</p>
-                <a href="work.html#translation-services" class="block">
-                    <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-secondary/90 transition-colors">
-                        Get Translation
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Insurance</h4>
-                <p class="text-sm text-gray-600 mb-4">Health and travel insurance</p>
-                <a href="housing.html#essential-services" class="block">
-                    <button class="bg-accent text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
-                        Get Insured
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-graduation-cap text-green-600 text-2xl"></i>
-                </div>
-                <h4 class="font-semibold mb-2">Italian Classes</h4>
-                <p class="text-sm text-gray-600 mb-4">Learn Italian online</p>
-                <a href="work.html#language-learning" class="block">
-                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
-                        Start Learning
-                    </button>
-                </a>
-            </div>
         </div>
     </div>
 </section>
