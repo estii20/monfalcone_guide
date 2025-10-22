@@ -157,18 +157,20 @@
 </header>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
-  <div class="flex justify-end mb-8">
-    <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-  </div>
-  <nav class="flex flex-col space-y-4 text-lg font-medium">
-    <a href="banking.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Banking</a>
-    <a href="sims.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">SIM Cards</a>
-    <a href="housing.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Housing</a>
-    <a href="food.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Food</a>
-    <a href="transport.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Transport</a>
-    <a href="work.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Work</a>
-  </nav>
+<div id="mobile-menu" class="mobile-menu fixed top-[4rem] right-0 bottom-0 w-64 bg-white z-40 shadow-xl md:hidden 
+             transform translate-x-full ease-in-out duration-300 overflow-y-auto">
+    <div class="absolute right-0 p-4 pt-4 bg-white z-50"> 
+    <button id="close-menu" class="text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+  </div>
+  
+    <nav class="flex flex-col pt-12 px-6 space-y-1 text-lg font-medium"> 
+    <a href="banking.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Work</a>
+      </nav>
 </div>
 
 <section id="hero" class="relative h-[550px] overflow-hidden">
@@ -409,38 +411,64 @@
 
 <!-- Scripts -->
 <script>
-    // --- Modal Functions (Unchanged) ---
+    // --- 1. Global Functions ---
+
+    // Function to show the modal (Pop-up message)
     function showModal(title, message, iconClass) {
         document.getElementById('modal-title').innerText = title || '';
         document.getElementById('modal-message').innerText = message || '';
         document.getElementById('modal-icon').innerHTML = `<i class="${iconClass || ''}"></i>`;
         document.getElementById('message-modal').classList.remove('hidden');
     }
+
+    // Function to close the modal
     function closeModal() {
-        document.getElementById('modal-message').classList.add('hidden');
+        document.getElementById('message-modal').classList.add('hidden');
     }
 
-    // --- Google Translate Initialization Function ---
-    // This function initializes the default (visible) Google dropdown.
+    // Function to close the mobile menu (made global for inline onclick calls)
+    function closeMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+            // Hides the menu by sliding it off-screen
+            mobileMenu.classList.add('translate-x-full'); 
+        }
+    }
+    
+    // --- 2. Google Translate Initialization ---
+    // This function initializes the default Google dropdown.
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
             includedLanguages: 'en,it,bn,sl,hr,ro,pl,bg',
-            // Note: We remove the 'layout: SIMPLE' option to ensure the default structure is created.
         }, 'google_translate_element');
     }
 
-    // --- DOMContentLoaded Listener (Simplified Logic) ---
+    // --- 3. DOM Content Loaded Logic ---
     document.addEventListener('DOMContentLoaded', () => {
-        // Mobile Menu Logic (unchanged)
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenuBtn = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
-        menuToggle?.addEventListener('click', () => mobileMenu.classList.add('active'));
-        closeMenuBtn?.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        window.closeMenu = () => mobileMenu?.classList.remove('active');
+        const menuToggle = document.getElementById('menu-toggle'); // Button to open menu (must exist in HTML)
+        const closeMenuBtn = document.getElementById('close-menu'); // 'X' button inside menu
 
-        // Newsletter Form Logic (unchanged)
+        // ------------------------------------------------
+        // 3a. Mobile Menu Logic (The Fix)
+        // ------------------------------------------------
+
+        // Function to open the menu by sliding it into view
+        const showMenu = () => {
+            if (mobileMenu) {
+                // Shows the menu by sliding it into view
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        };
+
+        // Event listeners for opening and closing the menu
+        menuToggle?.addEventListener('click', showMenu);
+        closeMenuBtn?.addEventListener('click', closeMenu);
+
+        // ------------------------------------------------
+        // 3b. Newsletter Form Logic
+        // ------------------------------------------------
         const newsletterForm = document.getElementById('newsletter-form');
         newsletterForm?.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -448,7 +476,9 @@
             newsletterForm.reset();
         });
 
-        // Translate Button UI & Logic (Directly targets the hidden select element)
+        // ------------------------------------------------
+        // 3c. Translate Button UI & Logic (Custom Dropdown)
+        // ------------------------------------------------
         const translateButton = document.getElementById('translate-button');
         const translateMenu = document.getElementById('translate-menu');
         
@@ -468,21 +498,19 @@
                     
                     translateMenu.classList.add('hidden');
                     
-                    // Directly access the hidden select element 
-                    // No polling needed, as it will load synchronously with the rest of the DOM
+                    // Directly access the hidden Google Translate select element 
                     const googleSelect = document.querySelector('select.goog-te-combo');
                     if (googleSelect) {
                         // Set the value and dispatch the change event
                         googleSelect.value = lang;
                         googleSelect.dispatchEvent(new Event('change', { bubbles: true }));
                     } else {
-                        console.error("Google Translate select element not found. Ensure the CSS class and ID are correct.");
-                        alert("Translation widget not ready. Please try refreshing the page.");
+                        console.error("Google Translate select element not found.");
                     }
                 });
             });
 
-            // 3. Close menu on outside click
+            // 3. Close translate menu on outside click
             document.addEventListener('click', (e) => {
                 if (!translateMenu.contains(e.target) && !translateButton.contains(e.target)) {
                     translateMenu.classList.add('hidden');
@@ -490,11 +518,12 @@
             });
         }
         
-        // Fallback Button Logic (If you are keeping it)
+        // ------------------------------------------------
+        // 3d. Fallback Button Logic (If still in use)
+        // ------------------------------------------------
         const fallbackBtn = document.getElementById('browser-translate-button');
         if (fallbackBtn) {
             fallbackBtn.addEventListener('click', () => {
-                // Since the Google banner works, we assume google is defined after a short moment.
                 alert("Please look for the Google Translate banner at the top of your screen, or use your browser’s built-in translation feature.");
             });
         }

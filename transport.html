@@ -176,18 +176,20 @@
 </header>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white z-40 shadow-xl p-6 md:hidden">
-  <div class="flex justify-end mb-8">
-    <button id="close-menu" class="text-gray-600 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
-  </div>
-  <nav class="flex flex-col space-y-4 text-lg font-medium">
-    <a href="banking.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Banking</a>
-    <a href="sims.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Mobile</a>
-    <a href="housing.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Housing</a>
-    <a href="food.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Food</a>
-    <a href="transport.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Transport</a>
-    <a href="work.html" class="text-gray-700 hover:text-primary" onclick="closeMenu()">Work</a>
-  </nav>
+<div id="mobile-menu" class="mobile-menu fixed top-[4rem] right-0 bottom-0 w-64 bg-white z-40 shadow-xl md:hidden 
+             transform translate-x-full ease-in-out duration-300 overflow-y-auto">
+    <div class="absolute right-0 p-4 pt-4 bg-white z-50"> 
+    <button id="close-menu" class="text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+  </div>
+  
+    <nav class="flex flex-col pt-12 px-6 space-y-1 text-lg font-medium"> 
+    <a href="banking.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Banking</a>
+    <a href="sims.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">SIM Cards</a>
+    <a href="housing.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Housing</a>
+    <a href="food.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Food</a>
+    <a href="transport.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Transport</a>
+    <a href="work.html" class="text-gray-700 hover:text-primary py-1" onclick="closeMenu()">Work</a>
+      </nav>
 </div>
 
 <!-- Hero Section -->
